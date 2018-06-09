@@ -14,6 +14,7 @@
   </HelpKINode>
   <HelpKINode Title="DirNode.DirNode 构造函数" Url="html/e88dce27-46a5-23a1-e6bd-75fb74a7a8c9.htm" />
   <HelpKINode Title="DirNode.NodeName 属性" Url="html/158ade9a-bf3e-5577-0c1a-cd826edb3c77.htm" />
+  <HelpKINode Title="DirNode.ParentNode 属性" Url="html/03f45e13-f073-fbed-fd26-a642b10ff829.htm" />
   <HelpKINode Title="DirNode.SubDirNodes 属性" Url="html/d28f49dd-7b59-9ea0-1bb5-f1fd6a7331c3.htm" />
   <HelpKINode Title="DirNode.SubModuleFiles 属性" Url="html/def378e5-0f1a-e579-696f-f249c15f1b5d.htm" />
   <HelpKINode Title="DoCopy 方法" Url="html/1f8f866f-abd9-c5a0-d026-0276a5b917d4.htm" />
@@ -95,6 +96,7 @@
   </HelpKINode>
   <HelpKINode Title="ModuleShowName 属性" Url="html/e337ad6d-6e58-aece-9b85-5e59fe53d852.htm" />
   <HelpKINode Title="NodeName 属性" Url="html/158ade9a-bf3e-5577-0c1a-cd826edb3c77.htm" />
+  <HelpKINode Title="ParentNode 属性" Url="html/03f45e13-f073-fbed-fd26-a642b10ff829.htm" />
   <HelpKINode Title="SubDirNodes 属性" Url="html/d28f49dd-7b59-9ea0-1bb5-f1fd6a7331c3.htm" />
   <HelpKINode Title="SubModuleFiles 属性" Url="html/def378e5-0f1a-e579-696f-f249c15f1b5d.htm" />
   <HelpKINode Title="version">
