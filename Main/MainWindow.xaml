@@ -1,12 +1,134 @@
-﻿<Window x:Class="Main.MainWindow"
+﻿<Window x:Class="ET.Main.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Main"
+        xmlns:sd="http://icsharpcode.net/sharpdevelop/treeview"
+        xmlns:r="clr-namespace:Wpf.Controls;assembly=Wpf.TabControl"
+        xmlns:local="clr-namespace:ET.Main"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="ET WorkBench" Height="450" Width="800"
+        Icon="Images\favicon_32.ico" WindowState="Maximized" Loaded="Window_Loaded">
+
+    <Window.Resources>
+        <Style TargetType="Image">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.5" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30px"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <GridSplitter Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="2"/>
+
+        <ToolBar Grid.ColumnSpan="10">
+            <Button ToolTip="新建" Command="ApplicationCommands.New">
+                <Button.Content>
+                    <Image Source="images/newfile.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="打开" Command="ApplicationCommands.Open">
+                <Button.Content>
+                    <Image Source="images/fileopen.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="保存" Command="ApplicationCommands.Save">
+                <Button.Content>
+                    <Image Source="images/save.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="全部保存" Command="ApplicationCommands.SaveAs">
+                <Button.Content>
+                    <Image Source="images/saveall.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="撤销" Command="ApplicationCommands.Undo">
+                <Button.Content>
+                    <Image Source="images/undo.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="重做" Command="ApplicationCommands.Redo">
+                <Button.Content>
+                    <Image Source="images/redo.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="复制" Command="ApplicationCommands.Copy">
+                <Button.Content>
+                    <Image Source="images/copy.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="粘贴" Command="ApplicationCommands.Paste">
+                <Button.Content>
+                    <Image Source="images/paste.png"></Image>
+                </Button.Content>
+            </Button>
+
+            <TextBlock VerticalAlignment="Center" FontSize="18" Foreground ="LightGray">|</TextBlock>
+            <Button ToolTip="启动">
+                <Button.Content>
+                    <Image Source="images/start.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="调试">
+                <Button.Content>
+                    <Image Source="images/startdebug.png"></Image>
+                </Button.Content>
+            </Button>
+            <TextBlock VerticalAlignment="Center" FontSize="18" Foreground ="LightGray">|</TextBlock>
+            <Button ToolTip="检查">
+                <Button.Content>
+                    <Image Source="images/check.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="生成">
+                <Button.Content>
+                    <Image Source="images/compile.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="foobar">
+                <Button.Content>
+                    <Image Source="images/foobar.png"></Image>
+                </Button.Content>
+            </Button>
+        </ToolBar>
+
+        <sd:SharpTreeView Grid.Row="1" x:Name="trDocs" Margin="3"
+                        AllowDrop="True" AllowDropOrder="True" 
+                        GotFocus="ActiveModule" LostFocus="DeActiveModule">
+
+        </sd:SharpTreeView>
+
+        <r:TabControl Margin="3,0,3,3" x:Name="tabPages" Grid.Row="1" Grid.Column="2"  
+                      TabStripPlacement="{Binding ElementName=listBox, Path=SelectedItem}" 
+                      TabItemMinWidth="80" TabItemMaxWidth="300" TabItemMinHeight="20" TabItemMaxHeight="40"
+                      VerticalContentAlignment="Center" AllowAddNew="False"
+                      GotFocus="ActiveModule" LostFocus="DeActiveModule">
+
+        </r:TabControl>
+
     </Grid>
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.New" Executed="DoNewDoc"/>
+        <CommandBinding Command="ApplicationCommands.Open" Executed="DoOpenDoc"/>
+        <CommandBinding Command="ApplicationCommands.Save" CanExecute="CanSaveDoc" Executed="DoSaveDoc" />
+        <CommandBinding Command="ApplicationCommands.SaveAs" CanExecute="CanSaveAll" Executed="DoSaveAll" />
+        <CommandBinding Command="ApplicationCommands.Undo" CanExecute="CanUndo" Executed="DoUndo"/>
+        <CommandBinding Command="ApplicationCommands.Redo" CanExecute="CanRedo" Executed="DoRedo"/>
+        <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CanCopy" Executed="DoCopy"/>
+        <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CanPaste" Executed="DoPaste"/>
+    </Window.CommandBindings>
 </Window>
