@@ -2,7 +2,7 @@
 <topic id="85db96cc-fd84-48c0-a5ce-2c9b57658fc7" revisionNumber="1">
 	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<introduction>
-			<para>欢迎阅读ET WorkBench API开发手册</para>
+			<para>欢迎阅读 ET WorkBench API 开发手册</para>
 		</introduction>
 
 		<section>
@@ -25,7 +25,8 @@
 
 				</list>
 
-				<para>ET Workbenck是专用与嵌入式系统测试的集成开发环境</para>
+				<para>ET Workbench 是专用于嵌入式系统测试的集成开发环境，采用开放式可扩展框架</para>
+        <para>ET Workbench API 是开发ET Workbench扩展功能模块时使用的接口</para>
 			</content>
 		</section>
 

@@ -106,7 +106,7 @@
     <Resource Include="Images\compile.png" />
     <Resource Include="Images\copy.png" />
     <Resource Include="Images\ET.png" />
-    <Resource Include="Images\ETSplash.png" />
+    <SplashScreen Include="Images\ETSplash.png" />
     <Resource Include="Images\fileopen.png" />
     <Resource Include="Images\foobar.png" />
     <Resource Include="Images\newfile.png" />

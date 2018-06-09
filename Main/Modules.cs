@@ -34,6 +34,7 @@ namespace ET.Main
             foreach (var m in _modules)
             {
                 msatt.Add(m.Metadata);
+
                 _ms.Add(m.Metadata.ModuleKey, m.Value);
                 //var mt = new ModuleHeaderAttribute { ModuleKey = m.Metadata["ModuleKey"].ToString(), ModuleShowName = m.Metadata["ModuleShowName"].ToString(), ILevel = (Int32)m.Metadata["ILevel"], IsOnlyOneFile = (bool)m.Metadata["IsOnlyOneFile"] };
                 //mt.ModuleIcon = m.Value.ModuleIcon;

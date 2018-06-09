@@ -22,6 +22,9 @@ namespace ET.Main
         //活动VM
         private IViewDoc _activeVM = null;
 
+        //文档结构树VM
+        private ICommModule _docTree = null;
+
         //文档
         private MainDocument _doc = null;
 
@@ -59,6 +62,10 @@ namespace ET.Main
         {
             _ms = new Modules();
             _ms.InitialModules();
+
+            //Modules采用延迟加载，以下对模块的调用会先执行模块的加载操作
+            _docTree = _ms["DocTree"];
+            this.Icon = _docTree.ModuleIcon;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

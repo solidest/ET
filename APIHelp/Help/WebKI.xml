@@ -72,7 +72,6 @@
   <HelpKINode Title="ModuleFile.FileName 属性" Url="html/fd6cb941-f7b1-7294-92dc-53877c97ae64.htm" />
   <HelpKINode Title="ModuleFile.ModuleFile 构造函数" Url="html/1a0cfa3a-a7b4-49f7-114b-647cd46800c3.htm" />
   <HelpKINode Title="ModuleFile.ModuleKey 属性" Url="html/8da61832-8ed7-bcd5-56a6-43772a413ec3.htm" />
-  <HelpKINode Title="ModuleFileIcon 属性" Url="html/7df008f5-ec64-7ccb-d426-af2ad1ef5826.htm" />
   <HelpKINode Title="ModuleHeaderAttribute 类">
     <HelpKINode Title="ModuleHeaderAttribute 类" Url="html/50725438-ae3d-0a2d-4c2c-dcb404285f57.htm" />
     <HelpKINode Title="属性" Url="html/41ebc38a-f67b-fafb-3767-f20cd450a98f.htm" />
@@ -81,15 +80,10 @@
   </HelpKINode>
   <HelpKINode Title="ModuleHeaderAttribute.ILevel 属性" Url="html/5aacd2c9-7cc1-e2dc-385a-d774027930a6.htm" />
   <HelpKINode Title="ModuleHeaderAttribute.IsOnlyOneFile 属性" Url="html/1403fd91-a5cf-d060-ae91-1609a45669b2.htm" />
-  <HelpKINode Title="ModuleHeaderAttribute.ModuleFileIcon 属性" Url="html/7df008f5-ec64-7ccb-d426-af2ad1ef5826.htm" />
   <HelpKINode Title="ModuleHeaderAttribute.ModuleHeaderAttribute 构造函数" Url="html/80a34f58-44aa-9bbd-7d01-0cb4b22c1906.htm" />
-  <HelpKINode Title="ModuleHeaderAttribute.ModuleIcon 属性" Url="html/99aad987-a57e-41af-d2e7-e8db6174774c.htm" />
   <HelpKINode Title="ModuleHeaderAttribute.ModuleKey 属性" Url="html/7dfbc03d-bd4e-e811-0af9-e1015c6d8043.htm" />
   <HelpKINode Title="ModuleHeaderAttribute.ModuleShowName 属性" Url="html/e337ad6d-6e58-aece-9b85-5e59fe53d852.htm" />
-  <HelpKINode Title="ModuleIcon 属性">
-    <HelpKINode Title="ICommModule.ModuleIcon 属性 " Url="html/cc6148e2-f72a-d998-bee1-8cdafecbed0a.htm" />
-    <HelpKINode Title="ModuleHeaderAttribute.ModuleIcon 属性 " Url="html/99aad987-a57e-41af-d2e7-e8db6174774c.htm" />
-  </HelpKINode>
+  <HelpKINode Title="ModuleIcon 属性" Url="html/cc6148e2-f72a-d998-bee1-8cdafecbed0a.htm" />
   <HelpKINode Title="ModuleKey 属性">
     <HelpKINode Title="ModuleFile.ModuleKey 属性 " Url="html/8da61832-8ed7-bcd5-56a6-43772a413ec3.htm" />
     <HelpKINode Title="ModuleHeaderAttribute.ModuleKey 属性 " Url="html/7dfbc03d-bd4e-e811-0af9-e1015c6d8043.htm" />

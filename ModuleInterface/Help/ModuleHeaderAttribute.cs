@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Linq;
-using System.Text;
-using System.Windows.Media.Imaging;
+
 
 namespace ET.Interface
 {
@@ -62,16 +60,6 @@ namespace ET.Interface
         /// 是否只支持单个文件
         /// </summary>
         public bool IsOnlyOneFile { get; set; }
-
-        /// <summary>
-        /// ET模块图标
-        /// </summary>
-        public BitmapImage ModuleIcon { get; set; }
-
-        /// <summary>
-        /// 模块文件
-        /// </summary>
-        public BitmapImage ModuleFileIcon { get; set; }
 
     }
 

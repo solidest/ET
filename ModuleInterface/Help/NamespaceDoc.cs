@@ -30,8 +30,8 @@ namespace ET.Interface
 {
     /// <summary>
     /// <list type="bullet">
-    /// <item>本命名空间下的成员是ET模块的抽象接口定义（释：ET模块是ET设计器的功能组件）</item>
-    /// <item>本命名空间的抽象接口仅在ModuleInterface程序集中进行定义，接口被ET主程序和ET模块各自独立引用</item>
+    /// <item>本命名空间下的成员是ET模块的抽象接口定义以及基类定义（释：ET模块是ET设计器的功能组件）</item>
+    /// <item>本命名空间仅在ModuleInterface程序集中进行定义，空间内成员被ET主程序和ET模块各自独立引用</item>
     /// </list>
     /// </summary>
     [System.Runtime.CompilerServices.CompilerGenerated()]
