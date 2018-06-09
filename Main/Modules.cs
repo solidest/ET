@@ -15,10 +15,14 @@ namespace ET.Main
     {
 
         [ImportMany("ETModule", AllowRecomposition = true)]
-        private IEnumerable<Lazy<ICommModule, Dictionary<string, object>>> _modules;
+        private IEnumerable<Lazy<ICommModule, ModuleHeaderAttribute>> _modules = null;
+
         private Dictionary<String, ICommModule> _ms= new Dictionary<String, ICommModule>();
+        public List<ModuleHeaderAttribute> ModulesHeaders { get; private set; }
 
-
+        /// <summary>
+        /// 初始化，延迟加载全部ET模块
+        /// </summary>
         public void InitialModules()
         {
             var catalog = new DirectoryCatalog("Modules");
@@ -26,20 +30,22 @@ namespace ET.Main
             var objectToSatisfy = this;
             container.ComposeParts(this);
 
-            var _msatt = new List<ModuleHeaderAttribute>();
+            var msatt = new List<ModuleHeaderAttribute>();
             foreach (var m in _modules)
             {
-                var mt = new ModuleHeaderAttribute { ModuleKey = m.Metadata["ModuleKey"].ToString(), ModuleShowName = m.Metadata["ModuleShowName"].ToString(), ILevel = (Int32)m.Metadata["ILevel"], IsOnlyOneFile = (bool)m.Metadata["IsOnlyOneFile"] };
-                mt.ModuleIcon = m.Value.ModuleIcon;
-                mt.FileIcon = m.Value.FileIcon;
-                _msatt.Add(mt);
+                msatt.Add(m.Metadata);
+                _ms.Add(m.Metadata.ModuleKey, m.Value);
+                //var mt = new ModuleHeaderAttribute { ModuleKey = m.Metadata["ModuleKey"].ToString(), ModuleShowName = m.Metadata["ModuleShowName"].ToString(), ILevel = (Int32)m.Metadata["ILevel"], IsOnlyOneFile = (bool)m.Metadata["IsOnlyOneFile"] };
+                //mt.ModuleIcon = m.Value.ModuleIcon;
+                //mt.FileIcon = m.Value.FileIcon;
+                //msatt.Add(mt);
 
-                _ms.Add(m.Metadata["ModuleKey"].ToString(), m.Value);
+                //_ms.Add(m.Metadata["ModuleKey"].ToString(), m.Value);
             }
-            ModulesHeaders = _msatt;
+            if (msatt.Count == 0) throw new Exception("加载ET模块失败！");
+            ModulesHeaders = msatt;
         }
 
-         public List<ModuleHeaderAttribute> ModulesHeaders { get; private set; }
 
 
         #region --IDictionary--

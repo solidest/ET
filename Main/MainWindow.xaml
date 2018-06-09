@@ -8,13 +8,13 @@
         xmlns:local="clr-namespace:ET.Main"
         mc:Ignorable="d"
         Title="ET WorkBench" Height="450" Width="800"
-        Icon="Images\favicon_32.ico" WindowState="Maximized" Loaded="Window_Loaded">
+        Icon="Images\ET.ico" WindowState="Maximized" Loaded="Window_Loaded">
 
     <Window.Resources>
         <Style TargetType="Image">
             <Style.Triggers>
                 <Trigger Property="IsEnabled" Value="False">
-                    <Setter Property="Opacity" Value="0.5" />
+                    <Setter Property="Opacity" Value="0.3" />
                 </Trigger>
             </Style.Triggers>
         </Style>

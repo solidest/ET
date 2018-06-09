@@ -14,6 +14,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleInterface", "ModuleInterface\ModuleInterface.csproj", "{FE1C1D0C-B470-4F9A-B849-551144969AB3}"
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "APIHelp", "APIHelp\APIHelp.shfbproj", "{F38A26D4-D2B2-43BA-A63C-809AB7B752DD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FE1C1D0C-B470-4F9A-B849-551144969AB3} = {FE1C1D0C-B470-4F9A-B849-551144969AB3}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleDocTree", "ModuleDocTree\ModuleDocTree.csproj", "{65AF9B2C-AAC3-43E8-8A2C-F4CC27CDA7B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +46,10 @@ Global
 		{F38A26D4-D2B2-43BA-A63C-809AB7B752DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F38A26D4-D2B2-43BA-A63C-809AB7B752DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F38A26D4-D2B2-43BA-A63C-809AB7B752DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65AF9B2C-AAC3-43E8-8A2C-F4CC27CDA7B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65AF9B2C-AAC3-43E8-8A2C-F4CC27CDA7B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65AF9B2C-AAC3-43E8-8A2C-F4CC27CDA7B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65AF9B2C-AAC3-43E8-8A2C-F4CC27CDA7B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

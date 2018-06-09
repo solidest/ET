@@ -205,7 +205,7 @@ namespace ET.Main
         private void DoSaveAll(object sender, ExecutedRoutedEventArgs e)
         {
 
-            foreach (var f in _open_docs) f.Value.Content = f.Key.GetNewDocContent();
+            foreach (var f in _open_docs) f.Value.Content = f.Key.GetDocContent();
             SaveMainDoc();
             foreach (var vm in _open_docs.Keys) vm.AfterSaved();
         }
@@ -218,7 +218,7 @@ namespace ET.Main
         private void DoSaveDoc(object sender, ExecutedRoutedEventArgs e)
         {
 
-            if (_activeVM != null) _open_docs[_activeVM].Content = _activeVM.GetNewDocContent();
+            if (_activeVM != null) _open_docs[_activeVM].Content = _activeVM.GetDocContent();
             SaveMainDoc();
             _activeVM.AfterSaved();
         }
