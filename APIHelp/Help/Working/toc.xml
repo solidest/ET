@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topics>
+  <topic id="N:ET.Doc" project="_Namespaces" file="ab0a5ae7-ebfa-cab3-793a-390f14c72aeb" sortOrder="1">
+    <topic id="T:ET.Doc.DirNode" project="ModuleContract" file="032222ad-7b2c-ee3d-10cf-2b769ee0d169">
+      <topic id="M:ET.Doc.DirNode.#ctor(System.String,ET.Doc.DirNode)" project="ModuleContract" file="58360d85-bef2-b380-c16d-6440b87af9aa" />
+      <topic id="Properties.T:ET.Doc.DirNode" project="ModuleContract" file="32d439be-fec1-b9ad-bd1f-211e15313d7b">
+        <topic id="P:ET.Doc.DirNode.NodeName" project="ModuleContract" file="158ade9a-bf3e-5577-0c1a-cd826edb3c77" />
+        <topic id="P:ET.Doc.DirNode.ParentNode" project="ModuleContract" file="03f45e13-f073-fbed-fd26-a642b10ff829" />
+        <topic id="P:ET.Doc.DirNode.SubDirNodes" project="ModuleContract" file="d28f49dd-7b59-9ea0-1bb5-f1fd6a7331c3" />
+        <topic id="P:ET.Doc.DirNode.SubModuleFiles" project="ModuleContract" file="def378e5-0f1a-e579-696f-f249c15f1b5d" />
+      </topic>
+      <topic id="Methods.T:ET.Doc.DirNode" project="ModuleContract" file="392b039a-e52d-10fd-5aed-2f287ee277be" />
+    </topic>
+    <topic id="T:ET.Doc.ModuleFile" project="ModuleContract" file="69ea6b26-9723-f6ff-5c87-30a8eba1ea8f">
+      <topic id="M:ET.Doc.ModuleFile.#ctor(System.String,System.String,ET.Doc.DirNode,System.Byte[])" project="ModuleContract" file="1a0cfa3a-a7b4-49f7-114b-647cd46800c3" />
+      <topic id="Properties.T:ET.Doc.ModuleFile" project="ModuleContract" file="f276a596-c594-88ea-5905-d44833da573e">
+        <topic id="P:ET.Doc.ModuleFile.Content" project="ModuleContract" file="d8e82339-0a1f-34ba-2961-efac1c8b2cdb" />
+        <topic id="P:ET.Doc.ModuleFile.DirNode" project="ModuleContract" file="672e79b4-0d45-4c7f-1861-230452c1ff4d" />
+        <topic id="P:ET.Doc.ModuleFile.FileName" project="ModuleContract" file="fd6cb941-f7b1-7294-92dc-53877c97ae64" />
+        <topic id="P:ET.Doc.ModuleFile.ModuleKey" project="ModuleContract" file="8da61832-8ed7-bcd5-56a6-43772a413ec3" />
+      </topic>
+      <topic id="Methods.T:ET.Doc.ModuleFile" project="ModuleContract" file="d82275f9-50c3-174a-1e8d-a6e813299dda" />
+    </topic>
+  </topic>
+  <topic id="N:ET.Interface" project="_Namespaces" file="792ea93a-5c7c-392a-daba-b26a2810074f">
+    <topic id="T:ET.Interface.ETEventArgs" project="ModuleContract" file="fd5a95a7-5d0b-4eee-80a4-89fe46d4bd0a">
+      <topic id="M:ET.Interface.ETEventArgs.#ctor(System.Windows.RoutedEvent,System.Object,ET.Interface.IViewDoc,System.Object)" project="ModuleContract" file="33991d5c-9511-f853-b284-c491ca041460" />
+      <topic id="Properties.T:ET.Interface.ETEventArgs" project="ModuleContract" file="632f02a3-5df7-e739-f5cf-1264731e883f">
+        <topic id="P:ET.Interface.ETEventArgs.EventHostVM" project="ModuleContract" file="0598b761-6f53-d10a-d3cb-5f55e7650ad1" />
+        <topic id="P:ET.Interface.ETEventArgs.Tag" project="ModuleContract" file="6c9b8c2f-d410-88c6-f942-07b480484b0d" />
+      </topic>
+      <topic id="Methods.T:ET.Interface.ETEventArgs" project="ModuleContract" file="e9f05e53-5239-c75f-8706-605eff0ff985" />
+    </topic>
+    <topic id="T:ET.Interface.ETPage" project="ModuleContract" file="4f7e4f2d-17af-398c-927d-f05f36014562">
+      <topic id="M:ET.Interface.ETPage.#ctor" project="ModuleContract" file="31ce3e6e-8ecb-dbdb-df0e-11c22a844d8b" />
+      <topic id="Properties.T:ET.Interface.ETPage" project="ModuleContract" file="3e7f788f-d849-9af8-843a-9853854e6172" />
+      <topic id="Methods.T:ET.Interface.ETPage" project="ModuleContract" file="19d3b5ee-26cc-eaad-6bca-2d584fbb8c57" />
+      <topic id="Events.T:ET.Interface.ETPage" project="ModuleContract" file="4bf82abc-88a6-fcb8-bed8-45ad1659a63c">
+        <topic id="E:ET.Interface.ETPage.ETModuleFileModify" project="ModuleContract" file="51a5e4d1-2a6b-5f6e-4c0b-e2fedf13a44a" />
+        <topic id="E:ET.Interface.ETPage.ETModuleFileSaved" project="ModuleContract" file="a255a435-111e-8587-a207-6bd8bd4f1a9d" />
+      </topic>
+      <topic id="Fields.T:ET.Interface.ETPage" project="ModuleContract" file="30109c76-d081-8a01-8183-e41d7aed870e">
+        <topic id="F:ET.Interface.ETPage.ETModuleFileModifyEvent" project="ModuleContract" file="147a7680-98d4-45b6-6946-cb951a222093" />
+        <topic id="F:ET.Interface.ETPage.ETModuleFileSavedEvent" project="ModuleContract" file="03a92810-c567-c5ea-5dea-86075a70a31d" />
+      </topic>
+    </topic>
+    <topic id="T:ET.Interface.ICommModule" project="ModuleContract" file="43bda6f4-ccdb-2cf5-68ec-e3b4933065ac">
+      <topic id="Properties.T:ET.Interface.ICommModule" project="ModuleContract" file="38238142-2b12-4b19-6866-c3f8935dcd41">
+        <topic id="P:ET.Interface.ICommModule.FileIcon" project="ModuleContract" file="f70b26fa-8c0a-4337-6633-b0cdf4a9756d" />
+        <topic id="P:ET.Interface.ICommModule.ModuleIcon" project="ModuleContract" file="cc6148e2-f72a-d998-bee1-8cdafecbed0a" />
+      </topic>
+      <topic id="Methods.T:ET.Interface.ICommModule" project="ModuleContract" file="7f276fb2-b8c3-d903-08c3-cff50b9aec34">
+        <topic id="M:ET.Interface.ICommModule.GetNewFiles" project="ModuleContract" file="88672583-153e-a04a-a469-cd0345fd1246" />
+        <topic id="M:ET.Interface.ICommModule.LoadFile(System.Byte[],System.Int32)" project="ModuleContract" file="73d7cc29-7afb-8c35-9643-f4c332780925" />
+      </topic>
+    </topic>
+    <topic id="T:ET.Interface.IViewDoc" project="ModuleContract" file="31f0cfb2-2a01-7065-1d21-92659eb9ae5f">
+      <topic id="Properties.T:ET.Interface.IViewDoc" project="ModuleContract" file="b2fd9b10-dc57-e305-81eb-848f3a849e1e">
+        <topic id="P:ET.Interface.IViewDoc.IsAutoSave" project="ModuleContract" file="693d18e0-bc98-f8aa-8b1a-7646531b2c79" />
+        <topic id="P:ET.Interface.IViewDoc.ModuleKey" project="ModuleContract" file="1aa8c242-adec-9351-1e1d-82672f62660a" />
+        <topic id="P:ET.Interface.IViewDoc.PageUI" project="ModuleContract" file="ef9bf021-c050-9fb1-5a0d-705a6573128b" />
+      </topic>
+      <topic id="Methods.T:ET.Interface.IViewDoc" project="ModuleContract" file="00f83364-4fde-866d-2ee1-888e0a76c563">
+        <topic id="M:ET.Interface.IViewDoc.CanCopy" project="ModuleContract" file="210adcb9-ee87-1895-7e74-dd99b58bdd8f" />
+        <topic id="M:ET.Interface.IViewDoc.CanPaste" project="ModuleContract" file="f7053874-9ab0-9529-11e5-66921e686849" />
+        <topic id="M:ET.Interface.IViewDoc.CanRedo" project="ModuleContract" file="ce9c6b3b-f1df-6557-f42d-d955293cd7ce" />
+        <topic id="M:ET.Interface.IViewDoc.CanUndo" project="ModuleContract" file="81fd7289-d518-638a-9a25-b8a20a1f71a3" />
+        <topic id="M:ET.Interface.IViewDoc.DoCopy" project="ModuleContract" file="1f8f866f-abd9-c5a0-d026-0276a5b917d4" />
+        <topic id="M:ET.Interface.IViewDoc.DoPaste" project="ModuleContract" file="ad4c307f-4558-0c00-76eb-9f3e1d01747d" />
+        <topic id="M:ET.Interface.IViewDoc.DoRedo" project="ModuleContract" file="99e9b955-8aee-e53f-398d-c4c3ae3e62cc" />
+        <topic id="M:ET.Interface.IViewDoc.DoUndo" project="ModuleContract" file="c2c03509-4b35-507e-7f9b-67e725939b69" />
+        <topic id="M:ET.Interface.IViewDoc.GetDocContent" project="ModuleContract" file="b969d109-8568-9496-0b08-8a8ecfb0bfd2" />
+      </topic>
+    </topic>
+    <topic id="T:ET.Interface.ModuleHeaderAttribute" project="ModuleContract" file="50725438-ae3d-0a2d-4c2c-dcb404285f57">
+      <topic id="Overload:ET.Interface.ModuleHeaderAttribute.#ctor" project="ModuleContract" file="80a34f58-44aa-9bbd-7d01-0cb4b22c1906">
+        <topic id="M:ET.Interface.ModuleHeaderAttribute.#ctor(System.Collections.Generic.IDictionary{System.String,System.Object})" project="ModuleContract" file="8b563324-0d3e-7f69-0bbd-83be5371ab40" />
+        <topic id="M:ET.Interface.ModuleHeaderAttribute.#ctor(System.String,System.String,System.Int32,System.Boolean)" project="ModuleContract" file="31269adc-a212-595d-438a-9f4b164a80c7" />
+      </topic>
+      <topic id="Properties.T:ET.Interface.ModuleHeaderAttribute" project="ModuleContract" file="41ebc38a-f67b-fafb-3767-f20cd450a98f">
+        <topic id="P:ET.Interface.ModuleHeaderAttribute.ILevel" project="ModuleContract" file="5aacd2c9-7cc1-e2dc-385a-d774027930a6" />
+        <topic id="P:ET.Interface.ModuleHeaderAttribute.IsOnlyOneFile" project="ModuleContract" file="1403fd91-a5cf-d060-ae91-1609a45669b2" />
+        <topic id="P:ET.Interface.ModuleHeaderAttribute.ModuleKey" project="ModuleContract" file="7dfbc03d-bd4e-e811-0af9-e1015c6d8043" />
+        <topic id="P:ET.Interface.ModuleHeaderAttribute.ModuleShowName" project="ModuleContract" file="e337ad6d-6e58-aece-9b85-5e59fe53d852" />
+      </topic>
+      <topic id="Methods.T:ET.Interface.ModuleHeaderAttribute" project="ModuleContract" file="6757fe49-0d3d-5470-80e4-ae7695fc8318" />
+    </topic>
+  </topic>
+</topics>

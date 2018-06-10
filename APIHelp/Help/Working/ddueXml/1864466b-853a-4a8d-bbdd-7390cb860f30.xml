@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="1864466b-853a-4a8d-bbdd-7390cb860f30" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>ET Workbenck API版本</para>
+		</introduction>
+
+		<section>
+			<title>历史版本</title>
+			<content>
+				<para>通过以下列表可查看ET Workbench API的各版本的变更情况</para>
+
+				<list class="bullet">
+					<listItem>
+						<para><link xlink:href="bedee466-e4de-4ae7-9522-f0e0d8bdfc83" /></para>
+					</listItem>
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="85db96cc-fd84-48c0-a5ce-2c9b57658fc7" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>ModuleContract</name>
+  </assembly>
+  <members>
+    <member name="T:ET.Doc.DirNode">
+      <summary>
+        <list type="bullet">
+          <item>目录节点类<c>DirNode</c>对应文档结构中的目录节点</item>
+          <item>每个模块都有自己专属的唯一文档目录树，树的每个节点（不包括模块文件）都是本类的一个实例</item>
+        </list>
+      </summary>
+    </member>
+    <member name="M:ET.Doc.DirNode.#ctor(System.String,ET.Doc.DirNode)">
+      <summary>
+            目录节点类的唯一构造函数
+            </summary>
+      <param name="nName">节点名称</param>
+      <param name="pNode">指定父节点</param>
+    </member>
+    <member name="P:ET.Doc.DirNode.NodeName">
+      <summary>
+            当前节点的名称
+            </summary>
+    </member>
+    <member name="P:ET.Doc.DirNode.ParentNode">
+      <summary>
+            当前节点的父级节点，根节点的该属性值为空
+            </summary>
+    </member>
+    <member name="P:ET.Doc.DirNode.SubDirNodes">
+      <summary>
+            当前节点下所有子节点的集合
+            </summary>
+    </member>
+    <member name="P:ET.Doc.DirNode.SubModuleFiles">
+      <summary>
+            当前节点下所有模块文件的集合
+            </summary>
+    </member>
+    <member name="T:ET.Doc.ModuleFile">
+      <summary>
+        <list type="bullet">
+          <item>模块文件类封装模块文件的外部属性和内部内容（释：模块文件是ET模块产生的内容块）</item>
+          <item>该类是模块文件的通用属性封装</item>
+        </list>
+      </summary>
+    </member>
+    <member name="M:ET.Doc.ModuleFile.#ctor(System.String,System.String,ET.Doc.DirNode,System.Byte[])">
+      <summary>
+            模块文件类唯一的构造函数
+            </summary>
+      <param name="mKey">对应模块的主键</param>
+      <param name="fName">模块文件名</param>
+      <param name="dir">模块文件所在的节点目录</param>
+      <param name="content">模块文件的内容，默认为空</param>
+    </member>
+    <member name="P:ET.Doc.ModuleFile.ModuleKey">
+      <summary>
+            模块文件对应模块的主键
+            </summary>
+    </member>
+    <member name="P:ET.Doc.ModuleFile.FileName">
+      <summary>
+            模块文件的文件名
+            </summary>
+    </member>
+    <member name="P:ET.Doc.ModuleFile.Content">
+      <summary>
+             模块文件的具体内容
+             <note type="implement"><c>Content</c>返回的字节数组是具体的模块文件内容进行二进制序列化得到的，可用于持久化和反序列化
+             </note></summary>
+    </member>
+    <member name="P:ET.Doc.ModuleFile.DirNode">
+      <summary>
+            模块文件在文档结构中所处的目录位置
+            </summary>
+    </member>
+    <member name="N:ET.Doc">
+      <summary>
+        <list type="bullet">
+          <item>本命名空间下的成员是ET文档内容相关的类库（注：ET文档是由ET设计器生成并存储为 .et格式的二进制文件）</item>
+          <item>本命名空间内的类对应MVVM模型中的M，即文档模型，并不包含具体的业务逻辑</item>
+        </list>
+        <note type="implement">
+          <list type="number">
+            <item>本命名空间内的类均需标注<c>[Serializable]</c>属性，以便二进制持久化时使用</item>
+            <item>本命名空间内的类在发布后不应再进行修改，但可以添加新类, 新类需实现向后兼容</item>
+          </list>
+        </note>
+      </summary>
+    </member>
+    <member name="T:ET.Interface.ETPage">
+      <summary>
+        <para>ET页面类</para>
+        <para>ET页面继承自WPF的布局控件<c>Syste.Winows.Controls.Grid</c>，并加入ET自定义路由事件</para>
+        <para>ET页面是ET模块中UI接口的统一包装器</para>
+      </summary>
+    </member>
+    <member name="F:ET.Interface.ETPage.ETModuleFileSavedEvent">
+      <summary>
+            模块文件内容被保存后触发该事件
+            </summary>
+    </member>
+    <member name="E:ET.Interface.ETPage.ETModuleFileSaved">
+      <summary>
+            CLR事件包装器
+            </summary>
+    </member>
+    <member name="F:ET.Interface.ETPage.ETModuleFileModifyEvent">
+      <summary>
+            模块文件内容被修改后触发该事件
+            </summary>
+    </member>
+    <member name="E:ET.Interface.ETPage.ETModuleFileModify">
+      <summary>
+            CLR事件包装器
+            </summary>
+    </member>
+    <member name="T:ET.Interface.ETEventArgs">
+      <summary>
+            ET路由事件使用的事件参数类
+            </summary>
+    </member>
+    <member name="M:ET.Interface.ETEventArgs.#ctor(System.Windows.RoutedEvent,System.Object,ET.Interface.IViewDoc,System.Object)">
+      <summary>
+            重载WPF路由事件参数类的构造函数
+            </summary>
+      <param name="routedEvent">路由事件</param>
+      <param name="source">事件源</param>
+    </member>
+    <member name="P:ET.Interface.ETEventArgs.EventHostVM">
+      <summary>
+             事件的宿主模块文件控制器
+            </summary>
+    </member>
+    <member name="P:ET.Interface.ETEventArgs.Tag">
+      <summary>
+            带外数据
+            </summary>
+    </member>
+    <member name="T:ET.Interface.ICommModule">
+      <summary>
+        <para>ET模块的通用接口定义，所有的ET模块均需要实现此接口</para>
+        <para>ET设计器的每个功能均由独立的ET模块实现，ET模块内部采用MVVM模型实现其功能</para>
+      </summary>
+    </member>
+    <member name="M:ET.Interface.ICommModule.GetNewFiles">
+      <summary>
+            用户选择新建文件时被调用
+            </summary>
+      <returns>新创建的模块文件数组</returns>
+    </member>
+    <member name="M:ET.Interface.ICommModule.LoadFile(System.Byte[],System.Int32)">
+      <summary>
+            加载模块文件的内容
+            </summary>
+      <param name="content">模块文件的二进制序列化内容</param>
+      <param name="version">主文件的版本，每个ET模块的实现中需保证模块文件内容向后兼容</param>
+      <returns>返回加载内容后的<c>IViewDoc</c>接口</returns>
+    </member>
+    <member name="P:ET.Interface.ICommModule.ModuleIcon">
+      <summary>
+            ET模块的图标
+            </summary>
+    </member>
+    <member name="P:ET.Interface.ICommModule.FileIcon">
+      <summary>
+            模块文件的图标
+            </summary>
+    </member>
+    <member name="T:ET.Interface.IViewDoc">
+      <summary>
+        <para>模块文件控制器接口定义</para>
+        <para>
+          <c>IViewDoc</c>接口对应ET模块内MVVM模型的VM部分，通常为已加载模块文件内容的可视化组件</para>
+      </summary>
+    </member>
+    <member name="P:ET.Interface.IViewDoc.PageUI">
+      <summary>
+            可供XAML窗体加载的ET页面，对应已加载加载模块文件内容的UI
+            </summary>
+    </member>
+    <member name="P:ET.Interface.IViewDoc.ModuleKey">
+      <summary>
+            所属的ET模块主键
+            </summary>
+    </member>
+    <member name="P:ET.Interface.IViewDoc.IsAutoSave">
+      <summary>
+            模块文件是否自动保存
+            </summary>
+    </member>
+    <member name="M:ET.Interface.IViewDoc.GetDocContent">
+      <summary>
+            获取最新的模块文档内容
+            </summary>
+      <returns>二进制序列化后的模块文件内容</returns>
+    </member>
+    <member name="M:ET.Interface.IViewDoc.CanCopy">
+      <summary>
+            是否可以执行复制
+            <note type="implement">该函数会被频繁调用</note></summary>
+      <returns>可以复制返回<c>true</c>，否则返回<c>false</c></returns>
+      <note type="implement">该函数会被频繁调用</note>
+    </member>
+    <member name="M:ET.Interface.IViewDoc.DoCopy">
+      <summary>
+            执行复制
+            </summary>
+    </member>
+    <member name="M:ET.Interface.IViewDoc.CanPaste">
+      <summary>
+            是否可以执行粘贴
+            <note type="implement">该函数会被频繁调用</note></summary>
+      <returns>可以粘贴返回<c>true</c>，否则返回<c>false</c></returns>
+    </member>
+    <member name="M:ET.Interface.IViewDoc.DoPaste">
+      <summary>
+            执行粘贴
+            </summary>
+    </member>
+    <member name="M:ET.Interface.IViewDoc.CanRedo">
+      <summary>
+            是否可以执行重做
+            <note type="implement">该函数会被频繁调用</note></summary>
+      <returns>可以重做返回<c>true</c>，否则返回<c>false</c></returns>
+      <note type="implement">该函数会被频繁调用</note>
+    </member>
+    <member name="M:ET.Interface.IViewDoc.DoRedo">
+      <summary>
+            执行重做
+            </summary>
+    </member>
+    <member name="M:ET.Interface.IViewDoc.CanUndo">
+      <summary>
+            是否可以执行撤销
+            <note type="implement">该函数会被频繁调用</note></summary>
+      <returns>可以撤销返回<c>true</c>，否则返回<c>false</c></returns>
+      <note type="implement">该函数会被频繁调用</note>
+    </member>
+    <member name="M:ET.Interface.IViewDoc.DoUndo">
+      <summary>
+            执行撤销
+            </summary>
+    </member>
+    <member name="T:ET.Interface.ModuleHeaderAttribute">
+      <summary>
+            ET模块的元数据信息，延迟加载时主程序只读取该属性信息
+            </summary>
+    </member>
+    <member name="M:ET.Interface.ModuleHeaderAttribute.#ctor(System.Collections.Generic.IDictionary{System.String,System.Object})">
+      <summary>
+            ET模块被加载的时候使用
+            </summary>
+      <param name="pvs">键值对表示的属性赋值</param>
+    </member>
+    <member name="M:ET.Interface.ModuleHeaderAttribute.#ctor(System.String,System.String,System.Int32,System.Boolean)">
+      <summary>
+             模块实现时使用的构造函数
+            </summary>
+      <param name="moduleKey">ET模块主键</param>
+      <param name="moduleShowName">ET模块的显示名称</param>
+      <param name="iLevel">模块等级</param>
+      <param name="isOnlyOneFile">是否只支持单个文件</param>
+    </member>
+    <member name="P:ET.Interface.ModuleHeaderAttribute.ModuleKey">
+      <summary>
+            ET模块主键
+            </summary>
+    </member>
+    <member name="P:ET.Interface.ModuleHeaderAttribute.ModuleShowName">
+      <summary>
+            ET模块显示名称
+            </summary>
+    </member>
+    <member name="P:ET.Interface.ModuleHeaderAttribute.ILevel">
+      <summary>
+            模块等级，被用来在用户界面显示时排序
+            </summary>
+    </member>
+    <member name="P:ET.Interface.ModuleHeaderAttribute.IsOnlyOneFile">
+      <summary>
+            是否只支持单个文件
+            </summary>
+    </member>
+    <member name="N:ET.Interface">
+      <summary>
+        <list type="bullet">
+          <item>本命名空间下的成员是ET模块的抽象接口定义以及基类定义（释：ET模块是ET设计器的功能组件）</item>
+          <item>本命名空间仅在ModuleInterface程序集中进行定义，空间内成员被ET主程序和ET模块各自独立引用</item>
+        </list>
+      </summary>
+    </member>
+  </members>
+</doc>

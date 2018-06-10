@@ -14,22 +14,25 @@ namespace ET.Interface
     {
 
         /// <summary>
-        /// 获取已加载加载模块文件内容的组件UI
+        /// 可供XAML窗体加载的ET页面，对应已加载加载模块文件内容的UI
         /// </summary>
-        /// <returns>可供XAML窗体加载的可视化组件</returns>
-        UIElement GetUI();
+        ETPage PageUI { get; }
+
+        /// <summary>
+        /// 所属的ET模块主键
+        /// </summary>
+        String ModuleKey { get; }
+
+        /// <summary>
+        /// 模块文件是否自动保存
+        /// </summary>
+        bool IsAutoSave { get; set; }
 
         /// <summary>
         /// 获取最新的模块文档内容
         /// </summary>
         /// <returns>二进制序列化后的模块文件内容</returns>
         byte[] GetDocContent();
-
-        /// <summary>
-        /// 模块文档被保存后调用 通常用来处理修改状态
-        /// </summary>
-        void AfterSaved();
-
 
         /// <summary>
         /// 是否可以执行复制

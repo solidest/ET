@@ -214,7 +214,11 @@ namespace ET.Main
 
             foreach (var f in _open_docs) f.Value.Content = f.Key.GetDocContent();
             SaveMainDoc();
-            foreach (var vm in _open_docs.Keys) vm.AfterSaved();
+            foreach (var vm in _open_docs.Keys)
+            {
+                var ete = new ETEventArgs(ETPage.ETModuleFileSavedEvent, vm.PageUI, vm);
+                vm.PageUI.RaiseEvent(ete);
+            }
         }
 
         private void CanSaveDoc(object sender, CanExecuteRoutedEventArgs e)
@@ -227,7 +231,8 @@ namespace ET.Main
 
             if (_activeVM != null) _open_docs[_activeVM].Content = _activeVM.GetDocContent();
             SaveMainDoc();
-            _activeVM.AfterSaved();
+            var ete = new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM);
+            _activeVM.PageUI.RaiseEvent(ete);
         }
         private void CanCopy(object sender, CanExecuteRoutedEventArgs e)
         {

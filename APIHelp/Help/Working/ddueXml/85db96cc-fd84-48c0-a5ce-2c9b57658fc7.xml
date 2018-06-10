@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="85db96cc-fd84-48c0-a5ce-2c9b57658fc7" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>欢迎阅读 ET WorkBench API 开发手册</para>
+		</introduction>
+
+		<section>
+			<title>阅读对象</title>
+			<content>
+				<para>本手册的阅读对象包括：</para>
+
+				<list class="bullet">
+					<listItem>
+						<para>ET程序开发人员</para>
+					</listItem>
+
+					<listItem>
+						<para>为ET提供扩展功能的开发人员</para>
+					</listItem>
+
+					<listItem>
+						<para>希望了解ET内部实现的人员</para>
+					</listItem>
+
+				</list>
+
+				<para>ET Workbench 是专用于嵌入式系统测试的集成开发环境，采用开放式可扩展框架</para>
+        <para>ET Workbench API 是开发ET Workbench扩展功能模块时使用的接口</para>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="1864466b-853a-4a8d-bbdd-7390cb860f30" />
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>
