@@ -2,7 +2,7 @@
 using ET.Doc;
 using System.Windows.Media.Imaging;
 
-namespace ET.Interface
+namespace ET.ModuleInterface
 {
     /// <summary>
     /// <para>ET模块的通用接口定义，所有的ET模块均需要实现此接口</para>

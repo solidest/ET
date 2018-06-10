@@ -1,6 +1,6 @@
 ﻿using System;
 using ET.Doc;
-using ET.Interface;
+using ET.ModuleInterface;
 using System.ComponentModel.Composition;
 using System.Windows.Media.Imaging;
 using System.IO;

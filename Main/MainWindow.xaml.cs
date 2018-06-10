@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using System.Windows.Input;
-using ET.Interface;
+using ET.ModuleInterface;
 using ET.Doc;
 
 namespace ET.Main

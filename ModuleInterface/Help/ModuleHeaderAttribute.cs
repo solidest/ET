@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 
 
-namespace ET.Interface
+namespace ET.ModuleInterface
 {
 
     /// <summary>

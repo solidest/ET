@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ET.Interface
+namespace ET.ModuleInterface
 {
     /// <summary>
     /// <para>ET页面类</para>
@@ -16,13 +16,13 @@ namespace ET.Interface
     {
 
         /// <summary>
-        /// 模块文件内容被保存后触发该事件
+        /// 注册路由事件 模块文件内容被保存后触发该事件
         /// </summary>
         public readonly static RoutedEvent ETModuleFileSavedEvent = 
             EventManager.RegisterRoutedEvent("ETModuleFileSaved", RoutingStrategy.Bubble, typeof(EventHandler<ETEventArgs>), typeof(ETPage));
 
         /// <summary>
-        /// CLR事件包装器
+        /// 模块文件内容被保存后触发该事件，通常由ET模块外部触发该事件并在模块内部进行处理
         /// </summary>
         public event RoutedEventHandler ETModuleFileSaved
         {
@@ -32,13 +32,13 @@ namespace ET.Interface
 
 
         /// <summary>
-        /// 模块文件内容被修改后触发该事件
+        /// 注册路由事件 模块文件内容被修改后触发该事件
         /// </summary>
         public readonly static RoutedEvent ETModuleFileModifyEvent =
             EventManager.RegisterRoutedEvent("ETModuleFileModify", RoutingStrategy.Tunnel, typeof(EventHandler<ETEventArgs>), typeof(ETPage));
 
         /// <summary>
-        /// CLR事件包装器
+        /// 模块文件内容被修改后触发该事件，通常由ET模块内部触发该事件并向模块外部进行事件广播
         /// </summary>
         public event RoutedEventHandler ETModuleFileModify
         {

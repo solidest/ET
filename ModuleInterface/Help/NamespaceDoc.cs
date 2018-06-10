@@ -26,7 +26,7 @@ namespace ET.Doc
 
 }
 
-namespace ET.Interface
+namespace ET.ModuleInterface
 {
     /// <summary>
     /// <list type="bullet">
