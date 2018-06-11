@@ -50,9 +50,10 @@
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="DirNode.cs" />
-    <Compile Include="ETPage.cs" />
+    <Compile Include="Help\ETPage.cs" />
     <Compile Include="Help\ETEventArgs.cs" />
     <Compile Include="ICommModule.cs" />
+    <Compile Include="IMainService.cs" />
     <Compile Include="IViewDoc.cs" />
     <Compile Include="ModuleFile.cs" />
     <Compile Include="Help\ModuleHeaderAttribute.cs" />

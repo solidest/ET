@@ -22,7 +22,6 @@ namespace ET.Doc
         /// <param name="fName">模块文件名</param>
         /// <param name="dir">模块文件所在的节点目录</param>
         /// <param name="content">模块文件的内容，默认为空</param>
-
         public ModuleFile(String mKey, String fName, DirNode dir, Byte[] content=null )
         {
             ModuleKey = mKey;

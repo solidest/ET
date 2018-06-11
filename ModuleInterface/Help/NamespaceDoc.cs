@@ -9,7 +9,7 @@ namespace ET.Doc
 {
     /// <summary>
     /// <list type="bullet">
-    /// <item>本命名空间下的成员是ET文档内容相关的类库（注：ET文档是由ET设计器生成并存储为 .et格式的二进制文件）</item>
+    /// <item>本命名空间下的成员是ET文档内容相关的接口定义与实现（注：ET文档是由ET设计器生成并存储为 .et格式的二进制文件）</item>
     /// <item>本命名空间内的类对应MVVM模型中的M，即文档模型，并不包含具体的业务逻辑</item>
     /// </list>
     /// <note type="implement">
@@ -30,8 +30,22 @@ namespace ET.ModuleInterface
 {
     /// <summary>
     /// <list type="bullet">
-    /// <item>本命名空间下的成员是ET模块的抽象接口定义以及基类定义（释：ET模块是ET设计器的功能组件）</item>
+    /// <item>本命名空间下的成员是ET模块的抽象接口定义以及相关辅助类实现（释：ET模块是ET设计器的功能组件）</item>
     /// <item>本命名空间仅在ModuleInterface程序集中进行定义，空间内成员被ET主程序和ET模块各自独立引用</item>
+    /// </list>
+    /// </summary>
+    [System.Runtime.CompilerServices.CompilerGenerated()]
+    class NamespaceDoc
+    {
+    }
+}
+
+namespace ET.Service
+{
+    /// <summary>
+    /// <list type="bullet">
+    /// <item>本命名空间下的成员是ET服务的接口定义与实现</item>
+    /// <item>ET服务是由主程序提供并可被所有ET模块使用的功能接口</item>
     /// </list>
     /// </summary>
     [System.Runtime.CompilerServices.CompilerGenerated()]

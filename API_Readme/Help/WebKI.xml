@@ -30,6 +30,8 @@
   <HelpKINode Title="ET.ModuleInterface.ICommModule 接口" Url="html/99fef831-1b52-817a-8589-72380801c2e9.htm" />
   <HelpKINode Title="ET.ModuleInterface.IViewDoc 接口" Url="html/832976be-f9b4-0fab-266c-d46a8de907e8.htm" />
   <HelpKINode Title="ET.ModuleInterface.ModuleHeaderAttribute 类" Url="html/f2e6bc28-e536-abdc-deb3-a9708fced669.htm" />
+  <HelpKINode Title="ET.Service 命名空间" Url="html/ea67ca9e-ba9b-dd61-cf40-d26f3d744b7d.htm" />
+  <HelpKINode Title="ET.Service.IMainService 接口" Url="html/46913b8f-eed9-305b-032e-bcd9455a6655.htm" />
   <HelpKINode Title="ETEventArgs 类">
     <HelpKINode Title="ETEventArgs 类" Url="html/cef6c811-2f9d-22eb-a8af-b18561dd3af5.htm" />
     <HelpKINode Title="属性" Url="html/282eb4df-52c5-3e6d-1c84-101fbba2dc28.htm" />
@@ -71,6 +73,11 @@
   <HelpKINode Title="ICommModule.LoadFile 方法" Url="html/23be2497-9901-836b-246c-d19575ac9f7c.htm" />
   <HelpKINode Title="ICommModule.ModuleIcon 属性" Url="html/bc9341fe-0bba-ecdb-7942-d7b2dd68e9f0.htm" />
   <HelpKINode Title="ILevel 属性" Url="html/825eb265-4603-e39d-2c82-d8a24c7ae48e.htm" />
+  <HelpKINode Title="IMainService 接口">
+    <HelpKINode Title="IMainService 接口" Url="html/46913b8f-eed9-305b-032e-bcd9455a6655.htm" />
+    <HelpKINode Title="方法" Url="html/44054ca5-72ad-943e-18e2-bffa656ab3da.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IMainService.OpenModuleFile 方法" Url="html/1a176f4e-2279-4fc8-cc78-361e6007750d.htm" />
   <HelpKINode Title="IsAutoSave 属性" Url="html/c8e4d06b-4abe-4d1c-bdaf-51d4cf28685d.htm" />
   <HelpKINode Title="IsOnlyOneFile 属性" Url="html/070da181-a541-4375-ff11-2be5a9d17701.htm" />
   <HelpKINode Title="IViewDoc 接口">
@@ -121,6 +128,7 @@
   </HelpKINode>
   <HelpKINode Title="ModuleShowName 属性" Url="html/da29d5f5-1bd0-726e-ddc3-33262cb2b6dd.htm" />
   <HelpKINode Title="NodeName 属性" Url="html/158ade9a-bf3e-5577-0c1a-cd826edb3c77.htm" />
+  <HelpKINode Title="OpenModuleFile 方法" Url="html/1a176f4e-2279-4fc8-cc78-361e6007750d.htm" />
   <HelpKINode Title="PageUI 属性" Url="html/81e61b23-389c-df44-e508-fc43c85e1732.htm" />
   <HelpKINode Title="ParentNode 属性" Url="html/03f45e13-f073-fbed-fd26-a642b10ff829.htm" />
   <HelpKINode Title="SubDirNodes 属性" Url="html/d28f49dd-7b59-9ea0-1bb5-f1fd6a7331c3.htm" />
