@@ -1,7 +1,7 @@
 ﻿
 using System.Windows;
 
-namespace ET.ModuleInterface
+namespace ET.Interface
 {
     /// <summary>
     /// ET路由事件使用的事件参数类

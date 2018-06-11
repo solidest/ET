@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 
-namespace ET.ModuleInterface
+namespace ET.Interface
 {
     /// <summary>
     /// <para>模块文件控制器接口定义</para>

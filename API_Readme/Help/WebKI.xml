@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <HelpKI>
-  <HelpKINode Title="CanCopy 方法" Url="html/e80c49c7-8ba1-409c-cc4a-5c9134baac6c.htm" />
-  <HelpKINode Title="CanPaste 方法" Url="html/3fc01c66-abbf-99c5-fde1-0e961ba1b396.htm" />
-  <HelpKINode Title="CanRedo 方法" Url="html/246a25d9-ad0d-d220-99d3-d3679e650d7f.htm" />
-  <HelpKINode Title="CanUndo 方法" Url="html/7d6bb787-2af1-685b-ef7d-1b0b6d4be7ef.htm" />
+  <HelpKINode Title="AllModules 属性" Url="html/f5c0abb3-cbbd-a213-eb3d-b831dbd7a625.htm" />
+  <HelpKINode Title="CanCopy 方法" Url="html/210adcb9-ee87-1895-7e74-dd99b58bdd8f.htm" />
+  <HelpKINode Title="CanPaste 方法" Url="html/f7053874-9ab0-9529-11e5-66921e686849.htm" />
+  <HelpKINode Title="CanRedo 方法" Url="html/ce9c6b3b-f1df-6557-f42d-d955293cd7ce.htm" />
+  <HelpKINode Title="CanUndo 方法" Url="html/81fd7289-d518-638a-9a25-b8a20a1f71a3.htm" />
   <HelpKINode Title="Content 属性" Url="html/d8e82339-0a1f-34ba-2961-efac1c8b2cdb.htm" />
   <HelpKINode Title="DirNode 属性" Url="html/672e79b4-0d45-4c7f-1861-230452c1ff4d.htm" />
   <HelpKINode Title="DirNode 类">
@@ -17,87 +18,111 @@
   <HelpKINode Title="DirNode.ParentNode 属性" Url="html/03f45e13-f073-fbed-fd26-a642b10ff829.htm" />
   <HelpKINode Title="DirNode.SubDirNodes 属性" Url="html/d28f49dd-7b59-9ea0-1bb5-f1fd6a7331c3.htm" />
   <HelpKINode Title="DirNode.SubModuleFiles 属性" Url="html/def378e5-0f1a-e579-696f-f249c15f1b5d.htm" />
-  <HelpKINode Title="DoCopy 方法" Url="html/21dcd52c-4271-ba69-1d2e-c98007f20855.htm" />
-  <HelpKINode Title="DoPaste 方法" Url="html/4e79ace8-2361-b655-94d1-10486d0ec73b.htm" />
-  <HelpKINode Title="DoRedo 方法" Url="html/595c060f-7469-cdfd-5911-57a8f719f095.htm" />
-  <HelpKINode Title="DoUndo 方法" Url="html/abb35b06-6b9e-8175-dce1-a68eb481f2f0.htm" />
+  <HelpKINode Title="DoCopy 方法" Url="html/1f8f866f-abd9-c5a0-d026-0276a5b917d4.htm" />
+  <HelpKINode Title="DoPaste 方法" Url="html/ad4c307f-4558-0c00-76eb-9f3e1d01747d.htm" />
+  <HelpKINode Title="DoRedo 方法" Url="html/99e9b955-8aee-e53f-398d-c4c3ae3e62cc.htm" />
+  <HelpKINode Title="DoUndo 方法" Url="html/c2c03509-4b35-507e-7f9b-67e725939b69.htm" />
   <HelpKINode Title="ET.Doc 命名空间" Url="html/ab0a5ae7-ebfa-cab3-793a-390f14c72aeb.htm" />
   <HelpKINode Title="ET.Doc.DirNode 类" Url="html/032222ad-7b2c-ee3d-10cf-2b769ee0d169.htm" />
   <HelpKINode Title="ET.Doc.ModuleFile 类" Url="html/69ea6b26-9723-f6ff-5c87-30a8eba1ea8f.htm" />
-  <HelpKINode Title="ET.ModuleInterface 命名空间" Url="html/8deb07b3-2815-e808-fe2b-206b107e5751.htm" />
-  <HelpKINode Title="ET.ModuleInterface.ETEventArgs 类" Url="html/cef6c811-2f9d-22eb-a8af-b18561dd3af5.htm" />
-  <HelpKINode Title="ET.ModuleInterface.ETPage 类" Url="html/8c9b869c-c1a1-ec12-4609-dd4500aba605.htm" />
-  <HelpKINode Title="ET.ModuleInterface.ICommModule 接口" Url="html/99fef831-1b52-817a-8589-72380801c2e9.htm" />
-  <HelpKINode Title="ET.ModuleInterface.IViewDoc 接口" Url="html/832976be-f9b4-0fab-266c-d46a8de907e8.htm" />
-  <HelpKINode Title="ET.ModuleInterface.ModuleHeaderAttribute 类" Url="html/f2e6bc28-e536-abdc-deb3-a9708fced669.htm" />
+  <HelpKINode Title="ET.Interface 命名空间" Url="html/792ea93a-5c7c-392a-daba-b26a2810074f.htm" />
+  <HelpKINode Title="ET.Interface.ETEventArgs 类" Url="html/fd5a95a7-5d0b-4eee-80a4-89fe46d4bd0a.htm" />
+  <HelpKINode Title="ET.Interface.ETException 类" Url="html/7746fdb9-a124-5cdd-1d34-5522e8efa2be.htm" />
+  <HelpKINode Title="ET.Interface.ETPage 类" Url="html/4f7e4f2d-17af-398c-927d-f05f36014562.htm" />
+  <HelpKINode Title="ET.Interface.ICommModule 接口" Url="html/43bda6f4-ccdb-2cf5-68ec-e3b4933065ac.htm" />
+  <HelpKINode Title="ET.Interface.IViewDoc 接口" Url="html/31f0cfb2-2a01-7065-1d21-92659eb9ae5f.htm" />
+  <HelpKINode Title="ET.Interface.ModuleHeaderAttribute 类" Url="html/50725438-ae3d-0a2d-4c2c-dcb404285f57.htm" />
   <HelpKINode Title="ET.Service 命名空间" Url="html/ea67ca9e-ba9b-dd61-cf40-d26f3d744b7d.htm" />
+  <HelpKINode Title="ET.Service.ETService 类" Url="html/eef5f2a2-45fa-82e3-b4c5-48dcdf87a7ee.htm" />
   <HelpKINode Title="ET.Service.IMainService 接口" Url="html/46913b8f-eed9-305b-032e-bcd9455a6655.htm" />
   <HelpKINode Title="ETEventArgs 类">
-    <HelpKINode Title="ETEventArgs 类" Url="html/cef6c811-2f9d-22eb-a8af-b18561dd3af5.htm" />
-    <HelpKINode Title="属性" Url="html/282eb4df-52c5-3e6d-1c84-101fbba2dc28.htm" />
-    <HelpKINode Title="方法" Url="html/4065d601-e726-d735-dc2d-247b9cab9a5c.htm" />
-    <HelpKINode Title="构造函数" Url="html/f256a734-def4-b22a-aff1-828782d7cc9a.htm" />
+    <HelpKINode Title="ETEventArgs 类" Url="html/fd5a95a7-5d0b-4eee-80a4-89fe46d4bd0a.htm" />
+    <HelpKINode Title="属性" Url="html/632f02a3-5df7-e739-f5cf-1264731e883f.htm" />
+    <HelpKINode Title="方法" Url="html/e9f05e53-5239-c75f-8706-605eff0ff985.htm" />
+    <HelpKINode Title="构造函数" Url="html/33991d5c-9511-f853-b284-c491ca041460.htm" />
   </HelpKINode>
-  <HelpKINode Title="ETEventArgs.ETEventArgs 构造函数" Url="html/f256a734-def4-b22a-aff1-828782d7cc9a.htm" />
-  <HelpKINode Title="ETEventArgs.EventHostVM 属性" Url="html/50239183-b71e-61c7-c893-8b03ef2bd5e0.htm" />
-  <HelpKINode Title="ETEventArgs.Tag 属性" Url="html/b429b313-14d4-178b-f408-baf087defe77.htm" />
-  <HelpKINode Title="ETModuleFileModify 事件" Url="html/fbe480fd-d253-cb2f-494a-ae9b1c5ca5d9.htm" />
-  <HelpKINode Title="ETModuleFileModifyEvent 字段" Url="html/9efd80b5-5a92-5b47-ab3b-30e47b39b22d.htm" />
-  <HelpKINode Title="ETModuleFileSaved 事件" Url="html/0e9c67ad-a27b-a7f8-ee4c-dcc50752a984.htm" />
-  <HelpKINode Title="ETModuleFileSavedEvent 字段" Url="html/0094436f-c4d0-6eff-7a29-1dab8aa60a91.htm" />
+  <HelpKINode Title="ETEventArgs.ETEventArgs 构造函数" Url="html/33991d5c-9511-f853-b284-c491ca041460.htm" />
+  <HelpKINode Title="ETEventArgs.EventHostVM 属性" Url="html/0598b761-6f53-d10a-d3cb-5f55e7650ad1.htm" />
+  <HelpKINode Title="ETEventArgs.Tag 属性" Url="html/6c9b8c2f-d410-88c6-f942-07b480484b0d.htm" />
+  <HelpKINode Title="ETException 类">
+    <HelpKINode Title="ETException 类" Url="html/7746fdb9-a124-5cdd-1d34-5522e8efa2be.htm" />
+    <HelpKINode Title="事件" Url="html/8d4b5de0-f0cb-d7c4-4f48-eab5c050264b.htm" />
+    <HelpKINode Title="属性" Url="html/620693a5-b17b-1157-8f8c-dd40fa786caf.htm" />
+    <HelpKINode Title="方法" Url="html/42e030a6-97d3-e875-890e-92241eea9255.htm" />
+    <HelpKINode Title="构造函数" Url="html/dc4e17da-5278-c927-1c76-554d60b6eadf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ETException.ETException 构造函数" Url="html/dc4e17da-5278-c927-1c76-554d60b6eadf.htm" />
+  <HelpKINode Title="ETException.ModuleKey 属性" Url="html/7c535739-1891-e175-d4b2-4d806f0e2b53.htm" />
+  <HelpKINode Title="ETException.ToString 方法" Url="html/c68af41d-f988-2808-4682-3dcd4eb1b7da.htm" />
+  <HelpKINode Title="ETModuleFileModify 事件" Url="html/51a5e4d1-2a6b-5f6e-4c0b-e2fedf13a44a.htm" />
+  <HelpKINode Title="ETModuleFileModifyEvent 字段" Url="html/147a7680-98d4-45b6-6946-cb951a222093.htm" />
+  <HelpKINode Title="ETModuleFileSaved 事件" Url="html/a255a435-111e-8587-a207-6bd8bd4f1a9d.htm" />
+  <HelpKINode Title="ETModuleFileSavedEvent 字段" Url="html/03a92810-c567-c5ea-5dea-86075a70a31d.htm" />
   <HelpKINode Title="ETPage 类">
-    <HelpKINode Title="ETPage 类" Url="html/8c9b869c-c1a1-ec12-4609-dd4500aba605.htm" />
-    <HelpKINode Title="事件" Url="html/f629f545-18c0-ba0f-feb0-4f62fa6f8533.htm" />
-    <HelpKINode Title="字段" Url="html/7a1b6d5d-ce74-477d-23fa-31f5aa5f4bce.htm" />
-    <HelpKINode Title="属性" Url="html/b8213a48-9f6c-1c70-c9fa-8007a9c87b1e.htm" />
-    <HelpKINode Title="方法" Url="html/1a3bf282-7d14-5c0c-3341-5c8180564040.htm" />
-    <HelpKINode Title="构造函数" Url="html/28b7f5b6-d67b-078d-2178-3d82fb75d403.htm" />
+    <HelpKINode Title="ETPage 类" Url="html/4f7e4f2d-17af-398c-927d-f05f36014562.htm" />
+    <HelpKINode Title="事件" Url="html/4bf82abc-88a6-fcb8-bed8-45ad1659a63c.htm" />
+    <HelpKINode Title="字段" Url="html/30109c76-d081-8a01-8183-e41d7aed870e.htm" />
+    <HelpKINode Title="属性" Url="html/3e7f788f-d849-9af8-843a-9853854e6172.htm" />
+    <HelpKINode Title="方法" Url="html/19d3b5ee-26cc-eaad-6bca-2d584fbb8c57.htm" />
+    <HelpKINode Title="构造函数" Url="html/31ce3e6e-8ecb-dbdb-df0e-11c22a844d8b.htm" />
   </HelpKINode>
-  <HelpKINode Title="ETPage.ETModuleFileModify 事件" Url="html/fbe480fd-d253-cb2f-494a-ae9b1c5ca5d9.htm" />
-  <HelpKINode Title="ETPage.ETModuleFileModifyEvent 字段" Url="html/9efd80b5-5a92-5b47-ab3b-30e47b39b22d.htm" />
-  <HelpKINode Title="ETPage.ETModuleFileSaved 事件" Url="html/0e9c67ad-a27b-a7f8-ee4c-dcc50752a984.htm" />
-  <HelpKINode Title="ETPage.ETModuleFileSavedEvent 字段" Url="html/0094436f-c4d0-6eff-7a29-1dab8aa60a91.htm" />
-  <HelpKINode Title="ETPage.ETPage 构造函数" Url="html/28b7f5b6-d67b-078d-2178-3d82fb75d403.htm" />
-  <HelpKINode Title="EventHostVM 属性" Url="html/50239183-b71e-61c7-c893-8b03ef2bd5e0.htm" />
-  <HelpKINode Title="FileIcon 属性" Url="html/9f23977b-0072-8047-5be7-516b298dddaf.htm" />
+  <HelpKINode Title="ETPage.ETModuleFileModify 事件" Url="html/51a5e4d1-2a6b-5f6e-4c0b-e2fedf13a44a.htm" />
+  <HelpKINode Title="ETPage.ETModuleFileModifyEvent 字段" Url="html/147a7680-98d4-45b6-6946-cb951a222093.htm" />
+  <HelpKINode Title="ETPage.ETModuleFileSaved 事件" Url="html/a255a435-111e-8587-a207-6bd8bd4f1a9d.htm" />
+  <HelpKINode Title="ETPage.ETModuleFileSavedEvent 字段" Url="html/03a92810-c567-c5ea-5dea-86075a70a31d.htm" />
+  <HelpKINode Title="ETPage.ETPage 构造函数" Url="html/31ce3e6e-8ecb-dbdb-df0e-11c22a844d8b.htm" />
+  <HelpKINode Title="ETService 类">
+    <HelpKINode Title="ETService 类" Url="html/eef5f2a2-45fa-82e3-b4c5-48dcdf87a7ee.htm" />
+    <HelpKINode Title="字段" Url="html/c4b65092-f041-14cb-f7e1-4b997f3a3052.htm" />
+    <HelpKINode Title="方法" Url="html/016d5120-a104-f072-3a54-460ccbfdba28.htm" />
+    <HelpKINode Title="构造函数" Url="html/b3d6a5db-02d5-37e7-d362-ed6631eed715.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ETService.ETService 构造函数" Url="html/b3d6a5db-02d5-37e7-d362-ed6631eed715.htm" />
+  <HelpKINode Title="ETService.MainService 字段" Url="html/e5e09637-eeaf-adde-f1f9-fef7d2f73c6e.htm" />
+  <HelpKINode Title="ETService.SetupMainService 方法" Url="html/a798d791-af25-5d9c-f283-1b4fe6cf2d5c.htm" />
+  <HelpKINode Title="EventHostVM 属性" Url="html/0598b761-6f53-d10a-d3cb-5f55e7650ad1.htm" />
+  <HelpKINode Title="FileIcon 属性" Url="html/f70b26fa-8c0a-4337-6633-b0cdf4a9756d.htm" />
   <HelpKINode Title="FileName 属性" Url="html/fd6cb941-f7b1-7294-92dc-53877c97ae64.htm" />
-  <HelpKINode Title="GetDocContent 方法" Url="html/38cd7677-1295-d672-4ef4-26810a4b936b.htm" />
-  <HelpKINode Title="GetNewFiles 方法" Url="html/f8422105-f498-aa15-18a8-ad79ab0dbb39.htm" />
+  <HelpKINode Title="GetDocContent 方法" Url="html/b969d109-8568-9496-0b08-8a8ecfb0bfd2.htm" />
+  <HelpKINode Title="GetNewFiles 方法" Url="html/88672583-153e-a04a-a469-cd0345fd1246.htm" />
   <HelpKINode Title="ICommModule 接口">
-    <HelpKINode Title="ICommModule 接口" Url="html/99fef831-1b52-817a-8589-72380801c2e9.htm" />
-    <HelpKINode Title="属性" Url="html/f8548455-adee-3c50-b9ca-26e5d8fc8dd0.htm" />
-    <HelpKINode Title="方法" Url="html/1bfc79e7-8458-2cec-af1b-90068fd8850a.htm" />
+    <HelpKINode Title="ICommModule 接口" Url="html/43bda6f4-ccdb-2cf5-68ec-e3b4933065ac.htm" />
+    <HelpKINode Title="属性" Url="html/38238142-2b12-4b19-6866-c3f8935dcd41.htm" />
+    <HelpKINode Title="方法" Url="html/7f276fb2-b8c3-d903-08c3-cff50b9aec34.htm" />
   </HelpKINode>
-  <HelpKINode Title="ICommModule.FileIcon 属性" Url="html/9f23977b-0072-8047-5be7-516b298dddaf.htm" />
-  <HelpKINode Title="ICommModule.GetNewFiles 方法" Url="html/f8422105-f498-aa15-18a8-ad79ab0dbb39.htm" />
-  <HelpKINode Title="ICommModule.LoadFile 方法" Url="html/23be2497-9901-836b-246c-d19575ac9f7c.htm" />
-  <HelpKINode Title="ICommModule.ModuleIcon 属性" Url="html/bc9341fe-0bba-ecdb-7942-d7b2dd68e9f0.htm" />
-  <HelpKINode Title="ILevel 属性" Url="html/825eb265-4603-e39d-2c82-d8a24c7ae48e.htm" />
+  <HelpKINode Title="ICommModule.FileIcon 属性" Url="html/f70b26fa-8c0a-4337-6633-b0cdf4a9756d.htm" />
+  <HelpKINode Title="ICommModule.GetNewFiles 方法" Url="html/88672583-153e-a04a-a469-cd0345fd1246.htm" />
+  <HelpKINode Title="ICommModule.LoadFile 方法" Url="html/73d7cc29-7afb-8c35-9643-f4c332780925.htm" />
+  <HelpKINode Title="ICommModule.ModuleIcon 属性" Url="html/cc6148e2-f72a-d998-bee1-8cdafecbed0a.htm" />
+  <HelpKINode Title="ILevel 属性" Url="html/5aacd2c9-7cc1-e2dc-385a-d774027930a6.htm" />
   <HelpKINode Title="IMainService 接口">
     <HelpKINode Title="IMainService 接口" Url="html/46913b8f-eed9-305b-032e-bcd9455a6655.htm" />
+    <HelpKINode Title="属性" Url="html/05e38dab-d2fe-2530-2543-fd752e710af7.htm" />
     <HelpKINode Title="方法" Url="html/44054ca5-72ad-943e-18e2-bffa656ab3da.htm" />
   </HelpKINode>
+  <HelpKINode Title="IMainService.AllModules 属性" Url="html/f5c0abb3-cbbd-a213-eb3d-b831dbd7a625.htm" />
   <HelpKINode Title="IMainService.OpenModuleFile 方法" Url="html/1a176f4e-2279-4fc8-cc78-361e6007750d.htm" />
-  <HelpKINode Title="IsAutoSave 属性" Url="html/c8e4d06b-4abe-4d1c-bdaf-51d4cf28685d.htm" />
-  <HelpKINode Title="IsOnlyOneFile 属性" Url="html/070da181-a541-4375-ff11-2be5a9d17701.htm" />
+  <HelpKINode Title="IsAutoSave 属性" Url="html/693d18e0-bc98-f8aa-8b1a-7646531b2c79.htm" />
+  <HelpKINode Title="IsOnlyOneFile 属性" Url="html/1403fd91-a5cf-d060-ae91-1609a45669b2.htm" />
   <HelpKINode Title="IViewDoc 接口">
-    <HelpKINode Title="IViewDoc 接口" Url="html/832976be-f9b4-0fab-266c-d46a8de907e8.htm" />
-    <HelpKINode Title="属性" Url="html/8784aa1a-5447-dbdc-4cbb-666ebda63ff1.htm" />
-    <HelpKINode Title="方法" Url="html/ce72694e-5c81-1555-8b25-c6d7b2abfa61.htm" />
+    <HelpKINode Title="IViewDoc 接口" Url="html/31f0cfb2-2a01-7065-1d21-92659eb9ae5f.htm" />
+    <HelpKINode Title="属性" Url="html/b2fd9b10-dc57-e305-81eb-848f3a849e1e.htm" />
+    <HelpKINode Title="方法" Url="html/00f83364-4fde-866d-2ee1-888e0a76c563.htm" />
   </HelpKINode>
-  <HelpKINode Title="IViewDoc.CanCopy 方法" Url="html/e80c49c7-8ba1-409c-cc4a-5c9134baac6c.htm" />
-  <HelpKINode Title="IViewDoc.CanPaste 方法" Url="html/3fc01c66-abbf-99c5-fde1-0e961ba1b396.htm" />
-  <HelpKINode Title="IViewDoc.CanRedo 方法" Url="html/246a25d9-ad0d-d220-99d3-d3679e650d7f.htm" />
-  <HelpKINode Title="IViewDoc.CanUndo 方法" Url="html/7d6bb787-2af1-685b-ef7d-1b0b6d4be7ef.htm" />
-  <HelpKINode Title="IViewDoc.DoCopy 方法" Url="html/21dcd52c-4271-ba69-1d2e-c98007f20855.htm" />
-  <HelpKINode Title="IViewDoc.DoPaste 方法" Url="html/4e79ace8-2361-b655-94d1-10486d0ec73b.htm" />
-  <HelpKINode Title="IViewDoc.DoRedo 方法" Url="html/595c060f-7469-cdfd-5911-57a8f719f095.htm" />
-  <HelpKINode Title="IViewDoc.DoUndo 方法" Url="html/abb35b06-6b9e-8175-dce1-a68eb481f2f0.htm" />
-  <HelpKINode Title="IViewDoc.GetDocContent 方法" Url="html/38cd7677-1295-d672-4ef4-26810a4b936b.htm" />
-  <HelpKINode Title="IViewDoc.IsAutoSave 属性" Url="html/c8e4d06b-4abe-4d1c-bdaf-51d4cf28685d.htm" />
-  <HelpKINode Title="IViewDoc.ModuleKey 属性" Url="html/a6a2f38e-636b-3789-0c29-56fb92cddc35.htm" />
-  <HelpKINode Title="IViewDoc.PageUI 属性" Url="html/81e61b23-389c-df44-e508-fc43c85e1732.htm" />
-  <HelpKINode Title="LoadFile 方法" Url="html/23be2497-9901-836b-246c-d19575ac9f7c.htm" />
+  <HelpKINode Title="IViewDoc.CanCopy 方法" Url="html/210adcb9-ee87-1895-7e74-dd99b58bdd8f.htm" />
+  <HelpKINode Title="IViewDoc.CanPaste 方法" Url="html/f7053874-9ab0-9529-11e5-66921e686849.htm" />
+  <HelpKINode Title="IViewDoc.CanRedo 方法" Url="html/ce9c6b3b-f1df-6557-f42d-d955293cd7ce.htm" />
+  <HelpKINode Title="IViewDoc.CanUndo 方法" Url="html/81fd7289-d518-638a-9a25-b8a20a1f71a3.htm" />
+  <HelpKINode Title="IViewDoc.DoCopy 方法" Url="html/1f8f866f-abd9-c5a0-d026-0276a5b917d4.htm" />
+  <HelpKINode Title="IViewDoc.DoPaste 方法" Url="html/ad4c307f-4558-0c00-76eb-9f3e1d01747d.htm" />
+  <HelpKINode Title="IViewDoc.DoRedo 方法" Url="html/99e9b955-8aee-e53f-398d-c4c3ae3e62cc.htm" />
+  <HelpKINode Title="IViewDoc.DoUndo 方法" Url="html/c2c03509-4b35-507e-7f9b-67e725939b69.htm" />
+  <HelpKINode Title="IViewDoc.GetDocContent 方法" Url="html/b969d109-8568-9496-0b08-8a8ecfb0bfd2.htm" />
+  <HelpKINode Title="IViewDoc.IsAutoSave 属性" Url="html/693d18e0-bc98-f8aa-8b1a-7646531b2c79.htm" />
+  <HelpKINode Title="IViewDoc.ModuleKey 属性" Url="html/1aa8c242-adec-9351-1e1d-82672f62660a.htm" />
+  <HelpKINode Title="IViewDoc.PageUI 属性" Url="html/ef9bf021-c050-9fb1-5a0d-705a6573128b.htm" />
+  <HelpKINode Title="LoadFile 方法" Url="html/73d7cc29-7afb-8c35-9643-f4c332780925.htm" />
+  <HelpKINode Title="MainService 字段" Url="html/e5e09637-eeaf-adde-f1f9-fef7d2f73c6e.htm" />
   <HelpKINode Title="ModuleFile 类">
     <HelpKINode Title="ModuleFile 类" Url="html/69ea6b26-9723-f6ff-5c87-30a8eba1ea8f.htm" />
     <HelpKINode Title="属性" Url="html/f276a596-c594-88ea-5905-d44833da573e.htm" />
@@ -110,30 +135,33 @@
   <HelpKINode Title="ModuleFile.ModuleFile 构造函数" Url="html/1a0cfa3a-a7b4-49f7-114b-647cd46800c3.htm" />
   <HelpKINode Title="ModuleFile.ModuleKey 属性" Url="html/8da61832-8ed7-bcd5-56a6-43772a413ec3.htm" />
   <HelpKINode Title="ModuleHeaderAttribute 类">
-    <HelpKINode Title="ModuleHeaderAttribute 类" Url="html/f2e6bc28-e536-abdc-deb3-a9708fced669.htm" />
-    <HelpKINode Title="属性" Url="html/2e3a0dd6-09ac-4dad-33e6-7ae3b69a7344.htm" />
-    <HelpKINode Title="方法" Url="html/2b9596b3-7e26-eac8-2c55-3a488ec2f755.htm" />
-    <HelpKINode Title="构造函数" Url="html/617b6027-7487-5336-bfa4-769480972592.htm" />
+    <HelpKINode Title="ModuleHeaderAttribute 类" Url="html/50725438-ae3d-0a2d-4c2c-dcb404285f57.htm" />
+    <HelpKINode Title="属性" Url="html/41ebc38a-f67b-fafb-3767-f20cd450a98f.htm" />
+    <HelpKINode Title="方法" Url="html/6757fe49-0d3d-5470-80e4-ae7695fc8318.htm" />
+    <HelpKINode Title="构造函数" Url="html/80a34f58-44aa-9bbd-7d01-0cb4b22c1906.htm" />
   </HelpKINode>
-  <HelpKINode Title="ModuleHeaderAttribute.ILevel 属性" Url="html/825eb265-4603-e39d-2c82-d8a24c7ae48e.htm" />
-  <HelpKINode Title="ModuleHeaderAttribute.IsOnlyOneFile 属性" Url="html/070da181-a541-4375-ff11-2be5a9d17701.htm" />
-  <HelpKINode Title="ModuleHeaderAttribute.ModuleHeaderAttribute 构造函数" Url="html/617b6027-7487-5336-bfa4-769480972592.htm" />
-  <HelpKINode Title="ModuleHeaderAttribute.ModuleKey 属性" Url="html/f3968d47-3950-6f5d-0d15-d89d14c2d656.htm" />
-  <HelpKINode Title="ModuleHeaderAttribute.ModuleShowName 属性" Url="html/da29d5f5-1bd0-726e-ddc3-33262cb2b6dd.htm" />
-  <HelpKINode Title="ModuleIcon 属性" Url="html/bc9341fe-0bba-ecdb-7942-d7b2dd68e9f0.htm" />
+  <HelpKINode Title="ModuleHeaderAttribute.ILevel 属性" Url="html/5aacd2c9-7cc1-e2dc-385a-d774027930a6.htm" />
+  <HelpKINode Title="ModuleHeaderAttribute.IsOnlyOneFile 属性" Url="html/1403fd91-a5cf-d060-ae91-1609a45669b2.htm" />
+  <HelpKINode Title="ModuleHeaderAttribute.ModuleHeaderAttribute 构造函数" Url="html/80a34f58-44aa-9bbd-7d01-0cb4b22c1906.htm" />
+  <HelpKINode Title="ModuleHeaderAttribute.ModuleKey 属性" Url="html/7dfbc03d-bd4e-e811-0af9-e1015c6d8043.htm" />
+  <HelpKINode Title="ModuleHeaderAttribute.ModuleShowName 属性" Url="html/e337ad6d-6e58-aece-9b85-5e59fe53d852.htm" />
+  <HelpKINode Title="ModuleIcon 属性" Url="html/cc6148e2-f72a-d998-bee1-8cdafecbed0a.htm" />
   <HelpKINode Title="ModuleKey 属性">
-    <HelpKINode Title="IViewDoc.ModuleKey 属性 " Url="html/a6a2f38e-636b-3789-0c29-56fb92cddc35.htm" />
+    <HelpKINode Title="ETException.ModuleKey 属性 " Url="html/7c535739-1891-e175-d4b2-4d806f0e2b53.htm" />
+    <HelpKINode Title="IViewDoc.ModuleKey 属性 " Url="html/1aa8c242-adec-9351-1e1d-82672f62660a.htm" />
     <HelpKINode Title="ModuleFile.ModuleKey 属性 " Url="html/8da61832-8ed7-bcd5-56a6-43772a413ec3.htm" />
-    <HelpKINode Title="ModuleHeaderAttribute.ModuleKey 属性 " Url="html/f3968d47-3950-6f5d-0d15-d89d14c2d656.htm" />
+    <HelpKINode Title="ModuleHeaderAttribute.ModuleKey 属性 " Url="html/7dfbc03d-bd4e-e811-0af9-e1015c6d8043.htm" />
   </HelpKINode>
-  <HelpKINode Title="ModuleShowName 属性" Url="html/da29d5f5-1bd0-726e-ddc3-33262cb2b6dd.htm" />
+  <HelpKINode Title="ModuleShowName 属性" Url="html/e337ad6d-6e58-aece-9b85-5e59fe53d852.htm" />
   <HelpKINode Title="NodeName 属性" Url="html/158ade9a-bf3e-5577-0c1a-cd826edb3c77.htm" />
   <HelpKINode Title="OpenModuleFile 方法" Url="html/1a176f4e-2279-4fc8-cc78-361e6007750d.htm" />
-  <HelpKINode Title="PageUI 属性" Url="html/81e61b23-389c-df44-e508-fc43c85e1732.htm" />
+  <HelpKINode Title="PageUI 属性" Url="html/ef9bf021-c050-9fb1-5a0d-705a6573128b.htm" />
   <HelpKINode Title="ParentNode 属性" Url="html/03f45e13-f073-fbed-fd26-a642b10ff829.htm" />
+  <HelpKINode Title="SetupMainService 方法" Url="html/a798d791-af25-5d9c-f283-1b4fe6cf2d5c.htm" />
   <HelpKINode Title="SubDirNodes 属性" Url="html/d28f49dd-7b59-9ea0-1bb5-f1fd6a7331c3.htm" />
   <HelpKINode Title="SubModuleFiles 属性" Url="html/def378e5-0f1a-e579-696f-f249c15f1b5d.htm" />
-  <HelpKINode Title="Tag 属性" Url="html/b429b313-14d4-178b-f408-baf087defe77.htm" />
+  <HelpKINode Title="Tag 属性" Url="html/6c9b8c2f-d410-88c6-f942-07b480484b0d.htm" />
+  <HelpKINode Title="ToString 方法" Url="html/c68af41d-f988-2808-4682-3dcd4eb1b7da.htm" />
   <HelpKINode Title="version">
     <HelpKINode Title="1.0.0.0" Url="html/bedee466-e4de-4ae7-9522-f0e0d8bdfc83.htm" />
     <HelpKINode Title="history" Url="html/1864466b-853a-4a8d-bbdd-7390cb860f30.htm" />

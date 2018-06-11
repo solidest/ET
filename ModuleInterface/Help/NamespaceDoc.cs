@@ -26,7 +26,7 @@ namespace ET.Doc
 
 }
 
-namespace ET.ModuleInterface
+namespace ET.Interface
 {
     /// <summary>
     /// <list type="bullet">
@@ -44,7 +44,7 @@ namespace ET.Service
 {
     /// <summary>
     /// <list type="bullet">
-    /// <item>本命名空间下的成员是ET服务的接口定义与实现</item>
+    /// <item>本命名空间下的成员是ET服务的接口定义以及相关辅助类实现</item>
     /// <item>ET服务是由主程序提供并可被所有ET模块使用的功能接口</item>
     /// </list>
     /// </summary>

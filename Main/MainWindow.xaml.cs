@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using System.Windows.Input;
-using ET.ModuleInterface;
+using ET.Interface;
 using ET.Doc;
 
 namespace ET.Main
@@ -103,15 +103,15 @@ namespace ET.Main
         {
             var mdoc = new MainDocument();
 
-            foreach (var m in _ms.Values)
-            {
-                var fs = m.GetNewFiles();
-                if (fs == null) continue;
-                foreach (var f in fs)
-                {
-                    mdoc.AddFileContent(f);
-                }
-            }
+            //foreach (var m in _ms.Values)
+            //{
+            //    var fs = m.GetNewFile();
+            //    if (fs == null) continue;
+            //    foreach (var f in fs)
+            //    {
+            //        mdoc.AddFileContent(f);
+            //    }
+            //}
 
             return mdoc;
         }

@@ -16,15 +16,22 @@ namespace ET.Doc
         /// <summary>
         /// 目录节点类的唯一构造函数
         /// </summary>
+        /// <param name="mKey">ET模块主键</param>
         /// <param name="nName">节点名称</param>
         /// <param name="pNode">指定父节点</param>
-        public DirNode(String nName, DirNode pNode)
+        public DirNode(string mKey, string nName, DirNode pNode)
         {
             NodeName = nName;
             ParentNode = pNode;
             SubDirNodes = new List<DirNode>();
             SubModuleFiles = new List<ModuleFile>();
         }
+
+        /// <summary>
+        /// 模块文件对应模块的主键
+        /// </summary>
+        public String ModuleKey { get; set; }
+
         /// <summary>
         /// 当前节点的名称
         /// </summary>

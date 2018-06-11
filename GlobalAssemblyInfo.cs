@@ -8,7 +8,7 @@ using System.Windows;
 [assembly: ComVisible(false)]
 [assembly: AssemblyCompany("ET")]
 [assembly: AssemblyProduct(RevisionClass.ProductName)]
-[assembly: AssemblyCopyright("2018-2020 ET WorkBenck Develop Team")]
+[assembly: AssemblyCopyright("Copyright ©  2018-2020 ET WorkBenck Develop Team")]
 [assembly: AssemblyVersion(RevisionClass.FullVersion)]
 [assembly: AssemblyFileVersion(RevisionClass.FullVersion)]
 
@@ -22,4 +22,5 @@ internal static class RevisionClass
 
 	public const string FullVersion = AppMainVer + "." + AppSubVer + "." + DocVer + "." + DevVer;
     public const string ProductName = "ET WorkBench";
+    public const string ETModuleExportKey = "ETModule";
 }

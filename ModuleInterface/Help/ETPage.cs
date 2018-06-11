@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ET.ModuleInterface
+namespace ET.Interface
 {
     /// <summary>
     /// <para>ET页面类</para>

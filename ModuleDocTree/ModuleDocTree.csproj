@@ -42,14 +42,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GlobalAssemblyInfo.cs">
+      <Link>Properties\GlobalAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="DocTreeVM.cs" />
     <Compile Include="ModuleDocTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Libraries\ICSharpCode.TreeView\ICSharpCode.TreeView.csproj">
-      <Project>{dde2a481-8271-4eac-a330-8fa6a38d13d1}</Project>
-      <Name>ICSharpCode.TreeView</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ModuleInterface\ModuleInterface.csproj">
       <Project>{fe1c1d0c-b470-4f9a-b849-551144969ab3}</Project>
       <Name>ModuleInterface</Name>
@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Images\dir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TreeViewControl\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

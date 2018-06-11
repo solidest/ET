@@ -20,15 +20,14 @@ namespace ET.Doc
         /// </summary>
         /// <param name="mKey">对应模块的主键</param>
         /// <param name="fName">模块文件名</param>
-        /// <param name="dir">模块文件所在的节点目录</param>
         /// <param name="content">模块文件的内容，默认为空</param>
-        public ModuleFile(String mKey, String fName, DirNode dir, Byte[] content=null )
+        public ModuleFile(String mKey, String fName, Byte[] content=null )
         {
             ModuleKey = mKey;
             FileName = fName;
-            DirNode = dir;
             Content = content;
         }
+
         /// <summary>
         /// 模块文件对应模块的主键
         /// </summary>
@@ -46,10 +45,5 @@ namespace ET.Doc
         /// </note>
         /// </summary>
         public Byte[] Content { get; set; }
-
-        /// <summary>
-        /// 模块文件在文档结构中所处的目录位置
-        /// </summary>
-        public DirNode DirNode { get; set; }
     }
 }

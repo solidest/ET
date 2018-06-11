@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using ET.Interface;
 using ET.Doc;
+using System.Collections.Generic;
 
 namespace ET.Service
 {
@@ -17,7 +15,14 @@ namespace ET.Service
         /// <param name="mfile">模块文件</param>
         void OpenModuleFile(ModuleFile mfile);
 
+        /// <summary>
+        /// 全部可以访问的ET模块
+        /// </summary>
+        IDictionary<string, ICommModule> Modules { get; }
 
-
+        /// <summary>
+        /// 全部可以访问的ET模块的元数据信息
+        /// </summary>
+        List<ModuleHeaderAttribute> ModulesHeaders { get; }
     }
 }

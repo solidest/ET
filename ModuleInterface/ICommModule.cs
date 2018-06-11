@@ -2,7 +2,7 @@
 using ET.Doc;
 using System.Windows.Media.Imaging;
 
-namespace ET.ModuleInterface
+namespace ET.Interface
 {
     /// <summary>
     /// <para>ET模块的通用接口定义，所有的ET模块均需要实现此接口</para>
@@ -14,7 +14,7 @@ namespace ET.ModuleInterface
         /// 用户选择新建文件时被调用
         /// </summary>
         /// <returns>新创建的模块文件数组</returns>
-        ModuleFile[] GetNewFiles();
+        ModuleFile GetNewFile();
 
         /// <summary>
         /// 加载模块文件的内容

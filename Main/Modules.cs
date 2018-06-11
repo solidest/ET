@@ -3,9 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using System.Linq;
-using System.Text;
-using ET.ModuleInterface;
+using ET.Interface;
 
 namespace ET.Main
 {
@@ -25,7 +23,7 @@ namespace ET.Main
         /// </summary>
         public void InitialModules()
         {
-            var catalog = new DirectoryCatalog("Modules");
+            var catalog = new DirectoryCatalog(RevisionClass.ETModuleExportKey);
             var container = new CompositionContainer(catalog);
             var objectToSatisfy = this;
             container.ComposeParts(this);
@@ -43,7 +41,7 @@ namespace ET.Main
 
                 //_ms.Add(m.Metadata["ModuleKey"].ToString(), m.Value);
             }
-            if (msatt.Count == 0) throw new Exception("加载ET模块失败！");
+            if (msatt.Count == 0) throw new ETException("","加载ET模块失败！");
             ModulesHeaders = msatt;
         }
 
