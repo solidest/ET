@@ -28,7 +28,7 @@ namespace ET.Interface
         /// <summary>
         /// 重载基类的函数，加入ET模块主键信息
         /// </summary>
-        /// <returns></returns>
+        /// <returns>描述字符串</returns>
         public override string ToString()
         {
             return "ET模块(" + ModuleKey + ") - " + base.ToString();

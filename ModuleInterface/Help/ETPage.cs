@@ -45,5 +45,23 @@ namespace ET.Interface
             add { this.AddHandler(ETModuleFileModifyEvent, value); }
             remove { this.RemoveHandler(ETModuleFileModifyEvent, value); }
         }
+
+
+
+        /// <summary>
+        /// 注册路由事件 打开模块文件事件
+        /// </summary>
+        public readonly static RoutedEvent ETModuleFileOpenEvent =
+            EventManager.RegisterRoutedEvent("ETModuleFileOpen", RoutingStrategy.Tunnel, typeof(EventHandler<ETEventArgs>), typeof(ETPage));
+
+        /// <summary>
+        /// 模块文件内容被修改后触发该事件，通常由ET模块内部触发该事件并向模块外部进行事件广播
+        /// </summary>
+        public event RoutedEventHandler ETModuleFileOpen
+        {
+            add { this.AddHandler(ETModuleFileOpenEvent, value); }
+            remove { this.RemoveHandler(ETModuleFileOpenEvent, value); }
+        }
+
     }
 }

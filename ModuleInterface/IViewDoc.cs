@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using ET.Doc;
 
 namespace ET.Interface
 {
@@ -14,9 +15,15 @@ namespace ET.Interface
     {
 
         /// <summary>
-        /// 可供XAML窗体加载的ET页面，对应已加载加载模块文件内容的UI
+        /// ET页面，可供XAML窗体加载，对应已加载加载模块文件内容的UI
         /// </summary>
         ETPage PageUI { get; }
+
+        /// <summary>
+        /// 模块文件
+        /// </summary>
+        ModuleFile PageFile { get; }
+        
 
         /// <summary>
         /// 所属的ET模块主键
@@ -29,10 +36,9 @@ namespace ET.Interface
         bool IsAutoSave { get; set; }
 
         /// <summary>
-        /// 获取最新的模块文档内容
+        /// 更新最新的模块文档内容，即:将内容持久化并保存到<c>PageFile.Content</c>
         /// </summary>
-        /// <returns>二进制序列化后的模块文件内容</returns>
-        byte[] GetDocContent();
+        void UpdateContent();
 
         /// <summary>
         /// 是否可以执行复制

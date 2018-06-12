@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:ET.Main"
         mc:Ignorable="d"
         Title="ET WorkBench" Height="450" Width="800"
-        Icon="Images\ET.ico" WindowState="Maximized" Loaded="Window_Loaded">
+        Icon="Images\ET.ico" WindowState="Maximized">
 
     <Window.Resources>
         <Style TargetType="Image">
@@ -106,11 +106,12 @@
             </Button>
         </ToolBar>
 
-        <sd:SharpTreeView Grid.Row="1" x:Name="trDocs" Margin="3"
+        <!--<sd:SharpTreeView Grid.Row="1" x:Name="trDocs" Margin="3"
                         AllowDrop="True" AllowDropOrder="True" 
                         GotFocus="ActiveModule" LostFocus="DeActiveModule">
 
-        </sd:SharpTreeView>
+        </sd:SharpTreeView>-->
+        <DockPanel Grid.Row="1" x:Name="panelDocTree"/>
 
         <r:TabControl Margin="3,0,3,3" x:Name="tabPages" Grid.Row="1" Grid.Column="2"  
                       TabStripPlacement="{Binding ElementName=listBox, Path=SelectedItem}" 

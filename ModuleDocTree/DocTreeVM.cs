@@ -29,6 +29,14 @@ namespace ET.Main
 
         public bool IsAutoSave { get => true; set { if (!value) throw new ETException(ModuleKey, "DocTree的模块文档不能设置为非自动保存！"); } }
 
+        public ModuleFile PageFile
+        {
+            get
+            {
+                return null;
+            }
+        }
+
         public bool CanCopy()
         {
             throw new NotImplementedException();
@@ -70,6 +78,11 @@ namespace ET.Main
         }
 
         public byte[] GetDocContent()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateContent()
         {
             throw new NotImplementedException();
         }

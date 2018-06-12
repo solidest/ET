@@ -22,7 +22,7 @@ namespace ET.Interface
             ModuleKey = pvs["ModuleKey"].ToString();
             ModuleShowName = pvs["ModuleShowName"].ToString();
             ILevel = (Int32)pvs["ILevel"];
-            IsOnlyOneFile = (Boolean)pvs["IsOnlyOneFile"];
+            ModuleFileType = (ETModuleFileTypeEnum)pvs["ModuleFileType"];
         }
 
          
@@ -32,13 +32,13 @@ namespace ET.Interface
         /// <param name="moduleKey">ET模块主键</param>
         /// <param name="moduleShowName">ET模块的显示名称</param>
         /// <param name="iLevel">模块等级</param>
-        /// <param name="isOnlyOneFile">是否只支持单个文件</param>
-        public ModuleHeaderAttribute(String moduleKey, String moduleShowName, Int32 iLevel, Boolean isOnlyOneFile)
+        /// <param name="fileType">是否只支持单个文件</param>
+        public ModuleHeaderAttribute(String moduleKey, String moduleShowName, Int32 iLevel, ETModuleFileTypeEnum fileType)
         {
             ModuleKey = moduleKey;
             ModuleShowName = moduleShowName;
             ILevel = iLevel;
-            IsOnlyOneFile = isOnlyOneFile;
+            ModuleFileType = fileType;
         }
 
         /// <summary>
@@ -59,8 +59,33 @@ namespace ET.Interface
         /// <summary>
         /// 是否只支持单个文件
         /// </summary>
-        public bool IsOnlyOneFile { get; set; }
+        public ETModuleFileTypeEnum ModuleFileType { get; set; }
 
     }
+
+
+
+    /// <summary>
+    /// ET模块支持的文件类型
+    /// </summary>
+    public enum ETModuleFileTypeEnum
+    {
+        /// <summary>
+        /// 多个自定义模块文件
+        /// </summary>
+        MultiCustom,
+
+        /// <summary>
+        /// 仅一份模块文件
+        /// </summary>
+        OnlyOneFile,
+
+        /// <summary>
+        /// 不包含模块文件
+        /// </summary>
+        NoneFile
+    }
+
+
 
 }

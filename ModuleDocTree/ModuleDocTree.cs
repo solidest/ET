@@ -12,7 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace ET.Main
 {
     [Export(RevisionClass.ETModuleExportKey, typeof(ICommModule))]
-    [ModuleHeader(ModuleKey,  "文档结构", 0, true)]
+    [ModuleHeader(ModuleKey,  "文档结构", 0, ETModuleFileTypeEnum.OnlyOneFile)]
     public class ModuleDocTree : ICommModule
     {
 
@@ -54,7 +54,7 @@ namespace ET.Main
         }
 
         //新建空项目
-        public ModuleFile GetNewFile()
+        public IViewDoc OpenNewFile()
         {
             var rootNodes = new List<DirNode>(); 
             foreach (var m in ETService.MainService.ModulesHeaders)
@@ -62,7 +62,13 @@ namespace ET.Main
                 if(m.ModuleKey != ModuleKey) //排除本模块
                 {
                     var dir = new DirNode(m.ModuleKey, m.ModuleKey, null);
-                    if(m.IsOnlyOneFile) dir.SubModuleFiles.Add(ETService.MainService.Modules[m.ModuleKey].GetNewFile());
+                    if (m.ModuleFileType == ETModuleFileTypeEnum.OnlyOneFile)
+                    {
+                        var vm = ETService.MainService.Modules[m.ModuleKey].OpenNewFile();
+                        dir.SubModuleFiles.Add(vm.PageFile);
+                        var ete = new ETEventArgs(ETPage.ETModuleFileSavedEvent, vm.PageUI, vm);
+                        vm.PageUI.RaiseEvent(ete);
+                    }
                     rootNodes.Add(dir);
                 }
             }
@@ -75,15 +81,15 @@ namespace ET.Main
                 content = ms.GetBuffer();
             }
 
-            return new ModuleFile(ModuleKey, "", content);
+            return new DocTreeVM(rootNodes);
         }
 
         //加载项目
-        public IViewDoc LoadFile(byte[] content, int version)
+        public IViewDoc OpenFile(ModuleFile mf, int version)
         {
             if (version > 0) throw new ETException(ModuleKey, "程序版本过低，打开文档失败！");
             var rootNodes = new List<DirNode>();
-            using (MemoryStream ms = new MemoryStream(content))
+            using (MemoryStream ms = new MemoryStream(mf.Content))
             {
                 var formatter = new BinaryFormatter();
                 rootNodes = formatter.Deserialize(ms) as List<DirNode>;

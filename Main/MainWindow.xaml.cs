@@ -7,11 +7,12 @@ using System.Windows;
 using System.Windows.Input;
 using ET.Interface;
 using ET.Doc;
+using ET.Service;
 
 namespace ET.Main
 {
 
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, IMainService
     {
 
         #region --Property--
@@ -22,17 +23,15 @@ namespace ET.Main
         //活动VM
         private IViewDoc _activeVM = null;
 
-        //文档结构树VM
-        private ICommModule _docTree = null;
-
-        //文档
-        private MainDocument _doc = null;
+        //文档结构树VM和Doc
+        private ICommModule _docTreeModule = null;
+        private IViewDoc _docTreeVM = null;
 
         //打开的操作系统文件全名
         private String __file = "";
 
-        //所有打开的内部文件
-        private Dictionary<IViewDoc, ModuleFile> _open_docs = new Dictionary<IViewDoc, ModuleFile>();
+        //所有打开的模块文件控制器句柄
+        private List<IViewDoc>  _open_vms = new List<IViewDoc>();
 
         private String FileName
         {
@@ -50,26 +49,51 @@ namespace ET.Main
 
         #endregion
 
+
+        #region --IMainService--
+        public IDictionary<string, ICommModule> Modules
+        {
+            get
+            {
+                return _ms;
+            }
+        }
+
+        public List<ModuleHeaderAttribute> ModulesHeaders
+        {
+            get
+            {
+                return _ms.ModulesHeaders;
+            }
+        }
+
+        public void OpenModuleFile(ModuleFile mfile)
+        {
+            //TODO:打开模块文件
+        }
+
+
+        #endregion
+
         #region --Main--
 
         public MainWindow()
         {
             InitializeComponent();
-            LoadAllModules();
+            IinitialMain();
         }
 
-        private void LoadAllModules()
+        private void IinitialMain()
         {
+            //加载ET模块
             _ms = new Modules();
             _ms.InitialModules();
 
-            //Modules采用延迟加载，以下对模块的调用会先执行模块的加载操作
-            _docTree = _ms["DocTree"];
-            this.Icon = _docTree.ModuleIcon;
-        }
+            //保存文档树模块
+            _docTreeModule = _ms["DocTree"];
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
+            //安装主服务
+            ETService.SetupMainService(this);
 
         }
 
@@ -77,16 +101,10 @@ namespace ET.Main
 
         #region --Events--
 
+
         private void ActiveModule(object sender, RoutedEventArgs e)
         {
-            if (sender == tabPages)
-            {
-
-            }
-            else if (sender == trDocs)
-            {
-
-            }
+           
         }
 
         private void DeActiveModule(object sender, RoutedEventArgs e)
@@ -97,52 +115,68 @@ namespace ET.Main
 
         #region --Doc Operation--
 
-
-        //创建一个空文件
-        private MainDocument GetNewMainDoc()
+        [Serializable]
+        private class MainDoc
         {
-            var mdoc = new MainDocument();
-
-            //foreach (var m in _ms.Values)
-            //{
-            //    var fs = m.GetNewFile();
-            //    if (fs == null) continue;
-            //    foreach (var f in fs)
-            //    {
-            //        mdoc.AddFileContent(f);
-            //    }
-            //}
-
-            return mdoc;
+            public int DocVersion
+            {
+                get
+                {
+                    return Convert.ToInt32(RevisionClass.DocVer);
+                }
+            }
+            public byte[] Content { get; set; }
         }
 
-        //从文件打开文档
+        //显示文档结构树
+        private void ShowDocTree()
+        {
+            if (panelDocTree.Children.Count == 0)
+                panelDocTree.Children.Add(_docTreeVM.PageUI);
+        }
+
+
+        //打开文件
         private void OpenMainDoc(string fileName)
         {
+            MainDoc md = null;
             using (var fs = new FileStream(fileName, FileMode.Open))
             {
                 BinaryFormatter bf = new BinaryFormatter();
-                OpenMainDoc(bf.Deserialize(fs) as MainDocument);
+                md = bf.Deserialize(fs) as MainDoc;
             }
+
+            if (md.DocVersion > Convert.ToInt32(RevisionClass.DocVer)) throw new ETException("MAIN", "程序版本过低，打开文档失败！");
+            using (var ms = new MemoryStream(md.Content))
+            {
+                var formatter = new BinaryFormatter();
+                var mf = formatter.Deserialize(ms) as ModuleFile;
+                _docTreeVM = _docTreeModule.OpenFile(mf, md.DocVersion);
+            }
+
             FileName = fileName;
+            ShowDocTree();
         }
 
-        //从对象打开文档
-        private void OpenMainDoc(MainDocument doc)
-        {
-            //TODO 判断文件版本 如果需要进行升级处理
-            _doc = doc;
-            //TODO 打开文件内容
-        }
-
-        //保存文件内容
+        //保存文件
         private void SaveMainDoc(String fname)
         {
+            _docTreeVM.UpdateContent();
+
+            var md = new MainDoc();
+            using (var ms = new MemoryStream())
+            {
+                var formatter = new BinaryFormatter();
+                formatter.Serialize(ms, _docTreeVM.PageFile);
+                md.Content = ms.GetBuffer();
+            }
+
             using (var fs = new FileStream(fname, FileMode.Create))
             {
                 BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(fs, _doc);
+                bf.Serialize(fs, md);
             }
+
             FileName = fname;
         }
 
@@ -173,9 +207,10 @@ namespace ET.Main
 
             //清理内部变量
             _activeVM = null;
-            _doc = null;
+            _docTreeVM = null;
             FileName = "";
-            _open_docs.Clear();
+            _open_vms.Clear();
+            panelDocTree.Children.Clear();
             return true;
         }
 
@@ -186,7 +221,11 @@ namespace ET.Main
 
         private void DoNewDoc(object sender, ExecutedRoutedEventArgs e)
         {
-            if (CloseMainDoc()) OpenMainDoc(GetNewMainDoc());
+            if (CloseMainDoc())
+            {
+                _docTreeVM = _docTreeModule.OpenNewFile();
+                ShowDocTree();
+            }
         }
 
 
@@ -206,15 +245,14 @@ namespace ET.Main
 
         private void CanSaveAll(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = (_doc != null);
+            e.CanExecute = (_docTreeVM != null);
         }
 
         private void DoSaveAll(object sender, ExecutedRoutedEventArgs e)
         {
-
-            foreach (var f in _open_docs) f.Value.Content = f.Key.GetDocContent();
+            foreach (var f in _open_vms) f.UpdateContent();
             SaveMainDoc();
-            foreach (var vm in _open_docs.Keys)
+            foreach (var vm in _open_vms)
             {
                 var ete = new ETEventArgs(ETPage.ETModuleFileSavedEvent, vm.PageUI, vm);
                 vm.PageUI.RaiseEvent(ete);
@@ -229,7 +267,7 @@ namespace ET.Main
         private void DoSaveDoc(object sender, ExecutedRoutedEventArgs e)
         {
 
-            if (_activeVM != null) _open_docs[_activeVM].Content = _activeVM.GetDocContent();
+            if (_activeVM != null) _activeVM.UpdateContent();
             SaveMainDoc();
             var ete = new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM);
             _activeVM.PageUI.RaiseEvent(ete);
@@ -272,8 +310,6 @@ namespace ET.Main
         {
             _activeVM?.DoUndo();
         }
-
-
 
         #endregion
 

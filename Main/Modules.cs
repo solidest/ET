@@ -23,7 +23,7 @@ namespace ET.Main
         /// </summary>
         public void InitialModules()
         {
-            var catalog = new DirectoryCatalog(RevisionClass.ETModuleExportKey);
+            var catalog = new DirectoryCatalog("Modules");
             var container = new CompositionContainer(catalog);
             var objectToSatisfy = this;
             container.ComposeParts(this);

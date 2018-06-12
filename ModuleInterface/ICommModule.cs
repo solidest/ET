@@ -14,15 +14,15 @@ namespace ET.Interface
         /// 用户选择新建文件时被调用
         /// </summary>
         /// <returns>新创建的模块文件数组</returns>
-        ModuleFile GetNewFile();
+        IViewDoc OpenNewFile();
 
         /// <summary>
-        /// 加载模块文件的内容
+        /// 打开模块文件
         /// </summary>
-        /// <param name="content">模块文件的二进制序列化内容</param>
+        /// <param name="mf">模块文件</param>
         /// <param name="version">主文件的版本，每个ET模块的实现中需保证模块文件内容向后兼容</param>
         /// <returns>返回加载内容后的<c>IViewDoc</c>接口</returns>
-        IViewDoc LoadFile(byte[] content, Int32 version);
+        IViewDoc OpenFile(ModuleFile mf, Int32 version);
 
         /// <summary>
         /// ET模块的图标
@@ -35,4 +35,6 @@ namespace ET.Interface
         BitmapImage FileIcon { get;}
 
     }
+
 }
+
