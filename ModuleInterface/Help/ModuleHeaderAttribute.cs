@@ -73,17 +73,22 @@ namespace ET.Interface
         /// <summary>
         /// 多个自定义模块文件
         /// </summary>
-        MultiCustom,
+        CustomMulti,
 
         /// <summary>
-        /// 仅一份模块文件
+        /// 仅一份自定义模块文件
         /// </summary>
-        OnlyOneFile,
+        CustomOnlyOne,
 
         /// <summary>
-        /// 不包含模块文件
+        /// 多个默认自定义模块文件
         /// </summary>
-        NoneFile
+        DefaultMulti,
+
+        /// <summary>
+        /// 仅一份自定义模块文件
+        /// </summary>
+        DefaultOnlyOne
     }
 
 

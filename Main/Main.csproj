@@ -59,6 +59,7 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Libs\Helper.cs" />
     <Compile Include="Modules.cs" />
     <Compile Include="TreeNode\ModuleFileTreeNode.cs" />
     <Compile Include="TreeNode\ModuleTreeNode.cs" />
@@ -119,7 +120,7 @@
     <Resource Include="Images\undo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Libs\" />
+    <Resource Include="Images\letfdisp.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Libraries\ICSharpCode.TreeView\ICSharpCode.TreeView.csproj">

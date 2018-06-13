@@ -102,6 +102,25 @@ namespace ET.Main
         #region --Events--
 
 
+        private void DocTreeDispHide(object sender, RoutedEventArgs e)
+        {
+            switch (userctr.Visibility)
+            {
+                case Visibility.Visible:
+                    userctr.Visibility = Visibility.Collapsed;
+                    VSplitter.Visibility = Visibility.Collapsed;
+                    gridMain.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
+                    break;
+
+                case Visibility.Collapsed:
+                    userctr.Visibility = Visibility.Visible;
+                    VSplitter.Visibility = Visibility.Visible;
+                    gridMain.ColumnDefinitions[0].Width = new GridLength(300, GridUnitType.Pixel);
+                    break;
+
+            }
+        }
+
         private void ActiveModule(object sender, RoutedEventArgs e)
         {
            
@@ -115,43 +134,37 @@ namespace ET.Main
 
         #region --Doc Operation--
 
-        [Serializable]
-        private class MainDoc
-        {
-            public int DocVersion
-            {
-                get
-                {
-                    return Convert.ToInt32(RevisionClass.DocVer);
-                }
-            }
-            public byte[] Content { get; set; }
-        }
-
         //显示文档结构树
         private void ShowDocTree()
         {
-            if (panelDocTree.Children.Count == 0)
-                panelDocTree.Children.Add(_docTreeVM.PageUI);
+            //if (panelDocTree.Children.Count == 0)
+            //    panelDocTree.Children.Add(_docTreeVM.PageUI);
         }
 
 
         //打开文件
         private void OpenMainDoc(string fileName)
         {
-            MainDoc md = null;
+            byte[] bver = new byte[4];
+            byte[] content = null;
+
             using (var fs = new FileStream(fileName, FileMode.Open))
             {
-                BinaryFormatter bf = new BinaryFormatter();
-                md = bf.Deserialize(fs) as MainDoc;
+                byte[] blen = new byte[4];
+
+                fs.Read(bver, 0, 4);
+                fs.Read(blen, 0, 4);
+                content = new byte[BitConverter.ToInt32(blen,0)];
+                fs.Read(content, 0, content.Length);
             }
 
-            if (md.DocVersion > Convert.ToInt32(RevisionClass.DocVer)) throw new ETException("MAIN", "程序版本过低，打开文档失败！");
-            using (var ms = new MemoryStream(md.Content))
+            Int32 iver = BitConverter.ToInt32(bver, 0);
+            if (iver > Helper.CurrentAppDocVer()) throw new ETException("MAIN", "程序版本过低，打开文档失败！");
+            using (var ms = new MemoryStream(content))
             {
                 var formatter = new BinaryFormatter();
                 var mf = formatter.Deserialize(ms) as ModuleFile;
-                _docTreeVM = _docTreeModule.OpenFile(mf, md.DocVersion);
+                _docTreeVM = _docTreeModule.OpenFile(mf, iver);
             }
 
             FileName = fileName;
@@ -163,18 +176,20 @@ namespace ET.Main
         {
             _docTreeVM.UpdateContent();
 
-            var md = new MainDoc();
+            byte[] content = null;
             using (var ms = new MemoryStream())
             {
                 var formatter = new BinaryFormatter();
                 formatter.Serialize(ms, _docTreeVM.PageFile);
-                md.Content = ms.GetBuffer();
+                content = ms.GetBuffer();
             }
 
             using (var fs = new FileStream(fname, FileMode.Create))
             {
-                BinaryFormatter bf = new BinaryFormatter();
-                bf.Serialize(fs, md);
+                Int32 version = Convert.ToInt32(RevisionClass.DocVer);
+                fs.Write(Helper.ConvertIntToByteArray(version), 0, 4);          //写入文档版本
+                fs.Write(Helper.ConvertIntToByteArray(content.Length), 0, 4);   //写入内容长度
+                fs.Write(content, 0, content.Length);                           //写入文档内容
             }
 
             FileName = fname;

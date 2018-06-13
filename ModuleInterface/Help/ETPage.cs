@@ -12,7 +12,7 @@ namespace ET.Interface
     /// <para>ET页面继承自WPF的布局控件<c>Syste.Winows.Controls.Grid</c>，并加入ET自定义路由事件</para>
     /// <para>ET页面是ET模块中UI接口的统一包装器</para>
     /// </summary>
-    public class ETPage :Grid
+    public class ETPage : UserControl
     {
 
         /// <summary>

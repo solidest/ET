@@ -21,19 +21,19 @@
     </Window.Resources>
 
 
-    <Grid>
+    <Grid Name="gridMain">
         <Grid.RowDefinitions>
             <RowDefinition Height="30px"/>
             <RowDefinition />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <GridSplitter Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="2"/>
+        <GridSplitter Name="VSplitter" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="2"/>
 
         <ToolBar Grid.ColumnSpan="10">
             <Button ToolTip="新建" Command="ApplicationCommands.New">
@@ -78,6 +78,15 @@
             </Button>
 
             <TextBlock VerticalAlignment="Center" FontSize="18" Foreground ="LightGray">|</TextBlock>
+            
+            <Button ToolTip="显示/隐藏项目列表" Click="DocTreeDispHide">
+                <Button.Content>
+                    <Image Source="images/letfdisp.png"></Image>
+                </Button.Content>
+            </Button>
+            
+            <TextBlock VerticalAlignment="Center" FontSize="18" Foreground ="LightGray">|</TextBlock>
+            
             <Button ToolTip="启动">
                 <Button.Content>
                     <Image Source="images/start.png"></Image>
@@ -111,15 +120,21 @@
                         GotFocus="ActiveModule" LostFocus="DeActiveModule">
 
         </sd:SharpTreeView>-->
-        <DockPanel Grid.Row="1" x:Name="panelDocTree"/>
+       
+        <StackPanel  Grid.Row="1"  x:Name="panelDocTree">
+            <UserControl x:Name="userctr" Width="300" VerticalAlignment="Stretch"/>
+        </StackPanel>
 
         <r:TabControl Margin="3,0,3,3" x:Name="tabPages" Grid.Row="1" Grid.Column="2"  
-                      TabStripPlacement="{Binding ElementName=listBox, Path=SelectedItem}" 
-                      TabItemMinWidth="80" TabItemMaxWidth="300" TabItemMinHeight="20" TabItemMaxHeight="40"
-                      VerticalContentAlignment="Center" AllowAddNew="False"
-                      GotFocus="ActiveModule" LostFocus="DeActiveModule">
+            TabStripPlacement="{Binding ElementName=listBox, Path=SelectedItem}" 
+            TabItemMinWidth="80" TabItemMaxWidth="300" TabItemMinHeight="20" TabItemMaxHeight="40"
+            VerticalContentAlignment="Center" AllowAddNew="False"
+            GotFocus="ActiveModule" LostFocus="DeActiveModule">
 
-        </r:TabControl>
+        </r:TabControl>   
+
+
+
 
     </Grid>
     <Window.CommandBindings>

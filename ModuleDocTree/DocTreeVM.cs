@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using ET.Doc;
 using ET.Interface;
@@ -10,6 +12,8 @@ namespace ET.Main
     {
 
         private IList<DirNode> _rootNodes = null;
+        private ModuleFile _mfile = new ModuleFile(ModuleDocTree.ModuleKey, ModuleDocTree.ModuleKey, null);
+
         public DocTreeVM(IList<DirNode> rootNodes)
         {
             _rootNodes = rootNodes;
@@ -17,7 +21,13 @@ namespace ET.Main
 
         #region --IViewDoc--
 
-        public ETPage PageUI => throw new NotImplementedException();
+        public ETPage PageUI
+        {
+            get
+            {
+                return new ETPage();
+            }
+        }
 
         public string ModuleKey
         {
@@ -33,7 +43,7 @@ namespace ET.Main
         {
             get
             {
-                return null;
+                return _mfile;
             }
         }
 
@@ -84,7 +94,13 @@ namespace ET.Main
 
         public void UpdateContent()
         {
-            throw new NotImplementedException();
+            using (var ms = new MemoryStream())
+            {
+                var formatter = new BinaryFormatter();
+                formatter.Serialize(ms, _rootNodes);
+                _mfile.Content = ms.GetBuffer();
+            }
+
         }
 
         #endregion

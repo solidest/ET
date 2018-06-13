@@ -12,7 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace ET.Main
 {
     [Export(RevisionClass.ETModuleExportKey, typeof(ICommModule))]
-    [ModuleHeader(ModuleKey,  "文档结构", 0, ETModuleFileTypeEnum.OnlyOneFile)]
+    [ModuleHeader(ModuleKey,  "文档结构", 0, ETModuleFileTypeEnum.DefaultOnlyOne)]
     public class ModuleDocTree : ICommModule
     {
 
@@ -53,7 +53,7 @@ namespace ET.Main
             }
         }
 
-        //新建空项目
+        //打开新项目
         public IViewDoc OpenNewFile()
         {
             var rootNodes = new List<DirNode>(); 
@@ -62,25 +62,16 @@ namespace ET.Main
                 if(m.ModuleKey != ModuleKey) //排除本模块
                 {
                     var dir = new DirNode(m.ModuleKey, m.ModuleKey, null);
-                    if (m.ModuleFileType == ETModuleFileTypeEnum.OnlyOneFile)
+                    if (m.ModuleFileType == ETModuleFileTypeEnum.CustomOnlyOne || m.ModuleFileType == ETModuleFileTypeEnum.DefaultOnlyOne)
                     {
                         var vm = ETService.MainService.Modules[m.ModuleKey].OpenNewFile();
                         dir.SubModuleFiles.Add(vm.PageFile);
-                        var ete = new ETEventArgs(ETPage.ETModuleFileSavedEvent, vm.PageUI, vm);
+                        var ete = new ETEventArgs(ETPage.ETModuleFileOpenEvent, vm.PageUI, vm);
                         vm.PageUI.RaiseEvent(ete);
                     }
                     rootNodes.Add(dir);
                 }
             }
-
-            byte[] content = null;
-            using (var ms = new MemoryStream())
-            {
-                var formatter = new BinaryFormatter();
-                formatter.Serialize(ms, rootNodes);
-                content = ms.GetBuffer();
-            }
-
             return new DocTreeVM(rootNodes);
         }
 
