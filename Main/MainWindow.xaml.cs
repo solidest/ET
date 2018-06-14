@@ -104,20 +104,34 @@ namespace ET.Main
 
         private void DocTreeDispHide(object sender, RoutedEventArgs e)
         {
-            switch (userctr.Visibility)
+            switch (VSplitter.Visibility)
             {
                 case Visibility.Visible:
-                    userctr.Visibility = Visibility.Collapsed;
                     VSplitter.Visibility = Visibility.Collapsed;
                     gridMain.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
                     break;
 
                 case Visibility.Collapsed:
-                    userctr.Visibility = Visibility.Visible;
                     VSplitter.Visibility = Visibility.Visible;
                     gridMain.ColumnDefinitions[0].Width = new GridLength(300, GridUnitType.Pixel);
                     break;
 
+            }
+        }
+
+
+        private void OutDispHide(object sender, RoutedEventArgs e)
+        {
+            switch (this.HSplitter.Visibility)
+            {
+                case Visibility.Visible:
+                    HSplitter.Visibility = Visibility.Collapsed;
+                    gridMain.RowDefinitions[3].Height = new GridLength(0, GridUnitType.Pixel);
+                    break;
+                case Visibility.Collapsed:
+                    HSplitter.Visibility = Visibility.Visible;
+                    gridMain.RowDefinitions[3].Height = new GridLength(300, GridUnitType.Pixel);
+                    break;
             }
         }
 

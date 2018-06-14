@@ -24,7 +24,9 @@
     <Grid Name="gridMain">
         <Grid.RowDefinitions>
             <RowDefinition Height="30px"/>
-            <RowDefinition />
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2px"/>
+            <RowDefinition Height="260"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -33,7 +35,9 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <GridSplitter Name="VSplitter" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="2"/>
+        <GridSplitter Name="VSplitter" Grid.Column="1" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="3"/>
+        <GridSplitter Name="HSplitter" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="3"/>
+
 
         <ToolBar Grid.ColumnSpan="10">
             <Button ToolTip="新建" Command="ApplicationCommands.New">
@@ -84,7 +88,13 @@
                     <Image Source="images/letfdisp.png"></Image>
                 </Button.Content>
             </Button>
-            
+
+            <Button ToolTip="显示/隐藏输出面板" Click="OutDispHide">
+                <Button.Content>
+                    <Image Source="images/bottomdisp.png"></Image>
+                </Button.Content>
+            </Button>
+
             <TextBlock VerticalAlignment="Center" FontSize="18" Foreground ="LightGray">|</TextBlock>
             
             <Button ToolTip="启动">
@@ -131,9 +141,22 @@
             VerticalContentAlignment="Center" AllowAddNew="False"
             GotFocus="ActiveModule" LostFocus="DeActiveModule">
 
-        </r:TabControl>   
+        </r:TabControl>
 
 
+        <Grid Grid.Row="3" Grid.ColumnSpan="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30px"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin = "3" VerticalAlignment="Center">显示输出来源:</TextBlock>
+                <ComboBox Height="24" Width="260" Margin="3" VerticalAlignment="Center"></ComboBox>
+            </StackPanel>
+
+            <TextBox Name="txtOut" Grid.Row="1" Margin="3"/>
+        </Grid>
+        
 
 
     </Grid>
