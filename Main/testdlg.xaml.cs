@@ -9,20 +9,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ET.Interface;
 
-namespace ET.Main.DocTree
+namespace ET.Main
 {
-
-    public partial class DocTreePage : ET.Interface.ETPage
+    /// <summary>
+    /// testdlg.xaml 的交互逻辑
+    /// </summary>
+    public partial class testdlg : Window
     {
-        public DocTreePage()
+        public testdlg(ET.Interface.ETPage p)
         {
             InitializeComponent();
-            trMain.ShowRoot = true;
+            gridMain.Children.Add(p);
         }
-
     }
 }

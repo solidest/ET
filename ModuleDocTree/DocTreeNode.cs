@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows;
 using ICSharpCode.TreeView;
 
-namespace ET.Main
+namespace ET.Main.DocTree
 {
     public abstract class DocTreeNode : ICSharpCode.TreeView.SharpTreeNode
     {

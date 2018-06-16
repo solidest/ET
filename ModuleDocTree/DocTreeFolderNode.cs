@@ -6,7 +6,7 @@ using ICSharpCode.TreeView;
 using ET.Doc;
 using System.Windows;
 
-namespace ET.Main
+namespace ET.Main.DocTree
 {
     public class DocTreeFolderNode : DocTreeNode
     {

@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace ET.Main
+namespace ET.Main.DocTree
 {
     [Export(RevisionClass.ETModuleExportKey, typeof(ICommModule))]
     [ModuleHeader(ModuleKey, ModuleShowName, 0, ETModuleFileTypeEnum.DefaultOnlyOne)]
@@ -22,6 +22,14 @@ namespace ET.Main
 
         public const String ModuleKey = "DocTree";
         public const String ModuleShowName = "文档结构";
+
+
+        public ModuleDocTree()
+        {
+            _folderIcon = GetImage("folder.png");
+            _fileIcon = GetImage("folder.png");
+            _folderOpenIcon = GetImage("folder.png");
+        }
 
         #region --For Icon--
 
@@ -77,12 +85,6 @@ namespace ET.Main
         }
 
 
-        public ModuleDocTree()
-        {
-            _folderIcon = GetImage("folder.png");
-            _fileIcon = GetImage("folder.png");
-            _folderOpenIcon = GetImage("folder.png");
-         }
 
         private BitmapImage GetImage(string imgName)
         {
@@ -146,6 +148,7 @@ namespace ET.Main
                     }
                 }
             }
+
             return new DocTreeVM(rootNode);
         }
 

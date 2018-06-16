@@ -149,9 +149,14 @@ namespace ET.Main
         //显示文档结构树
         private void ShowDocTree()
         {
+            var dlg = new testdlg(_docTreeVM.PageUI);
+            dlg.ShowDialog();
 
-            if (panelDocTree.Children.Count == 0)
-                panelDocTree.Children.Add(_docTreeVM.PageUI);
+            //if (panelDocTree.Children.Count == 0)
+            //{
+            //    panelDocTree.Children.Add(_docTreeVM.PageUI);
+            //   // _docTreeVM.PageUI.Visibility = Visibility.Visible;
+            //}
         }
 
 
@@ -247,6 +252,8 @@ namespace ET.Main
 
         #region --Command Operation--
 
+
+        //新建文件
         private void DoNewDoc(object sender, ExecutedRoutedEventArgs e)
         {
             if (CloseMainDoc())
