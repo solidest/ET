@@ -8,6 +8,7 @@ using System.Windows.Input;
 using ET.Interface;
 using ET.Doc;
 using ET.Service;
+using System.Windows.Controls;
 
 namespace ET.Main
 {
@@ -149,14 +150,9 @@ namespace ET.Main
         //显示文档结构树
         private void ShowDocTree()
         {
-            var dlg = new testdlg(_docTreeVM.PageUI);
-            dlg.ShowDialog();
-
-            //if (panelDocTree.Children.Count == 0)
-            //{
-            //    panelDocTree.Children.Add(_docTreeVM.PageUI);
-            //   // _docTreeVM.PageUI.Visibility = Visibility.Visible;
-            //}
+            gridMain.Children.Add(_docTreeVM.PageUI);
+            Grid.SetRow(_docTreeVM.PageUI, 1);
+            Grid.SetColumn(_docTreeVM.PageUI, 0);
         }
 
 
@@ -243,7 +239,7 @@ namespace ET.Main
             _docTreeVM = null;
             FileName = "";
             _open_vms.Clear();
-            panelDocTree.Children.Clear();
+            
             return true;
         }
 

@@ -11,11 +11,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ET.Interface;
 
 namespace ET.Main.DocTree
 {
-
+    /// <summary>
+    /// UserControl1.xaml 的交互逻辑
+    /// </summary>
     public partial class DocTreePage : ET.Interface.ETPage
     {
         public DocTreePage()
@@ -23,6 +24,5 @@ namespace ET.Main.DocTree
             InitializeComponent();
             trMain.ShowRoot = true;
         }
-
     }
 }

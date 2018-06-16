@@ -30,7 +30,7 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="300px"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -125,15 +125,6 @@
             </Button>
         </ToolBar>
 
-        <!--<sd:SharpTreeView Grid.Row="1" x:Name="trDocs" Margin="3"
-                        AllowDrop="True" AllowDropOrder="True" 
-                        GotFocus="ActiveModule" LostFocus="DeActiveModule">
-
-        </sd:SharpTreeView>-->
-       
-        <StackPanel  Grid.Row="1"  x:Name="panelDocTree" Width="300">
-           
-        </StackPanel>
 
         <r:TabControl Margin="3,0,3,3" x:Name="tabPages" Grid.Row="1" Grid.Column="2"  
             TabStripPlacement="{Binding ElementName=listBox, Path=SelectedItem}" 

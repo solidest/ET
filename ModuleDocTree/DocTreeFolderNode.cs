@@ -15,8 +15,8 @@ namespace ET.Main.DocTree
         {
             _dirNode = dirNode;
             LazyLoading = true;
-            _dirNode.SubDirNodes.Add(new DirNode("DocTree", "tset"));
-            _dirNode.SubModuleFiles.Add(new ModuleFile("DocTree", "test", null));
+            //_dirNode.SubDirNodes.Add(new DirNode("DocTree", "tset"));
+            //_dirNode.SubModuleFiles.Add(new ModuleFile("DocTree", "test", null));
         }
 
 
