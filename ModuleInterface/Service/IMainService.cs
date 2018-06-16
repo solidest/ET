@@ -23,6 +23,7 @@ namespace ET.Service
         /// <summary>
         /// 全部可以访问的ET模块的元数据信息
         /// </summary>
-        List<ModuleHeaderAttribute> ModulesHeaders { get; }
+        Dictionary<string, ModuleHeaderAttribute> ModulesHeaders { get; }
+
     }
 }

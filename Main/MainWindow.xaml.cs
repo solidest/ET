@@ -59,7 +59,7 @@ namespace ET.Main
             }
         }
 
-        public List<ModuleHeaderAttribute> ModulesHeaders
+        public Dictionary<string, ModuleHeaderAttribute> ModulesHeaders
         {
             get
             {
@@ -71,7 +71,6 @@ namespace ET.Main
         {
             //TODO:打开模块文件
         }
-
 
         #endregion
 
@@ -87,7 +86,6 @@ namespace ET.Main
         {
             //加载ET模块
             _ms = new Modules();
-            _ms.InitialModules();
 
             //保存文档树模块
             _docTreeModule = _ms["DocTree"];
@@ -194,7 +192,7 @@ namespace ET.Main
             using (var ms = new MemoryStream())
             {
                 var formatter = new BinaryFormatter();
-                formatter.Serialize(ms, _docTreeVM.PageFile);
+                formatter.Serialize(ms, _docTreeVM.MFile);
                 content = ms.GetBuffer();
             }
 
@@ -339,6 +337,7 @@ namespace ET.Main
         {
             _activeVM?.DoUndo();
         }
+
 
         #endregion
 

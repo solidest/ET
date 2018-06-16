@@ -22,7 +22,7 @@ namespace ET.Interface
         /// <summary>
         /// 模块文件
         /// </summary>
-        ModuleFile PageFile { get; }
+        ModuleFile MFile { get; }
         
 
         /// <summary>

@@ -160,7 +160,7 @@
 
 
     </Grid>
-    <Window.CommandBindings>
+    <!--<Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.New" Executed="DoNewDoc"/>
         <CommandBinding Command="ApplicationCommands.Open" Executed="DoOpenDoc"/>
         <CommandBinding Command="ApplicationCommands.Save" CanExecute="CanSaveDoc" Executed="DoSaveDoc" />
@@ -169,5 +169,5 @@
         <CommandBinding Command="ApplicationCommands.Redo" CanExecute="CanRedo" Executed="DoRedo"/>
         <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CanCopy" Executed="DoCopy"/>
         <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CanPaste" Executed="DoPaste"/>
-    </Window.CommandBindings>
+    </Window.CommandBindings>-->
 </Window>

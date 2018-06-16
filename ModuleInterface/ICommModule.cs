@@ -34,6 +34,11 @@ namespace ET.Interface
         /// </summary>
         BitmapImage FileIcon { get;}
 
+        /// <summary>
+        /// 模块打开时的图标
+        /// </summary>
+        BitmapImage OpenModuleIcon { get; }
+
     }
 
 }

@@ -11,23 +11,22 @@ namespace ET.Main
     public class DocTreeVM : IViewDoc
     {
 
-        private IList<DirNode> _rootNodes = null;
+        private DirNode _rootNode = new DirNode(ModuleDocTree.ModuleKey, ModuleDocTree.ModuleKey);
         private ModuleFile _mfile = new ModuleFile(ModuleDocTree.ModuleKey, ModuleDocTree.ModuleKey, null);
+        private DocTreePage _page = new DocTreePage();
 
-        public DocTreeVM(IList<DirNode> rootNodes)
+        public DocTreeVM(DirNode rootNode)
         {
-            _rootNodes = rootNodes;
+            _rootNode = rootNode;
+            _page.trMain.Root = new DocTreeFolderNode(_rootNode);
+
         }
+
+
 
         #region --IViewDoc--
 
-        public ETPage PageUI
-        {
-            get
-            {
-                return new ETPage();
-            }
-        }
+        public ETPage PageUI => _page;
 
         public string ModuleKey
         {
@@ -39,7 +38,7 @@ namespace ET.Main
 
         public bool IsAutoSave { get => true; set { if (!value) throw new ETException(ModuleKey, "DocTree的模块文档不能设置为非自动保存！"); } }
 
-        public ModuleFile PageFile
+        public ModuleFile MFile
         {
             get
             {
@@ -49,7 +48,7 @@ namespace ET.Main
 
         public bool CanCopy()
         {
-            throw new NotImplementedException();
+            
         }
 
         public bool CanPaste()
@@ -97,7 +96,7 @@ namespace ET.Main
             using (var ms = new MemoryStream())
             {
                 var formatter = new BinaryFormatter();
-                formatter.Serialize(ms, _rootNodes);
+                formatter.Serialize(ms, _rootNode);
                 _mfile.Content = ms.GetBuffer();
             }
 

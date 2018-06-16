@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{3AED7967-32C8-4D58-862B-221ADCF4F68C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICSharpCode.TreeView", "Libraries\ICSharpCode.TreeView\ICSharpCode.TreeView.csproj", "{DDE2A481-8271-4EAC-A330-8FA6A38D13D1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.TabControl", "Libraries\TabControl\Wpf.TabControl.csproj", "{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleInterface", "ModuleInterface\ModuleInterface.csproj", "{FE1C1D0C-B470-4F9A-B849-551144969AB3}"
@@ -30,10 +28,6 @@ Global
 		{819F694F-1E35-4CEA-8FB5-44DFCD3E061F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{819F694F-1E35-4CEA-8FB5-44DFCD3E061F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{819F694F-1E35-4CEA-8FB5-44DFCD3E061F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDE2A481-8271-4EAC-A330-8FA6A38D13D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDE2A481-8271-4EAC-A330-8FA6A38D13D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDE2A481-8271-4EAC-A330-8FA6A38D13D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDE2A481-8271-4EAC-A330-8FA6A38D13D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,7 +48,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{DDE2A481-8271-4EAC-A330-8FA6A38D13D1} = {3AED7967-32C8-4D58-862B-221ADCF4F68C}
 		{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C} = {3AED7967-32C8-4D58-862B-221ADCF4F68C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

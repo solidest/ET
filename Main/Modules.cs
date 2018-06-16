@@ -16,30 +16,23 @@ namespace ET.Main
         private IEnumerable<Lazy<ICommModule, ModuleHeaderAttribute>> _modules = null;
 
         private Dictionary<String, ICommModule> _ms= new Dictionary<String, ICommModule>();
-        public List<ModuleHeaderAttribute> ModulesHeaders { get; private set; }
+        public Dictionary<String, ModuleHeaderAttribute> ModulesHeaders { get; private set; }
 
         /// <summary>
         /// 初始化，延迟加载全部ET模块
         /// </summary>
-        public void InitialModules()
+        public Modules()
         {
             var catalog = new DirectoryCatalog("Modules");
             var container = new CompositionContainer(catalog);
             var objectToSatisfy = this;
             container.ComposeParts(this);
 
-            var msatt = new List<ModuleHeaderAttribute>();
+            var msatt = new Dictionary<String, ModuleHeaderAttribute>();
             foreach (var m in _modules)
             {
-                msatt.Add(m.Metadata);
-
+                msatt.Add(m.Metadata.ModuleKey, m.Metadata);
                 _ms.Add(m.Metadata.ModuleKey, m.Value);
-                //var mt = new ModuleHeaderAttribute { ModuleKey = m.Metadata["ModuleKey"].ToString(), ModuleShowName = m.Metadata["ModuleShowName"].ToString(), ILevel = (Int32)m.Metadata["ILevel"], IsOnlyOneFile = (bool)m.Metadata["IsOnlyOneFile"] };
-                //mt.ModuleIcon = m.Value.ModuleIcon;
-                //mt.FileIcon = m.Value.FileIcon;
-                //msatt.Add(mt);
-
-                //_ms.Add(m.Metadata["ModuleKey"].ToString(), m.Value);
             }
             if (msatt.Count == 0) throw new ETException("","加载ET模块失败！");
             ModulesHeaders = msatt;

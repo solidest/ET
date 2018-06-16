@@ -18,11 +18,9 @@ namespace ET.Doc
         /// </summary>
         /// <param name="mKey">ET模块主键</param>
         /// <param name="nName">节点名称</param>
-        /// <param name="pNode">指定父节点</param>
-        public DirNode(string mKey, string nName, DirNode pNode)
+        public DirNode(string mKey, string nName)
         {
             NodeName = nName;
-            ParentNode = pNode;
             SubDirNodes = new List<DirNode>();
             SubModuleFiles = new List<ModuleFile>();
         }
@@ -36,11 +34,6 @@ namespace ET.Doc
         /// 当前节点的名称
         /// </summary>
         public String NodeName { get; set; }
-
-        /// <summary>
-        /// 当前节点的父级节点，根节点的该属性值为空
-        /// </summary>
-        public DirNode ParentNode { get; set; }
 
         /// <summary>
         /// 当前节点下所有子节点的集合

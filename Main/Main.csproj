@@ -61,9 +61,6 @@
     </Compile>
     <Compile Include="Libs\Helper.cs" />
     <Compile Include="Modules.cs" />
-    <Compile Include="TreeNode\ModuleFileTreeNode.cs" />
-    <Compile Include="TreeNode\ModuleTreeNode.cs" />
-    <Compile Include="TreeNode\ModuleTypeTreeNode.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -123,10 +120,6 @@
     <Resource Include="Images\letfdisp.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Libraries\ICSharpCode.TreeView\ICSharpCode.TreeView.csproj">
-      <Project>{dde2a481-8271-4eac-a330-8fa6a38d13d1}</Project>
-      <Name>ICSharpCode.TreeView</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Libraries\TabControl\Wpf.TabControl.csproj">
       <Project>{509d06bd-aeb6-4e92-8e5b-21188ebdbd9c}</Project>
       <Name>Wpf.TabControl</Name>
