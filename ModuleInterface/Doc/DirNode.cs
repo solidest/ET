@@ -20,6 +20,7 @@ namespace ET.Doc
         /// <param name="nName">节点名称</param>
         public DirNode(string mKey, string nName)
         {
+            ModuleKey = mKey;
             NodeName = nName;
             SubDirNodes = new List<DirNode>();
             SubModuleFiles = new List<ModuleFile>();

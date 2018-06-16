@@ -39,57 +39,7 @@ namespace ET.Interface
         /// 更新最新的模块文档内容，即:将内容持久化并保存到<c>PageFile.Content</c>
         /// </summary>
         void UpdateContent();
-
-        /// <summary>
-        /// 是否可以执行复制
-        /// <note type="implement">该函数会被频繁调用</note>
-        /// </summary>
-        /// <returns>可以复制返回<c>true</c>，否则返回<c>false</c></returns>
-        /// <note type="implement">该函数会被频繁调用</note>
-        bool CanCopy();
-
-        /// <summary>
-        /// 执行复制
-        /// </summary>
-        void DoCopy();
-
-        /// <summary>
-        /// 是否可以执行粘贴
-        /// <note type="implement">该函数会被频繁调用</note>
-        /// </summary>
-        /// <returns>可以粘贴返回<c>true</c>，否则返回<c>false</c></returns>
-        bool CanPaste();
-
-        /// <summary>
-        /// 执行粘贴
-        /// </summary>
-        void DoPaste();
-
-        /// <summary>
-        /// 是否可以执行重做
-        /// <note type="implement">该函数会被频繁调用</note>
-        /// </summary>
-        /// <returns>可以重做返回<c>true</c>，否则返回<c>false</c></returns>
-        /// <note type="implement">该函数会被频繁调用</note>
-        bool CanRedo();
-
-        /// <summary>
-        /// 执行重做
-        /// </summary>
-        void DoRedo();
-
-        /// <summary>
-        /// 是否可以执行撤销
-        /// <note type="implement">该函数会被频繁调用</note>
-        /// </summary>
-        /// <returns>可以撤销返回<c>true</c>，否则返回<c>false</c></returns>
-        /// <note type="implement">该函数会被频繁调用</note>
-        bool CanUndo();
-
-        /// <summary>
-        /// 执行撤销
-        /// </summary>
-        void DoUndo();
+        
 
     }
 }

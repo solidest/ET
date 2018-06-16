@@ -131,8 +131,8 @@
 
         </sd:SharpTreeView>-->
        
-        <StackPanel  Grid.Row="1"  x:Name="panelDocTree">
-            <UserControl x:Name="userctr" Width="300" VerticalAlignment="Stretch"/>
+        <StackPanel  Grid.Row="1"  x:Name="panelDocTree" Width="300">
+           
         </StackPanel>
 
         <r:TabControl Margin="3,0,3,3" x:Name="tabPages" Grid.Row="1" Grid.Column="2"  
@@ -151,7 +151,7 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Margin = "3" VerticalAlignment="Center">显示输出来源:</TextBlock>
-                <ComboBox Height="24" Width="260" Margin="3" VerticalAlignment="Center"></ComboBox>
+                <ComboBox Height="24" Width="260" Margin="3,4,3,0" VerticalAlignment="Center"></ComboBox>
             </StackPanel>
 
             <TextBox Name="txtOut" Grid.Row="1" Margin="3"/>
@@ -160,14 +160,14 @@
 
 
     </Grid>
-    <!--<Window.CommandBindings>
+    <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.New" Executed="DoNewDoc"/>
         <CommandBinding Command="ApplicationCommands.Open" Executed="DoOpenDoc"/>
         <CommandBinding Command="ApplicationCommands.Save" CanExecute="CanSaveDoc" Executed="DoSaveDoc" />
         <CommandBinding Command="ApplicationCommands.SaveAs" CanExecute="CanSaveAll" Executed="DoSaveAll" />
-        <CommandBinding Command="ApplicationCommands.Undo" CanExecute="CanUndo" Executed="DoUndo"/>
+        <!--<CommandBinding Command="ApplicationCommands.Undo" CanExecute="CanUndo" Executed="DoUndo"/>
         <CommandBinding Command="ApplicationCommands.Redo" CanExecute="CanRedo" Executed="DoRedo"/>
         <CommandBinding Command="ApplicationCommands.Copy" CanExecute="CanCopy" Executed="DoCopy"/>
-        <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CanPaste" Executed="DoPaste"/>
-    </Window.CommandBindings>-->
+        <CommandBinding Command="ApplicationCommands.Paste" CanExecute="CanPaste" Executed="DoPaste"/>-->
+    </Window.CommandBindings>
 </Window>

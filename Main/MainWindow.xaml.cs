@@ -149,8 +149,9 @@ namespace ET.Main
         //显示文档结构树
         private void ShowDocTree()
         {
-            //if (panelDocTree.Children.Count == 0)
-            //    panelDocTree.Children.Add(_docTreeVM.PageUI);
+
+            if (panelDocTree.Children.Count == 0)
+                panelDocTree.Children.Add(_docTreeVM.PageUI);
         }
 
 
@@ -281,8 +282,7 @@ namespace ET.Main
             SaveMainDoc();
             foreach (var vm in _open_vms)
             {
-                var ete = new ETEventArgs(ETPage.ETModuleFileSavedEvent, vm.PageUI, vm);
-                vm.PageUI.RaiseEvent(ete);
+                vm.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, vm.PageUI, vm));
             }
         }
 
@@ -296,49 +296,9 @@ namespace ET.Main
 
             if (_activeVM != null) _activeVM.UpdateContent();
             SaveMainDoc();
-            var ete = new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM);
-            _activeVM.PageUI.RaiseEvent(ete);
+            _activeVM.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM));
         }
-        private void CanCopy(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = _activeVM == null ? false : _activeVM.CanCopy();
-        }
-
-        private void DoCopy(object sender, ExecutedRoutedEventArgs e)
-        {
-            _activeVM?.DoCopy();
-        }
-
-        private void CanPaste(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = _activeVM == null ? false : _activeVM.CanPaste();
-        }
-        private void DoPaste(object sender, ExecutedRoutedEventArgs e)
-        {
-            _activeVM?.DoPaste();
-        }
-
-        private void CanRedo(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = _activeVM == null ? false : _activeVM.CanRedo();
-        }
-
-        private void DoRedo(object sender, ExecutedRoutedEventArgs e)
-        {
-            _activeVM?.DoRedo();
-        }
-
-        private void CanUndo(object sender, CanExecuteRoutedEventArgs e)
-        {
-            e.CanExecute = _activeVM == null ? false : _activeVM.CanUndo();
-        }
-
-        private void DoUndo(object sender, ExecutedRoutedEventArgs e)
-        {
-            _activeVM?.DoUndo();
-        }
-
-
+       
         #endregion
 
     }

@@ -21,7 +21,7 @@ namespace ET.Main
         public DocTreePage()
         {
             InitializeComponent();
-           
+            trMain.ShowRoot = true;
         }
 
     }

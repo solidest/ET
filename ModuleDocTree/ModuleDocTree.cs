@@ -12,7 +12,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace ET.Main
 {
     [Export(RevisionClass.ETModuleExportKey, typeof(ICommModule))]
-    [ModuleHeader(ModuleKey, "文档结构", 0, ETModuleFileTypeEnum.DefaultOnlyOne)]
+    [ModuleHeader(ModuleKey, ModuleShowName, 0, ETModuleFileTypeEnum.DefaultOnlyOne)]
     public class ModuleDocTree : ICommModule
     {
 
@@ -21,6 +21,7 @@ namespace ET.Main
         static private BitmapImage _fileIcon = null;
 
         public const String ModuleKey = "DocTree";
+        public const String ModuleShowName = "文档结构";
 
         #region --For Icon--
 
@@ -128,7 +129,7 @@ namespace ET.Main
         //打开新项目
         public IViewDoc OpenNewFile()
         {
-            var rootNode = new DirNode(ModuleKey, "");
+            var rootNode = new DirNode(ModuleKey, ModuleShowName);
             foreach (var m in ETService.MainService.ModulesHeaders)
             {
                 if(m.Key != ModuleKey) //排除本模块
@@ -137,8 +138,7 @@ namespace ET.Main
                     {
                         var vm = ETService.MainService.Modules[m.Key].OpenNewFile();
                         rootNode.SubModuleFiles.Add(vm.MFile);
-                        var ete = new ETEventArgs(ETPage.ETModuleFileOpenEvent, vm.PageUI, vm);
-                        vm.PageUI.RaiseEvent(ete);
+                        vm.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileOpenEvent, vm.PageUI, vm));
                     }
                     else
                     {

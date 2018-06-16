@@ -11,8 +11,8 @@ namespace ET.Main
     public class DocTreeVM : IViewDoc
     {
 
-        private DirNode _rootNode = new DirNode(ModuleDocTree.ModuleKey, ModuleDocTree.ModuleKey);
-        private ModuleFile _mfile = new ModuleFile(ModuleDocTree.ModuleKey, ModuleDocTree.ModuleKey, null);
+        private DirNode _rootNode = null;
+        private ModuleFile _mfile = new ModuleFile(ModuleDocTree.ModuleKey, ModuleDocTree.ModuleShowName, null);
         private DocTreePage _page = new DocTreePage();
 
         public DocTreeVM(DirNode rootNode)
@@ -22,11 +22,10 @@ namespace ET.Main
 
         }
 
-
-
         #region --IViewDoc--
 
         public ETPage PageUI => _page;
+        public bool IsAutoSave { get => true; set { if (!value) throw new ETException(ModuleKey, "DocTree的模块文档不能设置为非自动保存！"); } }
 
         public string ModuleKey
         {
@@ -36,7 +35,6 @@ namespace ET.Main
             }
         }
 
-        public bool IsAutoSave { get => true; set { if (!value) throw new ETException(ModuleKey, "DocTree的模块文档不能设置为非自动保存！"); } }
 
         public ModuleFile MFile
         {
@@ -44,51 +42,6 @@ namespace ET.Main
             {
                 return _mfile;
             }
-        }
-
-        public bool CanCopy()
-        {
-            
-        }
-
-        public bool CanPaste()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool CanRedo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool CanUndo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DoCopy()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DoPaste()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DoRedo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DoUndo()
-        {
-            throw new NotImplementedException();
-        }
-
-        public byte[] GetDocContent()
-        {
-            throw new NotImplementedException();
         }
 
         public void UpdateContent()
@@ -99,9 +52,9 @@ namespace ET.Main
                 formatter.Serialize(ms, _rootNode);
                 _mfile.Content = ms.GetBuffer();
             }
-
         }
 
         #endregion
+
     }
 }

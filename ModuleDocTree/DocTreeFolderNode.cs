@@ -15,6 +15,8 @@ namespace ET.Main
         {
             _dirNode = dirNode;
             LazyLoading = true;
+            _dirNode.SubDirNodes.Add(new DirNode("DocTree", "tset"));
+            _dirNode.SubModuleFiles.Add(new ModuleFile("DocTree", "test", null));
         }
 
 
@@ -24,6 +26,11 @@ namespace ET.Main
             {
                 return _dirNode.NodeName;
             }
+        }
+
+        public override string ToString()
+        {
+            return _dirNode.NodeName;
         }
 
         public override object Icon
