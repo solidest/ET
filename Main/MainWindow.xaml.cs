@@ -150,9 +150,10 @@ namespace ET.Main
         //显示文档结构树
         private void ShowDocTree()
         {
-            gridMain.Children.Add(_docTreeVM.PageUI);
-            Grid.SetRow(_docTreeVM.PageUI, 1);
-            Grid.SetColumn(_docTreeVM.PageUI, 0);
+            tbDocTree.Content = _docTreeVM.PageUI;
+            //gridMain.Children.Add();
+            //Grid.SetRow(_docTreeVM.PageUI, 1);
+            //Grid.SetColumn(_docTreeVM.PageUI, 0);
         }
 
 

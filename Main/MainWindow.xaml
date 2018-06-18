@@ -20,7 +20,6 @@
         </Style>
     </Window.Resources>
 
-
     <Grid Name="gridMain">
         <Grid.RowDefinitions>
             <RowDefinition Height="30px"/>
@@ -125,6 +124,15 @@
             </Button>
         </ToolBar>
 
+        <TabControl Grid.Row="1" BorderBrush="{x:Null}" Margin="3,0,0,0">
+            <TabItem Header="资源管理器" Name="tbDocTree">
+                
+            </TabItem>
+            <TabItem Header="工具箱">
+
+            </TabItem>
+        </TabControl>
+
 
         <r:TabControl Margin="3,0,3,3" x:Name="tabPages" Grid.Row="1" Grid.Column="2"  
             TabStripPlacement="{Binding ElementName=listBox, Path=SelectedItem}" 
@@ -151,6 +159,7 @@
 
 
     </Grid>
+    
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.New" Executed="DoNewDoc"/>
         <CommandBinding Command="ApplicationCommands.Open" Executed="DoOpenDoc"/>
