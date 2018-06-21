@@ -94,6 +94,37 @@ namespace ET.Main
             //安装主服务
             ETService.SetupMainService(this);
 
+            //分析命令行参数
+            string[] pargs = Environment.GetCommandLineArgs();
+            if(pargs!=null && pargs.Length>1)
+            {
+                bool isNew = false;
+                string fileName = "";
+                for(int i=0; i<pargs.Length; i++)
+                {
+                    if (pargs[i] == "-n")
+                        isNew = true;
+                    else if (i == pargs.Length - 1)
+                        fileName = pargs[i];
+                }
+
+                if (isNew)
+                {
+                        FileName = "";
+                        _docTreeVM = _docTreeModule.OpenNewFile();
+                        ShowDocTree();
+                }
+                else
+                {
+                    if (System.IO.File.Exists(fileName))
+                    {
+                        OpenMainDoc(fileName);
+                    }
+                }
+            }
+            
+           
+
         }
 
         #endregion
@@ -186,6 +217,22 @@ namespace ET.Main
             ShowDocTree();
         }
 
+        //新建文件
+        private void DoNewDoc(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (_docTreeVM != null)
+            {
+                System.Diagnostics.Process.Start("main.exe", "-n");
+            }
+            else
+            {
+                _docTreeVM = _docTreeModule.OpenNewFile();
+                ShowDocTree();
+            }
+            e.Handled = true;
+
+        }
+
         //保存文件
         private void SaveMainDoc(String fname)
         {
@@ -230,36 +277,18 @@ namespace ET.Main
                 SaveMainDoc(FileName);
         }
 
-        //关闭当前文档
-        private bool CloseMainDoc()
-        {
-            //TODO 提示保存
-
-            //清理内部变量
-            _activeVM = null;
-            _docTreeVM = null;
-            FileName = "";
-            _open_vms.Clear();
-            
-            return true;
-        }
-
-
         #endregion
 
         #region --Command Operation--
 
-
-        //新建文件
-        private void DoNewDoc(object sender, ExecutedRoutedEventArgs e)
+        private void CanNewProject(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (CloseMainDoc())
+           if(e.Parameter.ToString() == "NewProject")
             {
-                _docTreeVM = _docTreeModule.OpenNewFile();
-                ShowDocTree();
+                e.CanExecute = true;
+                e.Handled = true;
             }
         }
-
 
         private void DoOpenDoc(object sender, ExecutedRoutedEventArgs e)
         {
@@ -268,16 +297,21 @@ namespace ET.Main
                 DefaultExt = ".et",
                 Filter = "ET file|*.et"
             };
-            if (ofd.ShowDialog() == true)
+            if (ofd.ShowDialog() == true && ofd.FileName != FileName)
             {
-                if (CloseMainDoc()) OpenMainDoc(ofd.FileName);
+                if(_docTreeVM != null)
+                    System.Diagnostics.Process.Start("main.exe",  "\"" + ofd.FileName + "\""  );
+                else
+                    OpenMainDoc(ofd.FileName);
             }
+            e.Handled = true;
         }
 
 
         private void CanSaveAll(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = (_docTreeVM != null);
+            e.Handled = true;
         }
 
         private void DoSaveAll(object sender, ExecutedRoutedEventArgs e)
@@ -288,11 +322,13 @@ namespace ET.Main
             {
                 vm.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, vm.PageUI, vm));
             }
+            e.Handled = true;
         }
 
         private void CanSaveDoc(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = (_activeVM != null);
+            e.Handled = true;
         }
 
         private void DoSaveDoc(object sender, ExecutedRoutedEventArgs e)
@@ -301,6 +337,7 @@ namespace ET.Main
             if (_activeVM != null) _activeVM.UpdateContent();
             SaveMainDoc();
             _activeVM.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM));
+            e.Handled = true;
         }
        
         #endregion

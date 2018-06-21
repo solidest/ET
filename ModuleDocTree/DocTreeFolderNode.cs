@@ -20,6 +20,22 @@ namespace ET.Main.DocTree
         }
 
 
+        public override bool CanNewFile
+        {
+            get
+            {
+                switch(Service.ETService.MainService.ModulesHeaders[ModuleKey].ModuleFileType)
+                {
+                    case Interface.ETModuleFileTypeEnum.CustomMulti:
+                    case Interface.ETModuleFileTypeEnum.DefaultMulti:
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        }
+
+
         public override object Text
         {
             get
@@ -56,6 +72,7 @@ namespace ET.Main.DocTree
                 return _dirNode.ModuleKey;
             }
         }
+
 
         protected override void LoadChildren()
         {

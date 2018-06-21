@@ -39,7 +39,7 @@
 
 
         <ToolBar Grid.ColumnSpan="10">
-            <Button ToolTip="新建" Command="ApplicationCommands.New">
+            <Button ToolTip="新建" Command="ApplicationCommands.New" CommandParameter="NewProject">
                 <Button.Content>
                     <Image Source="images/newfile.png"></Image>
                 </Button.Content>

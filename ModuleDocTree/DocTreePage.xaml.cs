@@ -24,5 +24,23 @@ namespace ET.Main.DocTree
             InitializeComponent();
             trMain.ShowRoot = true;
         }
+
+        private void DoNewModuleFile(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
+
+        private void CanNewModuleFile(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (e.Parameter?.ToString() == "NewModuleFile")
+            {
+                var n = (trMain.SelectedItem as DocTreeNode);
+                if (n == null)
+                    e.CanExecute = false;
+                else
+                    e.CanExecute = n.CanNewFile;
+                e.Handled = true;
+            }
+        }
     }
 }

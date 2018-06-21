@@ -23,6 +23,9 @@ namespace ET.Main.DocTree
                 return MFile.ModuleKey;
             }
         }
+
+
+        public override bool CanNewFile => false;
         public override string ToString()
         {
             return MFile.FileName;

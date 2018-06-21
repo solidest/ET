@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using ICSharpCode.TreeView;
 
 namespace ET.Main.DocTree
@@ -10,6 +12,8 @@ namespace ET.Main.DocTree
     public abstract class DocTreeNode : ICSharpCode.TreeView.SharpTreeNode
     {
         public abstract string ModuleKey { get; }
+
+        public abstract bool CanNewFile { get; }
 
         public override bool CanCopy(SharpTreeNode[] nodes)
         {
@@ -28,6 +32,7 @@ namespace ET.Main.DocTree
         {
             return nodes.All(n => n is DocTreeFileNode && !n.Parent.IsRoot);
         }
+
 
         public override void Delete(SharpTreeNode[] nodes)
         {
