@@ -14,6 +14,10 @@ Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "API_Readme", "API_Readme\AP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleDocTree", "ModuleDocTree\ModuleDocTree.csproj", "{A1A7C25D-C801-458A-A2D5-3477F27E7B06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleTestMap", "..\ModuleTestMap\ModuleTestMap.csproj", "{4352FBEE-828B-45D8-BA8D-ADEDC610B080}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleCodeEditor", "..\ModuleCodeEditor\ModuleCodeEditor.csproj", "{2C50E989-841C-4F09-A85F-84D29C14C648}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +39,14 @@ Global
 		{A1A7C25D-C801-458A-A2D5-3477F27E7B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1A7C25D-C801-458A-A2D5-3477F27E7B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1A7C25D-C801-458A-A2D5-3477F27E7B06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4352FBEE-828B-45D8-BA8D-ADEDC610B080}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4352FBEE-828B-45D8-BA8D-ADEDC610B080}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4352FBEE-828B-45D8-BA8D-ADEDC610B080}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4352FBEE-828B-45D8-BA8D-ADEDC610B080}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C50E989-841C-4F09-A85F-84D29C14C648}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C50E989-841C-4F09-A85F-84D29C14C648}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C50E989-841C-4F09-A85F-84D29C14C648}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C50E989-841C-4F09-A85F-84D29C14C648}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
