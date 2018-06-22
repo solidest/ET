@@ -139,8 +139,8 @@ namespace ET.Main.DocTree
                     if (m.Value.ModuleFileType == ETModuleFileTypeEnum.CustomOnlyOne || m.Value.ModuleFileType == ETModuleFileTypeEnum.DefaultOnlyOne)
                     {
                         var vm = ETService.MainService.Modules[m.Key].OpenNewFile();
+                        ETService.MainService.OpenModuleFile(vm);
                         rootNode.SubModuleFiles.Add(vm.MFile);
-                        vm.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileOpenEvent, vm.PageUI, vm));
                     }
                     else
                     {

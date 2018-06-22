@@ -12,8 +12,8 @@ namespace ET.Service
         /// <summary>
         /// 打开模块文件
         /// </summary>
-        /// <param name="mfile">模块文件</param>
-        void OpenModuleFile(ModuleFile mfile);
+        /// <param name="vm">模块文件控制器</param>
+        void OpenModuleFile(IViewDoc vm);
 
         /// <summary>
         /// 全部可以访问的ET模块

@@ -21,6 +21,7 @@ namespace ET.Main.DocTree
         public DocTreeVM(DirNode rootNode)
         {
             _rootNode = rootNode;
+            UpdateContent();
             _page = (DocTreePage)System.Windows.Application.LoadComponent(new Uri("/ModuleDocTree;component/DocTreePage.xaml", System.UriKind.Relative));
             _page.trMain.Root = new DocTreeFolderNode(_rootNode);
         }

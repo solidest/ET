@@ -52,6 +52,7 @@ namespace ET.Main
 
 
         #region --IMainService--
+
         public IDictionary<string, ICommModule> Modules
         {
             get
@@ -68,7 +69,7 @@ namespace ET.Main
             }
         }
 
-        public void OpenModuleFile(ModuleFile mfile)
+        public void OpenModuleFile(IViewDoc mv)
         {
             //TODO:打开模块文件
         }
@@ -167,7 +168,7 @@ namespace ET.Main
 
         private void ActiveModule(object sender, RoutedEventArgs e)
         {
-           
+           //TODO 更新活动模块控制器句柄
         }
 
         private void DeActiveModule(object sender, RoutedEventArgs e)
@@ -182,9 +183,6 @@ namespace ET.Main
         private void ShowDocTree()
         {
             tbDocTree.Content = _docTreeVM.PageUI;
-            //gridMain.Children.Add();
-            //Grid.SetRow(_docTreeVM.PageUI, 1);
-            //Grid.SetColumn(_docTreeVM.PageUI, 0);
         }
 
 
@@ -217,21 +215,6 @@ namespace ET.Main
             ShowDocTree();
         }
 
-        //新建文件
-        private void DoNewDoc(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (_docTreeVM != null)
-            {
-                System.Diagnostics.Process.Start("main.exe", "-n");
-            }
-            else
-            {
-                _docTreeVM = _docTreeModule.OpenNewFile();
-                ShowDocTree();
-            }
-            e.Handled = true;
-
-        }
 
         //保存文件
         private void SaveMainDoc(String fname)
@@ -290,6 +273,23 @@ namespace ET.Main
             }
         }
 
+
+        //新建项目文件
+        private void DoNewDoc(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (_docTreeVM != null)
+            {
+                System.Diagnostics.Process.Start("main.exe", "-n");
+            }
+            else
+            {
+                _docTreeVM = _docTreeModule.OpenNewFile();
+                ShowDocTree();
+            }
+            e.Handled = true;
+
+        }
+
         private void DoOpenDoc(object sender, ExecutedRoutedEventArgs e)
         {
             var ofd = new Microsoft.Win32.OpenFileDialog
@@ -327,16 +327,16 @@ namespace ET.Main
 
         private void CanSaveDoc(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = (_activeVM != null);
+            e.CanExecute = (_activeVM != null && _activeVM != _docTreeVM);
             e.Handled = true;
         }
 
         private void DoSaveDoc(object sender, ExecutedRoutedEventArgs e)
         {
 
-            if (_activeVM != null) _activeVM.UpdateContent();
+            _activeVM?.UpdateContent();
             SaveMainDoc();
-            _activeVM.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM));
+            _activeVM?.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM));
             e.Handled = true;
         }
        

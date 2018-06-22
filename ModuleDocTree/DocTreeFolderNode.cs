@@ -15,8 +15,6 @@ namespace ET.Main.DocTree
         {
             _dirNode = dirNode;
             LazyLoading = true;
-            //_dirNode.SubDirNodes.Add(new DirNode("DocTree", "tset"));
-            //_dirNode.SubModuleFiles.Add(new ModuleFile("DocTree", "test", null));
         }
 
 
@@ -110,7 +108,7 @@ namespace ET.Main.DocTree
 
         public override bool CanPaste(IDataObject data)
         {
-            return data.GetDataPresent(DataFormats.Serializable);
+            return data.GetDataPresent(ModuleKey, false);
         }
 
         public override void Paste(IDataObject data)
@@ -137,6 +135,8 @@ namespace ET.Main.DocTree
                 {
                     if (p.ModuleKey == ModuleKey)
                     {
+                        //TODO 处理文件重名问题
+                        _dirNode.SubModuleFiles.Insert(index, p);
                         Children.Insert(index++, new DocTreeFileNode(p));
                     }
                 }

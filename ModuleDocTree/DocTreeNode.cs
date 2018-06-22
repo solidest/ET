@@ -24,13 +24,13 @@ namespace ET.Main.DocTree
         {
             var data = new DataObject();
             var fs = nodes.OfType<DocTreeFileNode>().Select(n => n.MFile).ToArray();
-            data.SetData(DataFormats.Serializable, fs);
+            data.SetData(ModuleKey, fs);
             return data;
         }
 
         public override bool CanDelete(SharpTreeNode[] nodes)
         {
-            return nodes.All(n => n is DocTreeFileNode && !n.Parent.IsRoot);
+            return nodes.All(n => !n.Parent.IsRoot);
         }
 
 
@@ -48,6 +48,7 @@ namespace ET.Main.DocTree
             {
                 if (node.Parent != null)
                 {
+                    //TODO 删除相应内容
                      node.Parent.Children.Remove(node);
                 }
             }
