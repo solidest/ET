@@ -5,10 +5,6 @@ VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{819F694F-1E35-4CEA-8FB5-44DFCD3E061F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{3AED7967-32C8-4D58-862B-221ADCF4F68C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf.TabControl", "Libraries\TabControl\Wpf.TabControl.csproj", "{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleInterface", "ModuleInterface\ModuleInterface.csproj", "{FE1C1D0C-B470-4F9A-B849-551144969AB3}"
 EndProject
 Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "API_Readme", "API_Readme\API_Readme.shfbproj", "{F38A26D4-D2B2-43BA-A63C-809AB7B752DD}"
@@ -28,10 +24,6 @@ Global
 		{819F694F-1E35-4CEA-8FB5-44DFCD3E061F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{819F694F-1E35-4CEA-8FB5-44DFCD3E061F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{819F694F-1E35-4CEA-8FB5-44DFCD3E061F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FE1C1D0C-B470-4F9A-B849-551144969AB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FE1C1D0C-B470-4F9A-B849-551144969AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE1C1D0C-B470-4F9A-B849-551144969AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -46,9 +38,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{509D06BD-AEB6-4E92-8E5B-21188EBDBD9C} = {3AED7967-32C8-4D58-862B-221ADCF4F68C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8367690E-3F58-4F3F-AE11-59CF1890CF69}

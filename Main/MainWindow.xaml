@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:sd="http://icsharpcode.net/sharpdevelop/treeview"
-        xmlns:r="clr-namespace:Wpf.Controls;assembly=Wpf.TabControl"
+        xmlns:r="clr-namespace:Wpf.Controls"
         xmlns:local="clr-namespace:ET.Main"
         mc:Ignorable="d"
         Title="ET WorkBench" Height="450" Width="800"

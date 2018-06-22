@@ -59,8 +59,14 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="TabControl\Converters.cs" />
+    <Compile Include="TabControl\Helper.cs" />
     <Compile Include="Libs\Helper.cs" />
     <Compile Include="Modules.cs" />
+    <Compile Include="TabControl\TabControl.cs" />
+    <Compile Include="TabControl\TabEventArgs.cs" />
+    <Compile Include="TabControl\TabItem.cs" />
+    <Compile Include="TabControl\TabPanel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +79,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -120,10 +130,6 @@
     <Resource Include="Images\letfdisp.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Libraries\TabControl\Wpf.TabControl.csproj">
-      <Project>{509d06bd-aeb6-4e92-8e5b-21188ebdbd9c}</Project>
-      <Name>Wpf.TabControl</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ModuleInterface\ModuleInterface.csproj">
       <Project>{fe1c1d0c-b470-4f9a-b849-551144969ab3}</Project>
       <Name>ModuleInterface</Name>
@@ -137,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\bottomdisp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\newtab.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
