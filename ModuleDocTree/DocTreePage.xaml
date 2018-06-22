@@ -13,20 +13,29 @@
 
             <tree:SharpTreeView.ContextMenu>
                 <ContextMenu Name="contextMenu">
-                    <MenuItem Header="添加"   Command="ApplicationCommands.New" CommandParameter="NewModuleFile"/>
-                    <MenuItem Header="剪切"   Command="ApplicationCommands.Cut"/>
-                    <MenuItem Header="复制"   Command="ApplicationCommands.Copy"/>
-                    <MenuItem Header="粘贴"   Command="ApplicationCommands.Paste"/>
-                    <MenuItem Header="删除"  Command="ApplicationCommands.Delete"/>
-                    <MenuItem Header="重命名" />
+                    <MenuItem Header="添加" Command="ApplicationCommands.New" CommandParameter="NewModuleFile"/>
+                    <MenuItem Header="复制" Command="ApplicationCommands.Copy">
+                        <MenuItem.Icon>
+                            <Image Source="/images/copy.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="粘贴" Command="ApplicationCommands.Paste">
+                        <MenuItem.Icon>
+                            <Image Source="/images/paste.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="删除" Command="ApplicationCommands.Delete">
+                        <MenuItem.Icon>
+                            <Image Source="/images/delete.png"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="重命名"  InputGestureText ="F2"/>
                 </ContextMenu>
             </tree:SharpTreeView.ContextMenu>
 
             <tree:SharpTreeView.CommandBindings>
                 <CommandBinding Command="ApplicationCommands.New" Executed="DoNewModuleFile" CanExecute="CanNewModuleFile"/>
-                <!--<CommandBinding Command="ApplicationCommands.Open" Executed="DoOpenDoc"/>
-                <CommandBinding Command="ApplicationCommands.Save" CanExecute="CanSaveDoc" Executed="DoSaveDoc" />
-                <CommandBinding Command="ApplicationCommands.SaveAs" CanExecute="CanSaveAll" Executed="DoSaveAll" />-->
+                
             </tree:SharpTreeView.CommandBindings>
 
         </tree:SharpTreeView>

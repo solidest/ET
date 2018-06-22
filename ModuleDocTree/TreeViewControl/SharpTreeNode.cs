@@ -580,7 +580,7 @@ namespace ICSharpCode.TreeView
 		{
 			var data = GetDataObject(nodes);
 			if (data != null) {
-				// TODO: default cut implementation should not immediately perform deletion, but use 'IsCut'
+				//default cut implementation should not immediately perform deletion, but use 'IsCut'
 				Clipboard.SetDataObject(data, copy: true);
 				DeleteWithoutConfirmation(nodes);
 			}

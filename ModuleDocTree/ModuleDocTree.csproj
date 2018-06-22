@@ -116,5 +116,14 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\folder.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\copy.png" />
+    <EmbeddedResource Include="Images\file.png" />
+    <EmbeddedResource Include="Images\openfolder.png" />
+    <Resource Include="Images\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

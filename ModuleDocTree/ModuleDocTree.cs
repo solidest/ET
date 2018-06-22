@@ -27,8 +27,8 @@ namespace ET.Main.DocTree
         public ModuleDocTree()
         {
             _folderIcon = GetImage("folder.png");
-            _fileIcon = GetImage("folder.png");
-            _folderOpenIcon = GetImage("folder.png");
+            _fileIcon = GetImage("file.png");
+            _folderOpenIcon = GetImage("openfolder.png");
         }
 
         #region --For Icon--

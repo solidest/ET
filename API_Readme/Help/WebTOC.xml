@@ -2,10 +2,10 @@
 <HelpTOC>
 
   <HelpTOCNode Title="阅读对象" Url="html/85db96cc-fd84-48c0-a5ce-2c9b57658fc7.htm" />
-  <HelpTOCNode Id="b4772ed6-1259-4a3b-bb46-ea1326beb5aa" Title="ET.Doc" Url="html/ab0a5ae7-ebfa-cab3-793a-390f14c72aeb.htm">
-    <HelpTOCNode Id="4a44eccd-0eeb-4b1a-b15c-4e97b90ad8af" Title="DirNode 类" Url="html/032222ad-7b2c-ee3d-10cf-2b769ee0d169.htm">
+  <HelpTOCNode Id="fd3314c3-a26e-4cf4-9306-f4b23e098ade" Title="ET.Doc" Url="html/ab0a5ae7-ebfa-cab3-793a-390f14c72aeb.htm">
+    <HelpTOCNode Id="95fcc4f3-8849-4963-b626-fbf16568b6d0" Title="DirNode 类" Url="html/032222ad-7b2c-ee3d-10cf-2b769ee0d169.htm">
       <HelpTOCNode Title="DirNode 构造函数 " Url="html/582c88b5-55d7-70bc-aaf7-652fcf490f12.htm" />
-      <HelpTOCNode Id="0b42da1a-cb06-4f2f-8731-71a5f2dd545b" Title="DirNode 属性" Url="html/32d439be-fec1-b9ad-bd1f-211e15313d7b.htm">
+      <HelpTOCNode Id="2b2e1476-b7fc-467f-9abc-a37cfbc0ef73" Title="DirNode 属性" Url="html/32d439be-fec1-b9ad-bd1f-211e15313d7b.htm">
         <HelpTOCNode Title="ModuleKey 属性 " Url="html/4610ca64-d408-1b31-34e2-a2c204313c82.htm" />
         <HelpTOCNode Title="NodeName 属性 " Url="html/158ade9a-bf3e-5577-0c1a-cd826edb3c77.htm" />
         <HelpTOCNode Title="ParentNode 属性 " Url="html/03f45e13-f073-fbed-fd26-a642b10ff829.htm" />
@@ -14,9 +14,9 @@
       </HelpTOCNode>
       <HelpTOCNode Title="DirNode 方法" Url="html/392b039a-e52d-10fd-5aed-2f287ee277be.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="5451c401-4597-424f-99a2-b3b1a5bacb98" Title="ModuleFile 类" Url="html/69ea6b26-9723-f6ff-5c87-30a8eba1ea8f.htm">
+    <HelpTOCNode Id="a0766c68-d52d-4a87-99fb-603adf67d2b7" Title="ModuleFile 类" Url="html/69ea6b26-9723-f6ff-5c87-30a8eba1ea8f.htm">
       <HelpTOCNode Title="ModuleFile 构造函数 " Url="html/c66b1605-96b0-02cf-35c8-04bd9fe94b8f.htm" />
-      <HelpTOCNode Id="c6cf7e10-1182-4f7a-b410-90165d206ff8" Title="ModuleFile 属性" Url="html/f276a596-c594-88ea-5905-d44833da573e.htm">
+      <HelpTOCNode Id="7bc4f1c4-6298-410a-bc00-d650fe714a61" Title="ModuleFile 属性" Url="html/f276a596-c594-88ea-5905-d44833da573e.htm">
         <HelpTOCNode Title="Content 属性 " Url="html/d8e82339-0a1f-34ba-2961-efac1c8b2cdb.htm" />
         <HelpTOCNode Title="FileName 属性 " Url="html/fd6cb941-f7b1-7294-92dc-53877c97ae64.htm" />
         <HelpTOCNode Title="ModuleKey 属性 " Url="html/8da61832-8ed7-bcd5-56a6-43772a413ec3.htm" />
@@ -24,59 +24,59 @@
       <HelpTOCNode Title="ModuleFile 方法" Url="html/d82275f9-50c3-174a-1e8d-a6e813299dda.htm" />
     </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="b40a8a41-f369-4baa-b021-69ed750e96f0" Title="ET.Interface" Url="html/792ea93a-5c7c-392a-daba-b26a2810074f.htm">
-    <HelpTOCNode Id="e8d132ff-55b0-4bea-9f54-024056e16d32" Title="ETEventArgs 类" Url="html/fd5a95a7-5d0b-4eee-80a4-89fe46d4bd0a.htm">
+  <HelpTOCNode Id="6b212ec5-172e-41e7-a293-d71283191d0c" Title="ET.Interface" Url="html/792ea93a-5c7c-392a-daba-b26a2810074f.htm">
+    <HelpTOCNode Id="ebb7ee5b-a75b-4127-8bb6-0bdccf35f6c0" Title="ETEventArgs 类" Url="html/fd5a95a7-5d0b-4eee-80a4-89fe46d4bd0a.htm">
       <HelpTOCNode Title="ETEventArgs 构造函数 " Url="html/33991d5c-9511-f853-b284-c491ca041460.htm" />
-      <HelpTOCNode Id="8bfe83ec-3523-4384-a0d5-6e433513bee9" Title="ETEventArgs 属性" Url="html/632f02a3-5df7-e739-f5cf-1264731e883f.htm">
+      <HelpTOCNode Id="e4bb72b2-2509-42bd-9d69-a461a05fa4a0" Title="ETEventArgs 属性" Url="html/632f02a3-5df7-e739-f5cf-1264731e883f.htm">
         <HelpTOCNode Title="EventHostVM 属性 " Url="html/0598b761-6f53-d10a-d3cb-5f55e7650ad1.htm" />
         <HelpTOCNode Title="Tag 属性 " Url="html/6c9b8c2f-d410-88c6-f942-07b480484b0d.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="ETEventArgs 方法" Url="html/e9f05e53-5239-c75f-8706-605eff0ff985.htm" />
     </HelpTOCNode>
-    <HelpTOCNode Id="fe8dd9a4-146f-41e8-ac4e-fa195a761a25" Title="ETException 类" Url="html/7746fdb9-a124-5cdd-1d34-5522e8efa2be.htm">
+    <HelpTOCNode Id="a1bedea0-8484-4f00-8939-685f561e7999" Title="ETException 类" Url="html/7746fdb9-a124-5cdd-1d34-5522e8efa2be.htm">
       <HelpTOCNode Title="ETException 构造函数 " Url="html/dc4e17da-5278-c927-1c76-554d60b6eadf.htm" />
-      <HelpTOCNode Id="5e2806a2-0958-49bc-a5d4-9da90a05cf82" Title="ETException 属性" Url="html/620693a5-b17b-1157-8f8c-dd40fa786caf.htm">
+      <HelpTOCNode Id="22704b10-4b38-4775-a939-98792af625f9" Title="ETException 属性" Url="html/620693a5-b17b-1157-8f8c-dd40fa786caf.htm">
         <HelpTOCNode Title="ModuleKey 属性 " Url="html/7c535739-1891-e175-d4b2-4d806f0e2b53.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="2f3a50fc-ce8f-497b-8dba-f4cd06fd13c4" Title="ETException 方法" Url="html/42e030a6-97d3-e875-890e-92241eea9255.htm">
+      <HelpTOCNode Id="243ed85d-e32f-4eb7-b59f-c4817f2f6458" Title="ETException 方法" Url="html/42e030a6-97d3-e875-890e-92241eea9255.htm">
         <HelpTOCNode Title="ToString 方法 " Url="html/c68af41d-f988-2808-4682-3dcd4eb1b7da.htm" />
       </HelpTOCNode>
       <HelpTOCNode Title="ETException 事件" Url="html/8d4b5de0-f0cb-d7c4-4f48-eab5c050264b.htm" />
     </HelpTOCNode>
     <HelpTOCNode Title="ETModuleFileTypeEnum 枚举" Url="html/1ecc5e63-0eea-f757-f67f-5491abc5be8f.htm" />
-    <HelpTOCNode Id="ff5c2e72-6148-466d-aabf-cd36a2f3464e" Title="ETPage 类" Url="html/4f7e4f2d-17af-398c-927d-f05f36014562.htm">
+    <HelpTOCNode Id="7eb4be9d-e438-4c02-aa0b-bc6d9596d294" Title="ETPage 类" Url="html/4f7e4f2d-17af-398c-927d-f05f36014562.htm">
       <HelpTOCNode Title="ETPage 构造函数 " Url="html/31ce3e6e-8ecb-dbdb-df0e-11c22a844d8b.htm" />
       <HelpTOCNode Title="ETPage 属性" Url="html/3e7f788f-d849-9af8-843a-9853854e6172.htm" />
       <HelpTOCNode Title="ETPage 方法" Url="html/19d3b5ee-26cc-eaad-6bca-2d584fbb8c57.htm" />
-      <HelpTOCNode Id="ac5c3161-724c-458c-8ccc-ff20bb07511e" Title="ETPage 事件" Url="html/4bf82abc-88a6-fcb8-bed8-45ad1659a63c.htm">
+      <HelpTOCNode Id="4fa4ecaa-feea-481b-9a3c-4a222dce1a27" Title="ETPage 事件" Url="html/4bf82abc-88a6-fcb8-bed8-45ad1659a63c.htm">
         <HelpTOCNode Title="ETModuleFileModify 事件" Url="html/51a5e4d1-2a6b-5f6e-4c0b-e2fedf13a44a.htm" />
         <HelpTOCNode Title="ETModuleFileOpen 事件" Url="html/2cc8b560-2c42-51b9-e4b6-43b72393dbe3.htm" />
         <HelpTOCNode Title="ETModuleFileSaved 事件" Url="html/a255a435-111e-8587-a207-6bd8bd4f1a9d.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="6524565d-bdd6-4f65-8ab4-4f72f81a0f1b" Title="ETPage 字段" Url="html/30109c76-d081-8a01-8183-e41d7aed870e.htm">
+      <HelpTOCNode Id="ef9a9a0c-324d-4135-9311-e52ef1de68cc" Title="ETPage 字段" Url="html/30109c76-d081-8a01-8183-e41d7aed870e.htm">
         <HelpTOCNode Title="ETModuleFileModifyEvent 字段" Url="html/147a7680-98d4-45b6-6946-cb951a222093.htm" />
         <HelpTOCNode Title="ETModuleFileOpenEvent 字段" Url="html/90b05b1e-48fb-c9e5-3683-2b898ab1143e.htm" />
         <HelpTOCNode Title="ETModuleFileSavedEvent 字段" Url="html/03a92810-c567-c5ea-5dea-86075a70a31d.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="4d324e1a-aaad-4949-bd96-041dea770fe6" Title="ICommModule 接口" Url="html/43bda6f4-ccdb-2cf5-68ec-e3b4933065ac.htm">
-      <HelpTOCNode Id="7eacc105-3a58-42f9-8ae2-3707022532d3" Title="ICommModule 属性" Url="html/38238142-2b12-4b19-6866-c3f8935dcd41.htm">
+    <HelpTOCNode Id="2a3ae29b-ad74-470f-a4fe-6079ed27de14" Title="ICommModule 接口" Url="html/43bda6f4-ccdb-2cf5-68ec-e3b4933065ac.htm">
+      <HelpTOCNode Id="ae54edfe-2b31-4d3e-a97c-586b737af1e3" Title="ICommModule 属性" Url="html/38238142-2b12-4b19-6866-c3f8935dcd41.htm">
         <HelpTOCNode Title="FileIcon 属性 " Url="html/f70b26fa-8c0a-4337-6633-b0cdf4a9756d.htm" />
         <HelpTOCNode Title="ModuleIcon 属性 " Url="html/cc6148e2-f72a-d998-bee1-8cdafecbed0a.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="8cd1c104-5b98-413c-ac6c-970de6f45971" Title="ICommModule 方法" Url="html/7f276fb2-b8c3-d903-08c3-cff50b9aec34.htm">
+      <HelpTOCNode Id="4efc9381-2334-405e-bafa-55395b1eea57" Title="ICommModule 方法" Url="html/7f276fb2-b8c3-d903-08c3-cff50b9aec34.htm">
         <HelpTOCNode Title="OpenFile 方法 " Url="html/1e0d5024-e2ba-a42e-b602-82cebcf175f4.htm" />
         <HelpTOCNode Title="OpenNewFile 方法 " Url="html/ed534c16-15a5-263b-9907-a76cfdf80381.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="3d0ede1b-3d32-4674-a76c-70deabce67bd" Title="IViewDoc 接口" Url="html/31f0cfb2-2a01-7065-1d21-92659eb9ae5f.htm">
-      <HelpTOCNode Id="f02f3b20-83f8-4d0e-857e-f98382428418" Title="IViewDoc 属性" Url="html/b2fd9b10-dc57-e305-81eb-848f3a849e1e.htm">
+    <HelpTOCNode Id="84c9d2eb-2e20-4a74-9c6b-62433f16e0e5" Title="IViewDoc 接口" Url="html/31f0cfb2-2a01-7065-1d21-92659eb9ae5f.htm">
+      <HelpTOCNode Id="773d5948-90c5-4059-a008-05b711861fa3" Title="IViewDoc 属性" Url="html/b2fd9b10-dc57-e305-81eb-848f3a849e1e.htm">
         <HelpTOCNode Title="IsAutoSave 属性 " Url="html/693d18e0-bc98-f8aa-8b1a-7646531b2c79.htm" />
         <HelpTOCNode Title="ModuleKey 属性 " Url="html/1aa8c242-adec-9351-1e1d-82672f62660a.htm" />
         <HelpTOCNode Title="PageFile 属性 " Url="html/d1bb7a06-eb4b-abdf-6f5b-b7974f16e9a7.htm" />
         <HelpTOCNode Title="PageUI 属性 " Url="html/ef9bf021-c050-9fb1-5a0d-705a6573128b.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="cbee728a-e65c-4d3c-8640-59c49ecc98a0" Title="IViewDoc 方法" Url="html/00f83364-4fde-866d-2ee1-888e0a76c563.htm">
+      <HelpTOCNode Id="a5225843-dc71-4ed5-ade4-e9c1ba61e6dd" Title="IViewDoc 方法" Url="html/00f83364-4fde-866d-2ee1-888e0a76c563.htm">
         <HelpTOCNode Title="CanCopy 方法 " Url="html/210adcb9-ee87-1895-7e74-dd99b58bdd8f.htm" />
         <HelpTOCNode Title="CanPaste 方法 " Url="html/f7053874-9ab0-9529-11e5-66921e686849.htm" />
         <HelpTOCNode Title="CanRedo 方法 " Url="html/ce9c6b3b-f1df-6557-f42d-d955293cd7ce.htm" />
@@ -88,12 +88,12 @@
         <HelpTOCNode Title="UpdateContent 方法 " Url="html/03a42e21-c913-d6d9-e6a1-7b76cb10d7c3.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="fb935aa6-7314-4e3d-b9b8-8fdae2dcfe40" Title="ModuleHeaderAttribute 类" Url="html/50725438-ae3d-0a2d-4c2c-dcb404285f57.htm">
-      <HelpTOCNode Id="72edb516-e571-4376-bb8d-68d2db39e4b9" Title="ModuleHeaderAttribute 构造函数 " Url="html/80a34f58-44aa-9bbd-7d01-0cb4b22c1906.htm">
+    <HelpTOCNode Id="08358b18-b1b9-4d8b-b928-2abb7c7f9195" Title="ModuleHeaderAttribute 类" Url="html/50725438-ae3d-0a2d-4c2c-dcb404285f57.htm">
+      <HelpTOCNode Id="045686f1-b27a-47fa-8e95-69e74e05e321" Title="ModuleHeaderAttribute 构造函数 " Url="html/80a34f58-44aa-9bbd-7d01-0cb4b22c1906.htm">
         <HelpTOCNode Title="ModuleHeaderAttribute 构造函数 (IDictionary(String, Object))" Url="html/8b563324-0d3e-7f69-0bbd-83be5371ab40.htm" />
         <HelpTOCNode Title="ModuleHeaderAttribute 构造函数 (String, String, Int32, ETModuleFileTypeEnum)" Url="html/e76758d5-f636-6954-6d07-09ebd25bee0e.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="b90407b1-4631-4311-837d-1490b352fb63" Title="ModuleHeaderAttribute 属性" Url="html/41ebc38a-f67b-fafb-3767-f20cd450a98f.htm">
+      <HelpTOCNode Id="c74282e1-803b-432d-8d7e-4aa05bee477e" Title="ModuleHeaderAttribute 属性" Url="html/41ebc38a-f67b-fafb-3767-f20cd450a98f.htm">
         <HelpTOCNode Title="ILevel 属性 " Url="html/5aacd2c9-7cc1-e2dc-385a-d774027930a6.htm" />
         <HelpTOCNode Title="ModuleFileType 属性 " Url="html/ab5d2667-74b1-fe57-5346-0c0983373f23.htm" />
         <HelpTOCNode Title="ModuleKey 属性 " Url="html/7dfbc03d-bd4e-e811-0af9-e1015c6d8043.htm" />
@@ -102,22 +102,22 @@
       <HelpTOCNode Title="ModuleHeaderAttribute 方法" Url="html/6757fe49-0d3d-5470-80e4-ae7695fc8318.htm" />
     </HelpTOCNode>
   </HelpTOCNode>
-  <HelpTOCNode Id="cef033ca-4acf-4013-80b4-81690c19f667" Title="ET.Service" Url="html/ea67ca9e-ba9b-dd61-cf40-d26f3d744b7d.htm">
-    <HelpTOCNode Id="8d0b7a21-9155-42f3-876d-4172c8436232" Title="ETService 类" Url="html/eef5f2a2-45fa-82e3-b4c5-48dcdf87a7ee.htm">
+  <HelpTOCNode Id="d5c9e403-4508-4a35-b86e-7b55f2209e1d" Title="ET.Service" Url="html/ea67ca9e-ba9b-dd61-cf40-d26f3d744b7d.htm">
+    <HelpTOCNode Id="2dede9c5-98bb-4328-95db-1d76ac8fc1d1" Title="ETService 类" Url="html/eef5f2a2-45fa-82e3-b4c5-48dcdf87a7ee.htm">
       <HelpTOCNode Title="ETService 构造函数 " Url="html/b3d6a5db-02d5-37e7-d362-ed6631eed715.htm" />
-      <HelpTOCNode Id="536b1596-bab6-497d-a40e-e7c1c3a5cafc" Title="ETService 方法" Url="html/016d5120-a104-f072-3a54-460ccbfdba28.htm">
+      <HelpTOCNode Id="9c5318fc-ea5c-4003-b1e9-903c39debfb2" Title="ETService 方法" Url="html/016d5120-a104-f072-3a54-460ccbfdba28.htm">
         <HelpTOCNode Title="SetupMainService 方法 " Url="html/a798d791-af25-5d9c-f283-1b4fe6cf2d5c.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="be7d2d3d-6e0e-4091-81de-4d66992baded" Title="ETService 字段" Url="html/c4b65092-f041-14cb-f7e1-4b997f3a3052.htm">
+      <HelpTOCNode Id="532be857-8d81-40ec-b1ff-8b2533f11aa1" Title="ETService 字段" Url="html/c4b65092-f041-14cb-f7e1-4b997f3a3052.htm">
         <HelpTOCNode Title="MainService 字段" Url="html/e5e09637-eeaf-adde-f1f9-fef7d2f73c6e.htm" />
       </HelpTOCNode>
     </HelpTOCNode>
-    <HelpTOCNode Id="af13adf3-17bc-40cc-a552-6c6578498abc" Title="IMainService 接口" Url="html/46913b8f-eed9-305b-032e-bcd9455a6655.htm">
-      <HelpTOCNode Id="82a74ca6-d2d0-4e7b-bbce-64f3151bdc36" Title="IMainService 属性" Url="html/05e38dab-d2fe-2530-2543-fd752e710af7.htm">
+    <HelpTOCNode Id="534c7c35-090a-4022-83cf-24abdcfcc748" Title="IMainService 接口" Url="html/46913b8f-eed9-305b-032e-bcd9455a6655.htm">
+      <HelpTOCNode Id="170220d4-28b7-40a2-8089-a1c067739213" Title="IMainService 属性" Url="html/05e38dab-d2fe-2530-2543-fd752e710af7.htm">
         <HelpTOCNode Title="Modules 属性 " Url="html/979dd13d-6c8b-5e2a-8410-af33bc14e7a3.htm" />
         <HelpTOCNode Title="ModulesHeaders 属性 " Url="html/7e7a57a1-5da7-e4cd-75f2-84397f46fe70.htm" />
       </HelpTOCNode>
-      <HelpTOCNode Id="28c9e6c9-6d2a-4586-ae02-bbec357e334d" Title="IMainService 方法" Url="html/44054ca5-72ad-943e-18e2-bffa656ab3da.htm">
+      <HelpTOCNode Id="9bf3eab1-53ab-4b13-9280-65f3aa527820" Title="IMainService 方法" Url="html/44054ca5-72ad-943e-18e2-bffa656ab3da.htm">
         <HelpTOCNode Title="OpenModuleFile 方法 " Url="html/1a176f4e-2279-4fc8-cc78-361e6007750d.htm" />
       </HelpTOCNode>
     </HelpTOCNode>

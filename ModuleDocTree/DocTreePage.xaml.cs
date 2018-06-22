@@ -42,5 +42,10 @@ namespace ET.Main.DocTree
                 e.Handled = true;
             }
         }
+
+        private void DoDel(object sender, ExecutedRoutedEventArgs e)
+        {
+
+        }
     }
 }
