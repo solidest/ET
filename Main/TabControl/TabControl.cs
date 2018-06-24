@@ -518,7 +518,7 @@ namespace Wpf.Controls
                 if (itemsHost != null)
                     itemsHost.MakeVisible(tabItem, Rect.Empty);
 
-                tabItem.Focus();
+                tabItem?.Focus();
             }
         }
 

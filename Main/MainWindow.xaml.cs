@@ -29,10 +29,17 @@ namespace ET.Main
         private IViewDoc _docTreeVM = null;
 
         //打开的操作系统文件全名
-        private String __file = "";
+        private String __file = RevisionClass.DocVer;
+
+        //所有打开的模块文件
+        private List<ModuleFile> _open_fs = new List<ModuleFile>();
 
         //所有打开的模块文件控制器句柄
-        private List<IViewDoc>  _open_vms = new List<IViewDoc>();
+        private List<IViewDoc> _open_vms = new List<IViewDoc>();
+
+        //文档版本
+        private int _docVersion;
+
 
         private String FileName
         {
@@ -69,9 +76,31 @@ namespace ET.Main
             }
         }
 
-        public void OpenModuleFile(IViewDoc mv)
+        public int DocVersion => _docVersion;
+
+        public void OpenModuleFile(ModuleFile mf)
         {
-            //TODO:打开模块文件
+            if(_open_fs.Contains(mf))
+            {
+                ActivePage(mf);
+            }
+            else
+            {
+                var pg = _ms[mf.ModuleKey].OpenFile(mf, _docVersion);
+                AddPage(pg);
+            }
+        }
+
+        public void ShowModuleFile(IViewDoc vd)
+        {
+            if (_open_vms.Contains(vd))
+            {
+                ActivePage(vd.MFile);
+            }
+            else
+            {
+                AddPage(vd);
+            }
         }
 
         #endregion
@@ -112,7 +141,7 @@ namespace ET.Main
                 if (isNew)
                 {
                         FileName = "";
-                        _docTreeVM = _docTreeModule.OpenNewFile();
+                        _docTreeVM = _docTreeModule.OpenNewFile("");
                         ShowDocTree();
                 }
                 else
@@ -171,10 +200,17 @@ namespace ET.Main
            //TODO 更新活动模块控制器句柄
         }
 
+        private void tabPages_TabItemClosing(object sender, Wpf.Controls.TabItemCancelEventArgs e)
+        {
+            //TODO 提示保存
+            RemovePage(e.TabItem);
+        }
+
         private void DeActiveModule(object sender, RoutedEventArgs e)
         {
             _activeVM = null;
         }
+
         #endregion
 
         #region --Doc Operation--
@@ -202,13 +238,13 @@ namespace ET.Main
                 fs.Read(content, 0, content.Length);
             }
 
-            Int32 iver = BitConverter.ToInt32(bver, 0);
-            if (iver > Helper.CurrentAppDocVer()) throw new ETException("MAIN", "程序版本过低，打开文档失败！");
+            _docVersion = BitConverter.ToInt32(bver, 0);
+            if (_docVersion > Helper.CurrentAppDocVer()) throw new ETException("MAIN", "程序版本过低，打开文档失败！");
             using (var ms = new MemoryStream(content))
             {
                 var formatter = new BinaryFormatter();
                 var mf = formatter.Deserialize(ms) as ModuleFile;
-                _docTreeVM = _docTreeModule.OpenFile(mf, iver);
+                _docTreeVM = _docTreeModule.OpenFile(mf, _docVersion);
             }
 
             FileName = fileName;
@@ -283,7 +319,7 @@ namespace ET.Main
             }
             else
             {
-                _docTreeVM = _docTreeModule.OpenNewFile();
+                _docTreeVM = _docTreeModule.OpenNewFile("");
                 ShowDocTree();
             }
             e.Handled = true;
@@ -339,7 +375,48 @@ namespace ET.Main
             _activeVM?.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM));
             e.Handled = true;
         }
-       
+
+        #endregion
+
+        #region --Helper--
+
+
+        private void AddPage(IViewDoc pg)
+        {
+            tabPages.AddNewTabToEnd = true;
+            tabPages.AddTabItem();
+            TabItem ti = tabPages.Items[tabPages.Items.Count - 1] as TabItem;
+
+            ti.Content = pg.PageUI;
+            
+            if (pg.MFile.FileName.Length == 0)
+                ti.Header = "未命名";
+            else
+                ti.Header = pg.MFile.FileName;
+
+            _open_fs.Add(pg.MFile);
+            _open_vms.Add(pg);
+        }
+
+        private void ActivePage(ModuleFile mf)
+        {
+
+        }
+
+        private void RemovePage(TabItem ti)
+        {
+            IViewDoc rem = null;
+            foreach(var p in _open_vms)
+            {
+                if (p.PageUI == ti.Content) rem = p;
+            }
+            if(rem!=null)
+            {
+                _open_fs.Remove(rem.MFile);
+                _open_vms.Remove(rem);
+            }
+        }
+
         #endregion
 
     }

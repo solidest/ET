@@ -8,7 +8,7 @@ using System.Windows;
 [assembly: ComVisible(false)]
 [assembly: AssemblyCompany("ET")]
 [assembly: AssemblyProduct(RevisionClass.ProductName)]
-[assembly: AssemblyCopyright("Copyright ©  2018-2020 ET WorkBenck Develop Team")]
+[assembly: AssemblyCopyright("Copyright ©  2018-2020 ET WorkBench")]
 [assembly: AssemblyVersion(RevisionClass.FullVersion)]
 [assembly: AssemblyFileVersion(RevisionClass.FullVersion)]
 

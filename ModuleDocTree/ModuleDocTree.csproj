@@ -123,7 +123,10 @@
     <Resource Include="Images\paste.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\notdel.png" />
+    <Resource Include="Images\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\del.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

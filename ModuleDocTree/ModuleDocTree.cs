@@ -129,7 +129,7 @@ namespace ET.Main.DocTree
         }
 
         //打开新项目
-        public IViewDoc OpenNewFile()
+        public IViewDoc OpenNewFile(string name)
         {
             var rootNode = new DirNode(ModuleKey, ModuleShowName);
             foreach (var m in ETService.MainService.ModulesHeaders)
@@ -138,8 +138,8 @@ namespace ET.Main.DocTree
                 {
                     if (m.Value.ModuleFileType == ETModuleFileTypeEnum.CustomOnlyOne || m.Value.ModuleFileType == ETModuleFileTypeEnum.DefaultOnlyOne)
                     {
-                        var vm = ETService.MainService.Modules[m.Key].OpenNewFile();
-                        ETService.MainService.OpenModuleFile(vm);
+                        var vm = ETService.MainService.Modules[m.Key].OpenNewFile(name);
+                        ETService.MainService.ShowModuleFile(vm);
                         rootNode.SubModuleFiles.Add(vm.MFile);
                     }
                     else
@@ -149,19 +149,26 @@ namespace ET.Main.DocTree
                 }
             }
 
-            return new DocTreeVM(rootNode);
+            var ret = new DocTreeVM(rootNode);
+            ret.UpdateContent();
+            return ret;
         }
 
         //加载项目
         public IViewDoc OpenFile(ModuleFile mf, int version)
         {
+            var rootNode = (LoadFile(mf, version) as DirNode);
+            return new DocTreeVM(rootNode);
+        }
+
+        public object LoadFile(ModuleFile mf, int version)
+        {
             if (version > 0) throw new ETException(ModuleKey, "程序版本过低，打开文档失败！");
-           
+
             using (MemoryStream ms = new MemoryStream(mf.Content))
             {
                 var formatter = new BinaryFormatter();
-                var rootNode = formatter.Deserialize(ms) as DirNode;
-                return new DocTreeVM(rootNode);
+                return formatter.Deserialize(ms) ;
             }
         }
     }

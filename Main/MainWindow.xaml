@@ -138,7 +138,8 @@
             TabStripPlacement="{Binding ElementName=listBox, Path=SelectedItem}" 
             TabItemMinWidth="80" TabItemMaxWidth="300" TabItemMinHeight="20" TabItemMaxHeight="40"
             VerticalContentAlignment="Center" AllowAddNew="False"
-            GotFocus="ActiveModule" LostFocus="DeActiveModule">
+            GotFocus="ActiveModule" LostFocus="DeActiveModule"
+            TabItemClosing="tabPages_TabItemClosing">
 
         </r:TabControl>
 

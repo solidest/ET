@@ -10,10 +10,21 @@ namespace ET.Service
     public interface IMainService
     {
         /// <summary>
+        /// 文档版本
+        /// </summary>
+        int DocVersion { get; }
+
+        /// <summary>
         /// 打开模块文件
         /// </summary>
-        /// <param name="vm">模块文件控制器</param>
-        void OpenModuleFile(IViewDoc vm);
+        /// <param name="mf">模块文件</param>
+        void OpenModuleFile(ModuleFile mf);
+
+        /// <summary>
+        /// 打开模块文件
+        /// </summary>
+        /// <param name="mf">模块文件</param>
+        void ShowModuleFile(IViewDoc vd);
 
         /// <summary>
         /// 全部可以访问的ET模块
