@@ -16,8 +16,6 @@ namespace ET.Main
     public partial class MainWindow : Window, IMainService
     {
 
-        #region --Property--
-
         //所有模块
         private Modules _ms = null;
 
@@ -32,7 +30,7 @@ namespace ET.Main
         private String __file = RevisionClass.DocVer;
 
         //所有打开的模块文件
-        private List<ModuleFile> _open_fs = new List<ModuleFile>();
+        private List<ModuleFile0> _open_fs = new List<ModuleFile0>();
 
         //所有打开的模块文件控制器句柄
         private List<IViewDoc> _open_vms = new List<IViewDoc>();
@@ -55,8 +53,6 @@ namespace ET.Main
 
         }
 
-        #endregion
-
 
         #region --IMainService--
 
@@ -78,7 +74,7 @@ namespace ET.Main
 
         public int DocVersion => _docVersion;
 
-        public void OpenModuleFile(ModuleFile mf)
+        public void OpenModuleFile(ModuleFile0 mf)
         {
             if(_open_fs.Contains(mf))
             {
@@ -140,10 +136,10 @@ namespace ET.Main
 
                 if (isNew)
                 {
-                        FileName = "";
                         _docTreeVM = _docTreeModule.OpenNewFile("");
-                        ShowDocTree();
-                }
+                        tbDocTree.Content = _docTreeVM.PageUI;
+                        FileName = "";
+              }
                 else
                 {
                     if (System.IO.File.Exists(fileName))
@@ -211,16 +207,33 @@ namespace ET.Main
             _activeVM = null;
         }
 
+
+        public void SaveFile()
+        {
+            if (FileName != "") SaveMainDoc(FileName);
+        }
+
         #endregion
 
         #region --Doc Operation--
 
-        //显示文档结构树
-        private void ShowDocTree()
-        {
-            tbDocTree.Content = _docTreeVM.PageUI;
-        }
 
+        //新建项目文件
+        private void DoNewDoc(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (_docTreeVM != null)
+            {
+                System.Diagnostics.Process.Start("main.exe", "-n");
+            }
+            else
+            {
+                _docTreeVM = _docTreeModule.OpenNewFile("");
+                tbDocTree.Content = _docTreeVM.PageUI;
+                FileName = "";
+            }
+            e.Handled = true;
+
+        }
 
         //打开文件
         private void OpenMainDoc(string fileName)
@@ -243,13 +256,13 @@ namespace ET.Main
             using (var ms = new MemoryStream(content))
             {
                 var formatter = new BinaryFormatter();
-                var mf = formatter.Deserialize(ms) as ModuleFile;
+                var mf = formatter.Deserialize(ms) as ModuleFile0;
                 _docTreeVM = _docTreeModule.OpenFile(mf, _docVersion);
             }
 
+            tbDocTree.Content = _docTreeVM.PageUI;
             FileName = fileName;
-            ShowDocTree();
-        }
+    }
 
 
         //保存文件
@@ -309,22 +322,6 @@ namespace ET.Main
             }
         }
 
-
-        //新建项目文件
-        private void DoNewDoc(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (_docTreeVM != null)
-            {
-                System.Diagnostics.Process.Start("main.exe", "-n");
-            }
-            else
-            {
-                _docTreeVM = _docTreeModule.OpenNewFile("");
-                ShowDocTree();
-            }
-            e.Handled = true;
-
-        }
 
         private void DoOpenDoc(object sender, ExecutedRoutedEventArgs e)
         {
@@ -398,7 +395,7 @@ namespace ET.Main
             _open_vms.Add(pg);
         }
 
-        private void ActivePage(ModuleFile mf)
+        private void ActivePage(ModuleFile0 mf)
         {
 
         }
@@ -416,6 +413,7 @@ namespace ET.Main
                 _open_vms.Remove(rem);
             }
         }
+
 
         #endregion
 

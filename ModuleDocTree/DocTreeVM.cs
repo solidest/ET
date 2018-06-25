@@ -13,12 +13,12 @@ namespace ET.Main.DocTree
     public class DocTreeVM : IViewDoc
     {
 
-        private DirNode _rootNode = null;
-        private ModuleFile _mfile = new ModuleFile(ModuleDocTree.ModuleKey, ModuleDocTree.ModuleShowName, null);
+        private DirNode0 _rootNode = null;
+        private ModuleFile0 _mfile = new ModuleFile0(ModuleDocTree.ModuleKey, ModuleDocTree.ModuleShowName, null);
 
         private DocTreePage _page = null;
 
-        public DocTreeVM(DirNode rootNode)
+        public DocTreeVM(DirNode0 rootNode)
         {
             _rootNode = rootNode;
             UpdateContent();
@@ -48,7 +48,7 @@ namespace ET.Main.DocTree
         }
 
 
-        public ModuleFile MFile
+        public ModuleFile0 MFile
         {
             get
             {

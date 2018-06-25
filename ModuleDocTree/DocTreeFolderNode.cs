@@ -10,8 +10,8 @@ namespace ET.Main.DocTree
 {
     public class DocTreeFolderNode : DocTreeNode
     {
-        private DirNode _dirNode;
-        public DocTreeFolderNode(DirNode dirNode)
+        private DirNode0 _dirNode;
+        public DocTreeFolderNode(DirNode0 dirNode)
         {
             _dirNode = dirNode;
             LazyLoading = true;
@@ -113,7 +113,7 @@ namespace ET.Main.DocTree
 
         public override void Paste(IDataObject data)
         {
-            if (data.GetData(DataFormats.Serializable) is ModuleFile[] files)
+            if (data.GetData(DataFormats.Serializable) is ModuleFile0[] files)
             {
                 foreach (var p in files)
                 {
@@ -129,7 +129,7 @@ namespace ET.Main.DocTree
 
         public override void Drop(DragEventArgs e, int index)
         {
-            if (e.Data.GetData(DataFormats.Serializable) is ModuleFile[] files)
+            if (e.Data.GetData(DataFormats.Serializable) is ModuleFile0[] files)
             {
                 foreach (var p in files)
                 {

@@ -422,8 +422,7 @@
                 Grid.Column="0" 
                 KeyboardNavigation.TabIndex="1"
                 Style="{StaticResource DropDownToggleButtonStyle}" 
-                Visibility="{Binding IsUsingItemsSource, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource _inverseBooleanConverter}}"
-                ToolTip="Display all the tabs in a menu"/>
+                Visibility="{Binding IsUsingItemsSource, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource _inverseBooleanConverter}}"/>
 
 			<Button 
                 x:Name="PART_NewTabButton" 

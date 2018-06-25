@@ -38,27 +38,17 @@ namespace ET.Main.DocTree
             }
         }
 
-        private void miOpenFile_Click(object sender, RoutedEventArgs e)
-        {
-            var n = (trMain.SelectedItem as DocTreeFileNode);
-            if (n != null)
-            {
-                ET.Service.ETService.MainService.OpenModuleFile(n.MFile);
-            }
-        }
 
         private void trMain_ContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
             var n = (trMain.SelectedItem as DocTreeNode);
             if (n == null)
             {
-                miOpenFile.IsEnabled = false;
                 miReName.IsEnabled = false;
             }
             else
             {
-                miOpenFile.IsEnabled = (n.GetType() == typeof(DocTreeFileNode));
-                miReName.IsEnabled = !n.Parent.IsRoot;
+                miReName.IsEnabled = (trMain.SelectedItems.Count == 1) && !n.Parent.IsRoot;
             }
         }
 
@@ -80,17 +70,30 @@ namespace ET.Main.DocTree
         private void DoNewModuleFile(object sender, ExecutedRoutedEventArgs e)
         {
             //TODO 新建模块文件
+            if (e.Parameter?.ToString() == "NewModuleFile")
+            {
+
+            }
+            else if (e.Parameter?.ToString() == "NewFolder")
+            {
+
+            }
         }
 
         private void CanNewModuleFile(object sender, CanExecuteRoutedEventArgs e)
         {
-            if (e.Parameter?.ToString() == "NewModuleFile")
+            if (e.Parameter?.ToString() == "NewModuleFile" )
             {
                 var n = (trMain.SelectedItem as DocTreeNode);
                 if (n == null)
                     e.CanExecute = false;
                 else
-                    e.CanExecute = n.CanNewFile;
+                    e.CanExecute = (trMain.SelectedItems.Count == 1) && n.CanNewFile;
+                e.Handled = true;
+            }
+            else if (e.Parameter?.ToString() == "NewFolder")
+            {
+                e.CanExecute = (trMain.SelectedItems.Count == 1) && ((trMain.SelectedItem as DocTreeFolderNode) != null);
                 e.Handled = true;
             }
         }

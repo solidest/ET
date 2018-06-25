@@ -12,11 +12,11 @@ namespace ET.TestMap
     public class TestMapVM : IViewDoc
     {
 
-        private ModuleFile _mfile;
-        private TestMapData _data;
+        private ModuleFile0 _mfile;
+        private TestMapData0 _data;
         private TestMapPage _page;
 
-        public TestMapVM(TestMapData data, ModuleFile mf)
+        public TestMapVM(TestMapData0 data, ModuleFile0 mf)
         {
             _data = data;
             _mfile = mf;
@@ -28,7 +28,7 @@ namespace ET.TestMap
 
         public ETPage PageUI => _page;
 
-        public ModuleFile MFile => _mfile;
+        public ModuleFile0 MFile => _mfile;
 
         public string ModuleKey => ModuleTestMap.ModuleKey;
 

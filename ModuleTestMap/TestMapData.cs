@@ -6,11 +6,11 @@ using System.Text;
 namespace ET.TestMap
 {
     [Serializable]
-    public class TestMapData
+    public class TestMapData0
     {
         private string _name = "";
 
-        public TestMapData(string name)
+        public TestMapData0(string name)
         {
             _name = name;
         }

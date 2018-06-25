@@ -18,13 +18,18 @@ namespace ET.Service
         /// 打开模块文件
         /// </summary>
         /// <param name="mf">模块文件</param>
-        void OpenModuleFile(ModuleFile mf);
+        void OpenModuleFile(ModuleFile0 mf);
 
         /// <summary>
-        /// 打开模块文件
+        /// 显示打开的模块文件
         /// </summary>
-        /// <param name="mf">模块文件</param>
+        /// <param name="vd">模块文件控制器</param>
         void ShowModuleFile(IViewDoc vd);
+
+        /// <summary>
+        /// 保存文件到硬盘
+        /// </summary>
+        void SaveFile();
 
         /// <summary>
         /// 全部可以访问的ET模块

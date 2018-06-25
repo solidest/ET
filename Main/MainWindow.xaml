@@ -82,7 +82,7 @@
 
             <TextBlock VerticalAlignment="Center" FontSize="18" Foreground ="LightGray">|</TextBlock>
             
-            <Button ToolTip="显示/隐藏项目列表" Click="DocTreeDispHide">
+            <Button ToolTip="显示/隐藏资源列表" Click="DocTreeDispHide">
                 <Button.Content>
                     <Image Source="images/letfdisp.png"></Image>
                 </Button.Content>

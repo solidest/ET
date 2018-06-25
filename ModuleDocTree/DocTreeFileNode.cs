@@ -10,12 +10,12 @@ namespace ET.Main.DocTree
 {
     public class DocTreeFileNode : DocTreeNode
     {
-        public DocTreeFileNode(ModuleFile f)
+        public DocTreeFileNode(ModuleFile0 f)
         {
             MFile = f;
         }
 
-        public ModuleFile MFile { get;  }
+        public ModuleFile0 MFile { get;  }
         public override string ModuleKey
         {
             get

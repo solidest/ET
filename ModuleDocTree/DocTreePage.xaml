@@ -13,31 +13,33 @@
 
             <tree:SharpTreeView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="打开" Name="miOpenFile" Click="miOpenFile_Click">
+                    <MenuItem Header="新建项" Name="miAddItem" Command="ApplicationCommands.New" CommandParameter="NewModuleFile">
                         <MenuItem.Icon>
-                            <Image Source="/images/open.png"/>
+                            <Image Source="images/newfile.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="添加" Command="ApplicationCommands.New" CommandParameter="NewModuleFile">
+                    <MenuItem Header="新建文件夹" Name="miAddFolder" Command="ApplicationCommands.New" CommandParameter="NewFolder">
                         <MenuItem.Icon>
-                            <Image Source="/images/file.png"/>
+                            <Image Source="images/newfolder.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    <Separator />
                     <MenuItem Header="复制" Command="ApplicationCommands.Copy">
                         <MenuItem.Icon>
-                            <Image Source="/images/copy.png"/>
+                            <Image Source="images/copy.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="粘贴" Command="ApplicationCommands.Paste">
                         <MenuItem.Icon>
-                            <Image Source="/images/paste.png"/>
+                            <Image Source="images/paste.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
                     <MenuItem Header="删除" Command="ApplicationCommands.Delete">
                         <MenuItem.Icon>
-                            <Image Source="/images/del.png"/>
+                            <Image Source="images/del.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    <Separator />
                     <MenuItem Header="重命名"  Name="miReName" InputGestureText ="F2" Click="miReName_Click"/>
                 </ContextMenu>
             </tree:SharpTreeView.ContextMenu>
