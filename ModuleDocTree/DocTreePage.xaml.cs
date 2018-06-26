@@ -45,9 +45,13 @@ namespace ET.Main.DocTree
             if (n == null)
             {
                 miReName.IsEnabled = false;
+                miAddFolder.IsEnabled = false;
+                miAddItem.IsEnabled = false;
             }
             else
             {
+                miAddFolder.IsEnabled = (trMain.SelectedItems.Count == 1) && ((n as DocTreeFolderNode) != null);
+                miAddItem.IsEnabled = (trMain.SelectedItems.Count == 1) && n.CanNewFile;
                 miReName.IsEnabled = (trMain.SelectedItems.Count == 1) && !n.Parent.IsRoot;
             }
         }
@@ -61,43 +65,37 @@ namespace ET.Main.DocTree
                 n.IsEditing = true;
             }
         }
+        private void NewModuleFile(object sender, RoutedEventArgs e)
+        {
+            var name = ET.Service.ETService.MainService.GetInput("文件名", "", this.validFileName);
+            if (string.Empty != name)
+            {
+
+            }
+        }
+
+        private void NewFolder(object sender, RoutedEventArgs e)
+        {
+            var name = ET.Service.ETService.MainService.GetInput("文件夹名称", "", this.validFolderName);
+            if (string.Empty != name)
+            {
+
+            }
+            e.Handled = true;
+        }
 
         #endregion
 
-
-        #region --Commands--
-
-        private void DoNewModuleFile(object sender, ExecutedRoutedEventArgs e)
+        #region --Helper--
+        private string validFileName(string input)
         {
-            //TODO 新建模块文件
-            if (e.Parameter?.ToString() == "NewModuleFile")
-            {
-
-            }
-            else if (e.Parameter?.ToString() == "NewFolder")
-            {
-
-            }
+            return "输入无效";
         }
 
-        private void CanNewModuleFile(object sender, CanExecuteRoutedEventArgs e)
+        private string validFolderName(string input)
         {
-            if (e.Parameter?.ToString() == "NewModuleFile" )
-            {
-                var n = (trMain.SelectedItem as DocTreeNode);
-                if (n == null)
-                    e.CanExecute = false;
-                else
-                    e.CanExecute = (trMain.SelectedItems.Count == 1) && n.CanNewFile;
-                e.Handled = true;
-            }
-            else if (e.Parameter?.ToString() == "NewFolder")
-            {
-                e.CanExecute = (trMain.SelectedItems.Count == 1) && ((trMain.SelectedItem as DocTreeFolderNode) != null);
-                e.Handled = true;
-            }
+            return "输入无效";
         }
-
 
         #endregion
 

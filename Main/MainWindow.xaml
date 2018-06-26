@@ -154,7 +154,7 @@
                 <ComboBox Height="24" Width="260" Margin="3,4,3,0" VerticalAlignment="Center"></ComboBox>
             </StackPanel>
 
-            <TextBox Name="txtOut" Grid.Row="1" Margin="3"/>
+            <TextBox Name="txtOut" Grid.Row="1" Margin="3" IsReadOnly="True"/>
         </Grid>
         
 
@@ -162,7 +162,7 @@
     </Grid>
     
     <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.New" CanExecute="CanNewProject" Executed="DoNewDoc"/>
+        <CommandBinding Command="ApplicationCommands.New" CanExecute="CanNewProject" Executed="DoNewProject"/>
         <CommandBinding Command="ApplicationCommands.Open" Executed="DoOpenDoc"/>
         <CommandBinding Command="ApplicationCommands.Save" CanExecute="CanSaveDoc" Executed="DoSaveDoc" />
         <CommandBinding Command="ApplicationCommands.SaveAs" CanExecute="CanSaveAll" Executed="DoSaveAll" />

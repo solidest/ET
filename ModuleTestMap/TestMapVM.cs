@@ -22,6 +22,7 @@ namespace ET.TestMap
             _mfile = mf;
             _page = (TestMapPage)System.Windows.Application.LoadComponent(new Uri("/ModuleTestMap;component/TestMapPage.xaml", System.UriKind.Relative));
             _page.disp.Text = _data.ToString();
+            IsAutoSave = false;
         }
 
         #region --IViewDoc--

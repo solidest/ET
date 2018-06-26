@@ -36,7 +36,10 @@ namespace ET.Main
         private List<IViewDoc> _open_vms = new List<IViewDoc>();
 
         //文档版本
-        private int _docVersion;
+        private int _docVersion = Convert.ToInt32( RevisionClass.DocVer);
+
+        //输出信息
+        private List<OutPutInfo> _outinfos = new List<OutPutInfo>();
 
 
         private String FileName
@@ -56,6 +59,21 @@ namespace ET.Main
 
         #region --IMainService--
 
+
+        public string GetInput(string inputName, string defaultStr, ETService.ValidateStringCallBack valid)
+        {
+            var dlg = new InputDlg();
+            dlg.caption.Text = "请在下面输入" + inputName + ":";
+            dlg.input.Text = defaultStr;
+            dlg.Validate = valid;
+            dlg.Owner = this;
+            if (dlg.ShowDialog() == true)
+                return dlg.input.Text;
+            else
+                return "";
+        }
+
+
         public IDictionary<string, ICommModule> Modules
         {
             get
@@ -71,8 +89,6 @@ namespace ET.Main
                 return _ms.ModulesHeaders;
             }
         }
-
-        public int DocVersion => _docVersion;
 
         public void OpenModuleFile(ModuleFile0 mf)
         {
@@ -98,6 +114,18 @@ namespace ET.Main
                 AddPage(vd);
             }
         }
+
+        public void PrintInfo(OutPutInfo info, bool reset = false)
+        {
+            if(reset)
+            {
+                txtOut.Text = "";
+                _outinfos.Clear();
+            }
+            txtOut.AppendText(info.Info + Environment.NewLine);
+            _outinfos.Add(info);
+        }
+
 
         #endregion
 
@@ -218,22 +246,6 @@ namespace ET.Main
         #region --Doc Operation--
 
 
-        //新建项目文件
-        private void DoNewDoc(object sender, ExecutedRoutedEventArgs e)
-        {
-            if (_docTreeVM != null)
-            {
-                System.Diagnostics.Process.Start("main.exe", "-n");
-            }
-            else
-            {
-                _docTreeVM = _docTreeModule.OpenNewFile("");
-                tbDocTree.Content = _docTreeVM.PageUI;
-                FileName = "";
-            }
-            e.Handled = true;
-
-        }
 
         //打开文件
         private void OpenMainDoc(string fileName)
@@ -251,7 +263,7 @@ namespace ET.Main
                 fs.Read(content, 0, content.Length);
             }
 
-            _docVersion = BitConverter.ToInt32(bver, 0);
+            int _docVersion = BitConverter.ToInt32(bver, 0);
             if (_docVersion > Helper.CurrentAppDocVer()) throw new ETException("MAIN", "程序版本过低，打开文档失败！");
             using (var ms = new MemoryStream(content))
             {
@@ -312,6 +324,24 @@ namespace ET.Main
         #endregion
 
         #region --Command Operation--
+
+
+        //新建项目文件
+        private void DoNewProject(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (_docTreeVM != null)
+            {
+                System.Diagnostics.Process.Start("main.exe", "-n");
+            }
+            else
+            {
+                _docTreeVM = _docTreeModule.OpenNewFile("");
+                tbDocTree.Content = _docTreeVM.PageUI;
+                FileName = "";
+            }
+            e.Handled = true;
+
+        }
 
         private void CanNewProject(object sender, CanExecuteRoutedEventArgs e)
         {

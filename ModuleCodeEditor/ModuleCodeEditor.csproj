@@ -63,6 +63,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeEditorVM.cs" />
+    <Compile Include="Helper\CodeEditorBinder.cs" />
     <Compile Include="ModuleCodeEditor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

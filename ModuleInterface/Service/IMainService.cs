@@ -9,10 +9,6 @@ namespace ET.Service
     /// </summary>
     public interface IMainService
     {
-        /// <summary>
-        /// 文档版本
-        /// </summary>
-        int DocVersion { get; }
 
         /// <summary>
         /// 打开模块文件
@@ -40,6 +36,15 @@ namespace ET.Service
         /// 全部可以访问的ET模块的元数据信息
         /// </summary>
         Dictionary<string, ModuleHeaderAttribute> ModulesHeaders { get; }
+
+        /// <summary>
+        /// 获取用户输入的一个字符串
+        /// </summary>
+        /// <param name="inputCaption">用户输入字符串的标题</param>
+        /// <param name="defaultStr">显示的默认值</param>
+        /// <param name="valid">用来验证字符串是否有效的函数</param>
+        /// <returns>有效输入字符串字符串，执行失败返回空字符串</returns>
+        string GetInput(string inputCaption, string defaultStr, ETService.ValidateStringCallBack valid);
 
     }
 }

@@ -16,6 +16,14 @@ namespace ET.Service
         static public IMainService MainService;
 
         /// <summary>
+        /// 验证输入字符串是否有效的委托
+        /// </summary>
+        /// <param name="inputStr"></param>
+        /// <returns>验证成功返回空，否则返回错误信息</returns>
+        public delegate string ValidateStringCallBack(string inputStr);
+
+
+        /// <summary>
         /// 安装主服务
         /// </summary>
         /// <param name="mainService">主服务实现对象</param>

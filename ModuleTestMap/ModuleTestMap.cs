@@ -13,7 +13,7 @@ using ET.Interface;
 namespace ET.TestMap
 {
     [Export(RevisionClass.ETModuleExportKey, typeof(ICommModule))]
-    [ModuleHeader(ModuleKey, ModuleShowName, 0, ETModuleFileTypeEnum.CustomOnlyOne)]
+    [ModuleHeader(ModuleKey, ModuleShowName, 1, ETModuleFileTypeEnum.CustomOnlyOne)]
     public class ModuleTestMap : ICommModule
     {
 

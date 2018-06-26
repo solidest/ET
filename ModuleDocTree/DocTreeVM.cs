@@ -24,6 +24,7 @@ namespace ET.Main.DocTree
             UpdateContent();
             _page = (DocTreePage)System.Windows.Application.LoadComponent(new Uri("/ModuleDocTree;component/DocTreePage.xaml", System.UriKind.Relative));
             _page.trMain.Root = new DocTreeFolderNode(_rootNode);
+            IsAutoSave = true;
         }
 
         #region --IViewDoc--

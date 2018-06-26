@@ -60,6 +60,9 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Dialog\InputDlg.xaml.cs">
+      <DependentUpon>InputDlg.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TabControl\Converters.cs" />
     <Compile Include="TabControl\Helper.cs" />
     <Compile Include="Libs\Helper.cs" />
@@ -68,6 +71,10 @@
     <Compile Include="TabControl\TabEventArgs.cs" />
     <Compile Include="TabControl\TabItem.cs" />
     <Compile Include="TabControl\TabPanel.cs" />
+    <Page Include="Dialog\InputDlg.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -147,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\newtab.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\input.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

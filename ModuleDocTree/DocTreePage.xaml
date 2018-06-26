@@ -13,12 +13,12 @@
 
             <tree:SharpTreeView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="新建项" Name="miAddItem" Command="ApplicationCommands.New" CommandParameter="NewModuleFile">
+                    <MenuItem Header="新建项" Name="miAddItem" Click="NewModuleFile">
                         <MenuItem.Icon>
                             <Image Source="images/newfile.png"/>
                         </MenuItem.Icon>
                     </MenuItem>
-                    <MenuItem Header="新建文件夹" Name="miAddFolder" Command="ApplicationCommands.New" CommandParameter="NewFolder">
+                    <MenuItem Header="新建文件夹" Name="miAddFolder" Click ="NewFolder">
                         <MenuItem.Icon>
                             <Image Source="images/newfolder.png"/>
                         </MenuItem.Icon>
@@ -43,10 +43,6 @@
                     <MenuItem Header="重命名"  Name="miReName" InputGestureText ="F2" Click="miReName_Click"/>
                 </ContextMenu>
             </tree:SharpTreeView.ContextMenu>
-
-            <tree:SharpTreeView.CommandBindings>
-                <CommandBinding Command="ApplicationCommands.New" Executed="DoNewModuleFile" CanExecute="CanNewModuleFile"/>
-            </tree:SharpTreeView.CommandBindings>
 
         </tree:SharpTreeView>
             
