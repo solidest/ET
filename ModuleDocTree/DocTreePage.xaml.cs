@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ET.Doc;
 using ET.Interface;
+using ET.Service;
 
 namespace ET.Main.DocTree
 {
@@ -70,7 +71,10 @@ namespace ET.Main.DocTree
             var name = ET.Service.ETService.MainService.GetInput("文件名", "", this.validFileName);
             if (string.Empty != name)
             {
-
+                var n = (trMain.SelectedItem as DocTreeFolderNode);
+                var vm = ETService.MainService.Modules[n.ModuleKey].OpenNewFile(name);
+                n.AddChild(new DocTreeFileNode(vm.MFile));
+                ETService.MainService.ShowModuleFile(vm);
             }
         }
 
@@ -89,7 +93,7 @@ namespace ET.Main.DocTree
         #region --Helper--
         private string validFileName(string input)
         {
-            return "输入无效";
+            return "";
         }
 
         private string validFolderName(string input)

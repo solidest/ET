@@ -17,6 +17,12 @@ namespace ET.Main.DocTree
             LazyLoading = true;
         }
 
+        public void AddChild(DocTreeFileNode n)
+        {
+            _dirNode.SubModuleFiles.Add(n.MFile);
+            Children.Add(n);
+        }
+
 
         public override bool CanNewFile
         {
