@@ -5,22 +5,58 @@ using System.Text;
 using ICSharpCode.TreeView;
 using ET.Doc;
 using System.Windows;
+using System.Text.RegularExpressions;
 
 namespace ET.Main.DocTree
 {
     public class DocTreeFolderNode : DocTreeNode
     {
-        private DirNode0 _dirNode;
-        public DocTreeFolderNode(DirNode0 dirNode)
+        private DirNode _dirNode;
+        public DocTreeFolderNode(DirNode dirNode)
         {
             _dirNode = dirNode;
             LazyLoading = true;
         }
 
+        public DirNode MDir
+        {
+            get
+            {
+                return _dirNode;
+            }
+        }
+
+
+        //添加子文件
         public void AddChild(DocTreeFileNode n)
         {
             _dirNode.SubModuleFiles.Add(n.MFile);
-            Children.Add(n);
+            if(!LazyLoading) Children.Add(n);
+            AutoSave();
+        }
+
+        //添加子目录
+        public void AddChild(DocTreeFolderNode n)
+        {
+            _dirNode.SubDirNodes.Add(n.MDir);
+            if (!LazyLoading) Children.Add(n);
+            AutoSave();
+        }
+
+        //删除子文件
+        public void DelChild(DocTreeFileNode n)
+        {
+            _dirNode.SubModuleFiles.Remove(n.MFile);
+            if (!LazyLoading) Children.Remove(n);
+            AutoSave();
+        }
+
+        //删除子目录
+        public void DelChild(DocTreeFolderNode n)
+        {
+            _dirNode.SubDirNodes.Remove(n.MDir);
+            if (!LazyLoading) Children.Remove(n);
+            AutoSave();
         }
 
 
@@ -112,6 +148,31 @@ namespace ET.Main.DocTree
             }
         }
 
+        public override bool IsEditable
+        {
+            get
+            {
+                return !Parent.IsRoot;
+            }
+        }
+
+        public override string LoadEditText()
+        {
+            return MDir.NodeName;
+        }
+
+        public override bool SaveEditText(string value)
+        {
+            var p = (Parent as DocTreeFolderNode);
+            if (p.validFolderName(value) == "")
+            {
+                MDir.NodeName = value;
+                AutoSave();
+                return true;
+            }
+            return false;
+        }
+
         public override bool CanPaste(IDataObject data)
         {
             return data.GetDataPresent(ModuleKey, false);
@@ -119,7 +180,7 @@ namespace ET.Main.DocTree
 
         public override void Paste(IDataObject data)
         {
-            if (data.GetData(DataFormats.Serializable) is ModuleFile0[] files)
+            if (data.GetData(DataFormats.Serializable) is ModuleFile[] files)
             {
                 foreach (var p in files)
                 {
@@ -130,12 +191,13 @@ namespace ET.Main.DocTree
                         Children.Add(new DocTreeFileNode(p));
                     }
                 }
+                AutoSave();
             }
         }
 
         public override void Drop(DragEventArgs e, int index)
         {
-            if (e.Data.GetData(DataFormats.Serializable) is ModuleFile0[] files)
+            if (e.Data.GetData(DataFormats.Serializable) is ModuleFile[] files)
             {
                 foreach (var p in files)
                 {
@@ -146,8 +208,42 @@ namespace ET.Main.DocTree
                         Children.Insert(index++, new DocTreeFileNode(p));
                     }
                 }
+                AutoSave();
             }
         }
+
+        #region --Helper--
+
+        public string validFileName(string input)
+        {
+            if (!Regex.Match(input, @"^[\u4e00-\u9fa5_a-zA-Z0-9]+$").Success) return "输入的文件名无效！";
+            if (HaveName(input)) return "名称重复！";
+            return "";
+        }
+
+        public string validFolderName(string input)
+        {
+            if (!Regex.Match(input, @"^[\u4e00-\u9fa5_a-zA-Z0-9]+$").Success) return "输入的文件名无效！";
+            if (HaveName(input)) return "名称重复！";
+            return "";
+        }
+
+        private bool HaveName(string name)
+        {
+            foreach (var f in  MDir.SubModuleFiles)
+            {
+                if (f.FileName == name) return true;
+            }
+            foreach (var n in MDir.SubDirNodes)
+            {
+                if (n.NodeName == name) return true;
+            }
+            return false;
+        }
+
+
+        #endregion
     }
+
 }
 

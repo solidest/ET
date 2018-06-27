@@ -38,7 +38,7 @@ namespace ET.TestMap
 
         public BitmapImage OpenModuleIcon => _icon;
 
-        public object LoadFile(ModuleFile0 mf, int version)
+        public object LoadFile(ModuleFile mf, int version)
         {
             if (version > 0) throw new ETException(ModuleKey, "程序版本过低，打开文档失败！");
 
@@ -50,14 +50,14 @@ namespace ET.TestMap
             }
         }
 
-        public IViewDoc OpenFile(ModuleFile0 mf, int version)
+        public IViewDoc OpenFile(ModuleFile mf, int version)
         {
             return new TestMapVM(LoadFile(mf, version) as TestMapData0, mf);
         }
 
         public IViewDoc OpenNewFile(string name)
         {
-            var ret = new TestMapVM(new TestMapData0(ModuleTestMap.ModuleShowName), new ModuleFile0(ModuleTestMap.ModuleKey, ModuleTestMap.ModuleShowName));
+            var ret = new TestMapVM(new TestMapData0(ModuleTestMap.ModuleShowName), new ModuleFile(ModuleTestMap.ModuleKey, ModuleTestMap.ModuleShowName));
             ret.UpdateContent();
             return ret;
         }

@@ -29,9 +29,6 @@ namespace ET.Main
         //打开的操作系统文件全名
         private String __file = RevisionClass.DocVer;
 
-        //所有打开的模块文件
-        private List<ModuleFile0> _open_fs = new List<ModuleFile0>();
-
         //所有打开的模块文件控制器句柄
         private List<IViewDoc> _open_vms = new List<IViewDoc>();
 
@@ -90,11 +87,12 @@ namespace ET.Main
             }
         }
 
-        public void OpenModuleFile(ModuleFile0 mf)
+        public void OpenModuleFile(ModuleFile mf)
         {
-            if(_open_fs.Contains(mf))
+            var vm = FindVM(mf);
+            if(vm != null)
             {
-                ActivePage(mf);
+                ActivePage(vm);
             }
             else
             {
@@ -107,7 +105,7 @@ namespace ET.Main
         {
             if (_open_vms.Contains(vd))
             {
-                ActivePage(vd.MFile);
+                ActivePage(vd);
             }
             else
             {
@@ -170,7 +168,7 @@ namespace ET.Main
               }
                 else
                 {
-                    if (System.IO.File.Exists(fileName))
+                    if (System.IO.File.Exists(fileName) && fileName.Length>3 && fileName.Substring(fileName.Length-3).Equals(".et"))
                     {
                         OpenMainDoc(fileName);
                     }
@@ -193,6 +191,7 @@ namespace ET.Main
                 case Visibility.Visible:
                     VSplitter.Visibility = Visibility.Collapsed;
                     gridMain.ColumnDefinitions[0].Width = new GridLength(0, GridUnitType.Pixel);
+                    tabPages.Focus();
                     break;
 
                 case Visibility.Collapsed:
@@ -221,7 +220,26 @@ namespace ET.Main
 
         private void ActiveModule(object sender, RoutedEventArgs e)
         {
-           //TODO 更新活动模块控制器句柄
+            if(tabPages.SelectedItem == null)
+            {
+                _activeVM = null;
+            }
+            else
+            {
+                _activeVM = (tabPages.SelectedItem as TabItem).Tag as IViewDoc;
+            }
+        }
+
+        private void tabPages_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (tabPages.SelectedItem == null)
+            {
+                _activeVM = null;
+            }
+            else
+            {
+                _activeVM = (tabPages.SelectedItem as TabItem).Tag as IViewDoc;
+            }
         }
 
         private void tabPages_TabItemClosing(object sender, Wpf.Controls.TabItemCancelEventArgs e)
@@ -245,8 +263,6 @@ namespace ET.Main
 
         #region --Doc Operation--
 
-
-
         //打开文件
         private void OpenMainDoc(string fileName)
         {
@@ -268,7 +284,7 @@ namespace ET.Main
             using (var ms = new MemoryStream(content))
             {
                 var formatter = new BinaryFormatter();
-                var mf = formatter.Deserialize(ms) as ModuleFile0;
+                var mf = formatter.Deserialize(ms) as ModuleFile;
                 _docTreeVM = _docTreeModule.OpenFile(mf, _docVersion);
             }
 
@@ -331,7 +347,7 @@ namespace ET.Main
         {
             if (_docTreeVM != null)
             {
-                System.Diagnostics.Process.Start("main.exe", "-n");
+                System.Diagnostics.Process.Start(this.GetType().Assembly.Location, "-n");
             }
             else
             {
@@ -363,7 +379,7 @@ namespace ET.Main
             if (ofd.ShowDialog() == true && ofd.FileName != FileName)
             {
                 if(_docTreeVM != null)
-                    System.Diagnostics.Process.Start("main.exe",  "\"" + ofd.FileName + "\""  );
+                    System.Diagnostics.Process.Start(this.GetType().Assembly.Location,  "\"" + ofd.FileName + "\""  );
                 else
                     OpenMainDoc(ofd.FileName);
             }
@@ -407,6 +423,15 @@ namespace ET.Main
 
         #region --Helper--
 
+        private IViewDoc FindVM(ModuleFile mf)
+        {
+            foreach(var vm in _open_vms)
+            {
+                if (vm.MFile == mf) return vm;
+            }
+            return null;
+        }
+
 
         private void AddPage(IViewDoc pg)
         {
@@ -415,19 +440,22 @@ namespace ET.Main
             TabItem ti = tabPages.Items[tabPages.Items.Count - 1] as TabItem;
 
             ti.Content = pg.PageUI;
-            
-            if (pg.MFile.FileName.Length == 0)
-                ti.Header = "未命名";
-            else
-                ti.Header = pg.MFile.FileName;
+            ti.Tag = pg;
+            ti.Header = pg.MFile.FileName;
 
-            _open_fs.Add(pg.MFile);
             _open_vms.Add(pg);
         }
 
-        private void ActivePage(ModuleFile0 mf)
+        private void ActivePage(IViewDoc vm)
         {
-
+            foreach(TabItem ti in tabPages.Items)
+            {
+                if (ti.Tag == vm)
+                {
+                    tabPages.SelectedItem = ti;
+                    break;
+                }
+            }
         }
 
         private void RemovePage(TabItem ti)
@@ -439,13 +467,30 @@ namespace ET.Main
             }
             if(rem!=null)
             {
-                _open_fs.Remove(rem.MFile);
                 _open_vms.Remove(rem);
             }
         }
 
+        private void LoadDocTree(ETPage pg)
+        {
+            tbDocTree.Content = pg;
+            pg.GotFocus += ActiveDocTree;
+            pg.LostFocus += DeActiveDocTree;
+        }
+
+        private void DeActiveDocTree(object sender, RoutedEventArgs e)
+        {
+            _activeVM = null;
+        }
+
+        private void ActiveDocTree(object sender, RoutedEventArgs e)
+        {
+            _activeVM = _docTreeVM;
+        }
+
 
         #endregion
+
 
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -55,6 +56,7 @@ namespace ET.Main.DocTree
                 miAddItem.IsEnabled = (trMain.SelectedItems.Count == 1) && n.CanNewFile;
                 miReName.IsEnabled = (trMain.SelectedItems.Count == 1) && !n.Parent.IsRoot;
             }
+            miAddItem.Header = miAddItem.IsEnabled ? "新建"+Service.ETService.MainService.ModulesHeaders[n.ModuleKey].ModuleShowName: "新建项";
         }
 
 
@@ -68,10 +70,10 @@ namespace ET.Main.DocTree
         }
         private void NewModuleFile(object sender, RoutedEventArgs e)
         {
-            var name = ET.Service.ETService.MainService.GetInput("文件名", "", this.validFileName);
+            var n = (trMain.SelectedItem as DocTreeFolderNode);
+            var name = ET.Service.ETService.MainService.GetInput("文件名", "", n.validFileName);
             if (string.Empty != name)
             {
-                var n = (trMain.SelectedItem as DocTreeFolderNode);
                 var vm = ETService.MainService.Modules[n.ModuleKey].OpenNewFile(name);
                 n.AddChild(new DocTreeFileNode(vm.MFile));
                 ETService.MainService.ShowModuleFile(vm);
@@ -80,25 +82,13 @@ namespace ET.Main.DocTree
 
         private void NewFolder(object sender, RoutedEventArgs e)
         {
-            var name = ET.Service.ETService.MainService.GetInput("文件夹名称", "", this.validFolderName);
+            var n = (trMain.SelectedItem as DocTreeFolderNode);
+            var name = ET.Service.ETService.MainService.GetInput("文件夹名称", "", n.validFolderName);
             if (string.Empty != name)
             {
-
+                n.AddChild(new DocTreeFolderNode(new DirNode(n.ModuleKey, name)));
             }
             e.Handled = true;
-        }
-
-        #endregion
-
-        #region --Helper--
-        private string validFileName(string input)
-        {
-            return "";
-        }
-
-        private string validFolderName(string input)
-        {
-            return "输入无效";
         }
 
         #endregion

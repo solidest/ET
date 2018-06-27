@@ -139,6 +139,7 @@
             TabItemMinWidth="80" TabItemMaxWidth="300" TabItemMinHeight="20" TabItemMaxHeight="40"
             VerticalContentAlignment="Center" AllowAddNew="False"
             GotFocus="ActiveModule" LostFocus="DeActiveModule"
+            SelectionChanged="tabPages_SelectionChanged"
             TabItemClosing="tabPages_TabItemClosing">
 
         </r:TabControl>

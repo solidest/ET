@@ -13,7 +13,7 @@ namespace ET.Doc
     /// </list>
     /// </summary>
     [Serializable]
-    public class ModuleFile0 
+    public class ModuleFile
     {
         /// <summary>
         /// 模块文件类唯一的构造函数
@@ -21,7 +21,7 @@ namespace ET.Doc
         /// <param name="mKey">对应模块的主键</param>
         /// <param name="fName">模块文件名</param>
         /// <param name="content">模块文件的内容，默认为空</param>
-        public ModuleFile0(String mKey, String fName, Byte[] content=null )
+        public ModuleFile(String mKey, String fName, Byte[] content=null )
         {
             ModuleKey = mKey;
             FileName = fName;

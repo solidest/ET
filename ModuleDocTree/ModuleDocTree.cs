@@ -131,7 +131,7 @@ namespace ET.Main.DocTree
         //打开新项目
         public IViewDoc OpenNewFile(string name)
         {
-            var rootNode = new DirNode0(ModuleKey, ModuleShowName);
+            var rootNode = new DirNode(ModuleKey, ModuleShowName);
             foreach (var m in ETService.MainService.ModulesHeaders)
             {
                 if(m.Key != ModuleKey) //排除本模块
@@ -144,7 +144,7 @@ namespace ET.Main.DocTree
                     }
                     else
                     {
-                        rootNode.SubDirNodes.Add(new DirNode0(m.Key, m.Value.ModuleShowName));
+                        rootNode.SubDirNodes.Add(new DirNode(m.Key, m.Value.ModuleShowName));
                     }
                 }
             }
@@ -155,13 +155,13 @@ namespace ET.Main.DocTree
         }
 
         //加载项目
-        public IViewDoc OpenFile(ModuleFile0 mf, int version)
+        public IViewDoc OpenFile(ModuleFile mf, int version)
         {
-            var rootNode = (LoadFile(mf, version) as DirNode0);
+            var rootNode = (LoadFile(mf, version) as DirNode);
             return new DocTreeVM(rootNode);
         }
 
-        public object LoadFile(ModuleFile0 mf, int version)
+        public object LoadFile(ModuleFile mf, int version)
         {
             if (version > 0) throw new ETException(ModuleKey, "程序版本过低，打开文档失败！");
 

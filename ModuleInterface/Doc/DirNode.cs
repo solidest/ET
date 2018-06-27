@@ -11,19 +11,19 @@ namespace ET.Doc
     /// </list>
     /// </summary>
     [Serializable]
-    public class DirNode0
+    public class DirNode
     {
         /// <summary>
         /// 目录节点类的唯一构造函数
         /// </summary>
         /// <param name="mKey">ET模块主键</param>
         /// <param name="nName">节点名称</param>
-        public DirNode0(string mKey, string nName)
+        public DirNode(string mKey, string nName)
         {
             ModuleKey = mKey;
             NodeName = nName;
-            SubDirNodes = new List<DirNode0>();
-            SubModuleFiles = new List<ModuleFile0>();
+            SubDirNodes = new List<DirNode>();
+            SubModuleFiles = new List<ModuleFile>();
         }
 
         /// <summary>
@@ -39,11 +39,11 @@ namespace ET.Doc
         /// <summary>
         /// 当前节点下所有子节点的集合
         /// </summary>
-        public List<DirNode0> SubDirNodes {get; private set;}
+        public List<DirNode> SubDirNodes {get; private set;}
 
         /// <summary>
         /// 当前节点下所有模块文件的集合
         /// </summary>
-        public List<ModuleFile0> SubModuleFiles { get; private set; }
+        public List<ModuleFile> SubModuleFiles { get; private set; }
     }
 }

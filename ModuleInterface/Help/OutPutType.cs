@@ -15,14 +15,14 @@ namespace ET.Service
         /// </summary>
         /// <param name="info">信息内容</param>
         /// <param name="mkey">模块主键</param>
-        /// <param name="fname">文件名</param>
+        /// <param name="mf">模块文件</param>
         /// <param name="lno">行号</param>
         /// <param name="itype">信息类型</param>
-        public OutPutInfo(string info, string mkey, string fname, int lno, OutPutInfoTypeEnum itype)
+        public OutPutInfo(string info, string mkey, Doc.ModuleFile mf, int lno, OutPutInfoTypeEnum itype)
         {
             Info = info;
             ModuleKey = mkey;
-            FileName = fname;
+            MFile = mf;
             LineNo = lno;
             InfoType = itype;
         }
@@ -33,9 +33,9 @@ namespace ET.Service
         public string ModuleKey { get; private set; }
 
         /// <summary>
-        /// 输出信息对应的文件名
+        /// 输出信息对应的模块文件
         /// </summary>
-        public string FileName { get; private set; }
+        public Doc.ModuleFile MFile { get; private set; }
 
         /// <summary>
         /// 输出信息对应的行号

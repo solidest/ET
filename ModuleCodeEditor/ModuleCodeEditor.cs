@@ -24,7 +24,7 @@ namespace ET.CodeEditor
 
         public BitmapImage OpenModuleIcon => null;
 
-        public object LoadFile(ModuleFile0 mf, int version)
+        public object LoadFile(ModuleFile mf, int version)
         {
             if (version > 0) throw new ETException(ModuleKey, "程序版本过低，打开文档失败！");
 
@@ -36,14 +36,14 @@ namespace ET.CodeEditor
             }
         }
 
-        public IViewDoc OpenFile(ModuleFile0 mf, int version)
+        public IViewDoc OpenFile(ModuleFile mf, int version)
         {
             return new CodeEditorVM(LoadFile(mf, version) as String, mf);
         }
 
         public IViewDoc OpenNewFile(string name)
         {
-            var mf = new ModuleFile0(ModuleCodeEditor.ModuleKey, name);
+            var mf = new ModuleFile(ModuleCodeEditor.ModuleKey, name);
             var ret = new CodeEditorVM("", mf);
             ret.UpdateContent();
             return ret;

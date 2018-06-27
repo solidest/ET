@@ -10,12 +10,12 @@ namespace ET.Main.DocTree
 {
     public class DocTreeFileNode : DocTreeNode
     {
-        public DocTreeFileNode(ModuleFile0 f)
+        public DocTreeFileNode(ModuleFile f)
         {
             MFile = f;
         }
 
-        public ModuleFile0 MFile { get;  }
+        public ModuleFile MFile { get;  }
         public override string ModuleKey
         {
             get
@@ -63,8 +63,14 @@ namespace ET.Main.DocTree
 
         public override bool SaveEditText(string value)
         {
-            //TODO:判断文件名合法性
-            return true;
+            var p = (Parent as DocTreeFolderNode);
+            if (p.validFileName(value) == "")
+            {
+                MFile.FileName = value;
+                AutoSave();
+                return true;
+            }
+            return false;
         }
 
         public override bool CanPaste(IDataObject data)

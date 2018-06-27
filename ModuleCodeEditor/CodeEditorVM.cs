@@ -11,13 +11,13 @@ namespace ET.CodeEditor
 {
     public class CodeEditorVM : IViewDoc
     {
-        private ModuleFile0 _mf;
+        private ModuleFile _mf;
         private string _code;
         private CodeEditorPage _page;
 
         #region --IViewDoc--
 
-       public CodeEditorVM(string code, ModuleFile0 mf)
+       public CodeEditorVM(string code, ModuleFile mf)
         {
             _mf = mf;
             _code = code;
@@ -27,7 +27,7 @@ namespace ET.CodeEditor
         }
         public ETPage PageUI => _page;
 
-        public ModuleFile0 MFile => _mf;
+        public ModuleFile MFile => _mf;
 
         public string ModuleKey => ModuleCodeEditor.ModuleKey;
 

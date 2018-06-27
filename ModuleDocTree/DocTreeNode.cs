@@ -36,7 +36,8 @@ namespace ET.Main.DocTree
 
         public override void Delete(SharpTreeNode[] nodes)
         {
-            if (MessageBox.Show("确实要删除这" + nodes.Length + " 项吗？", "确认", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+            string tip = (nodes.Length > 1) ? "确实要删除这" + nodes.Length + " 项吗？" : "确实要删除【" + nodes[0].ToString() + "】吗？";
+            if (MessageBox.Show(tip, "确认", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
             {
                 DeleteWithoutConfirmation(nodes);
             }
@@ -48,10 +49,27 @@ namespace ET.Main.DocTree
             {
                 if (node.Parent != null)
                 {
-                    //TODO 删除相应内容
-                     node.Parent.Children.Remove(node);
+                    var rfn = (node as DocTreeFileNode);
+                    if (rfn != null)
+                    {
+                         (node.Parent as DocTreeFolderNode).DelChild(rfn);
+                    }
+                    else
+                    {
+                        (node.Parent as DocTreeFolderNode).DelChild((node as DocTreeFolderNode));
+                    }
+
                 }
             }
         }
+
+        public void AutoSave()
+        {
+            Service.ETService.MainService.SaveFile();
+
+            //TODO Raise Update Event
+
+        }
+
     }
 }

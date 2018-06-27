@@ -14,7 +14,7 @@ namespace ET.Service
         /// 打开模块文件
         /// </summary>
         /// <param name="mf">模块文件</param>
-        void OpenModuleFile(ModuleFile0 mf);
+        void OpenModuleFile(ModuleFile mf);
 
         /// <summary>
         /// 显示打开的模块文件
