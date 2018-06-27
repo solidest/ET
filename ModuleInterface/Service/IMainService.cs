@@ -28,6 +28,11 @@ namespace ET.Service
         void SaveFile();
 
         /// <summary>
+        /// 更新主界面的标题
+        /// </summary>
+        void UpdateMainHeader();
+
+        /// <summary>
         /// 全部可以访问的ET模块
         /// </summary>
         IDictionary<string, ICommModule> Modules { get; }

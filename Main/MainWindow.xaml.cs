@@ -57,6 +57,13 @@ namespace ET.Main
         #region --IMainService--
 
 
+        public void UpdateMainHeader()
+        {
+            //TODO 更新主界面标题 关闭删除的文件 更新标题
+
+        }
+
+
         public string GetInput(string inputName, string defaultStr, ETService.ValidateStringCallBack valid)
         {
             var dlg = new InputDlg();
@@ -150,33 +157,15 @@ namespace ET.Main
             string[] pargs = Environment.GetCommandLineArgs();
             if(pargs!=null && pargs.Length>1)
             {
-                bool isNew = false;
-                string fileName = "";
-                for(int i=0; i<pargs.Length; i++)
+                string  fileName = pargs[pargs.Length-1];
+                if (fileName.Length>3 && fileName.Substring(fileName.Length-3).Equals(".et"))
                 {
-                    if (pargs[i] == "-n")
-                        isNew = true;
-                    else if (i == pargs.Length - 1)
-                        fileName = pargs[i];
-                }
-
-                if (isNew)
-                {
-                        _docTreeVM = _docTreeModule.OpenNewFile("");
-                        tbDocTree.Content = _docTreeVM.PageUI;
-                        FileName = "";
-              }
-                else
-                {
-                    if (System.IO.File.Exists(fileName) && fileName.Length>3 && fileName.Substring(fileName.Length-3).Equals(".et"))
-                    {
+                    if (System.IO.File.Exists(fileName))
                         OpenMainDoc(fileName);
-                    }
+                    else
+                        OpenNewFile(fileName);
                 }
             }
-            
-           
-
         }
 
         #endregion
@@ -263,6 +252,15 @@ namespace ET.Main
 
         #region --Doc Operation--
 
+        //新建文件
+        private void OpenNewFile(string fileName)
+        {
+            _docTreeVM = _docTreeModule.OpenNewFile(fileName);
+            tbDocTree.Content = _docTreeVM.PageUI;
+            FileName = fileName;
+            SaveFile();
+        }
+
         //打开文件
         private void OpenMainDoc(string fileName)
         {
@@ -345,15 +343,24 @@ namespace ET.Main
         //新建项目文件
         private void DoNewProject(object sender, ExecutedRoutedEventArgs e)
         {
-            if (_docTreeVM != null)
+            var sfd = new Microsoft.Win32.SaveFileDialog
             {
-                System.Diagnostics.Process.Start(this.GetType().Assembly.Location, "-n");
-            }
-            else
+                DefaultExt = ".et",
+                Filter = "ET file|*.et",
+                Title = "新建"
+            };
+            if (sfd.ShowDialog() == true)
             {
-                _docTreeVM = _docTreeModule.OpenNewFile("");
-                tbDocTree.Content = _docTreeVM.PageUI;
-                FileName = "";
+                if (File.Exists(sfd.FileName)) File.Delete(sfd.FileName);
+                if (_docTreeVM != null)
+                {
+                    System.Diagnostics.Process.Start(this.GetType().Assembly.Location, sfd.FileName);
+                }
+                else
+                {
+                    OpenNewFile(sfd.FileName);
+                }
+
             }
             e.Handled = true;
 

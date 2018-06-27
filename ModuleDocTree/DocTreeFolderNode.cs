@@ -161,17 +161,6 @@ namespace ET.Main.DocTree
             return MDir.NodeName;
         }
 
-        public override bool SaveEditText(string value)
-        {
-            var p = (Parent as DocTreeFolderNode);
-            if (p.validFolderName(value) == "")
-            {
-                MDir.NodeName = value;
-                AutoSave();
-                return true;
-            }
-            return false;
-        }
 
         public override bool CanPaste(IDataObject data)
         {
@@ -187,11 +176,9 @@ namespace ET.Main.DocTree
                     if (p.ModuleKey == ModuleKey)
                     {
                         //TODO 处理文件重名问题
-                        _dirNode.SubModuleFiles.Add(p);
-                        Children.Add(new DocTreeFileNode(p));
+                        AddChild(new DocTreeFileNode(p));
                     }
                 }
-                AutoSave();
             }
         }
 
@@ -204,26 +191,17 @@ namespace ET.Main.DocTree
                     if (p.ModuleKey == ModuleKey)
                     {
                         //TODO 处理文件重名问题
-                        _dirNode.SubModuleFiles.Insert(index, p);
-                        Children.Insert(index++, new DocTreeFileNode(p));
+                        AddChild(new DocTreeFileNode(p));
                     }
                 }
-                AutoSave();
             }
         }
 
         #region --Helper--
 
-        public string validFileName(string input)
+        public string validName(string input)
         {
-            if (!Regex.Match(input, @"^[\u4e00-\u9fa5_a-zA-Z0-9]+$").Success) return "输入的文件名无效！";
-            if (HaveName(input)) return "名称重复！";
-            return "";
-        }
-
-        public string validFolderName(string input)
-        {
-            if (!Regex.Match(input, @"^[\u4e00-\u9fa5_a-zA-Z0-9]+$").Success) return "输入的文件名无效！";
+            if (!Regex.Match(input, @"^[\u4e00-\u9fa5_a-zA-Z0-9]+$").Success) return "输入的名称无效！";
             if (HaveName(input)) return "名称重复！";
             return "";
         }
@@ -239,6 +217,11 @@ namespace ET.Main.DocTree
                 if (n.NodeName == name) return true;
             }
             return false;
+        }
+
+        public override void Rename(string newName)
+        {
+            MDir.NodeName = newName;
         }
 
 

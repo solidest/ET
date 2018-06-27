@@ -63,6 +63,20 @@ namespace ET.Main.DocTree
             }
         }
 
+        public abstract void Rename(string newName);
+
+        public override bool SaveEditText(string value)
+        {
+            var p = (Parent as DocTreeFolderNode);
+            if (p.validName(value) == "")
+            {
+               Rename(value);
+                AutoSave();
+                return true;
+            }
+            return false;
+        }
+
         public void AutoSave()
         {
             Service.ETService.MainService.SaveFile();

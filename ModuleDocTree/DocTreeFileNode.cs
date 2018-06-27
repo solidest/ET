@@ -61,17 +61,6 @@ namespace ET.Main.DocTree
             return MFile.FileName;
         }
 
-        public override bool SaveEditText(string value)
-        {
-            var p = (Parent as DocTreeFolderNode);
-            if (p.validFileName(value) == "")
-            {
-                MFile.FileName = value;
-                AutoSave();
-                return true;
-            }
-            return false;
-        }
 
         public override bool CanPaste(IDataObject data)
         {
@@ -81,6 +70,11 @@ namespace ET.Main.DocTree
         public override void Paste(IDataObject data)
         {
             Parent.Paste(data);
+        }
+
+        public override void Rename(string newName)
+        {
+            MFile.FileName = newName;
         }
     }
 }
