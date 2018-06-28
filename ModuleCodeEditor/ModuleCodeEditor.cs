@@ -45,7 +45,7 @@ namespace ET.CodeEditor
         {
             var mf = new ModuleFile(ModuleCodeEditor.ModuleKey, name);
             var ret = new CodeEditorVM("", mf);
-            ret.UpdateContent();
+            ret.SaveContent();
             return ret;
         }
     }

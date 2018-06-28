@@ -8,7 +8,7 @@ namespace ET.Service
     /// <summary>
     /// ET服务访问器，以静态成员形式封装全部ET服务
     /// </summary>
-    public class ETService
+    public static class ETService
     {
         /// <summary>
         /// 主服务

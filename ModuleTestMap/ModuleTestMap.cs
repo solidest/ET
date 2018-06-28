@@ -58,7 +58,7 @@ namespace ET.TestMap
         public IViewDoc OpenNewFile(string name)
         {
             var ret = new TestMapVM(new TestMapData0(ModuleTestMap.ModuleShowName), new ModuleFile(ModuleTestMap.ModuleKey, ModuleTestMap.ModuleShowName));
-            ret.UpdateContent();
+            ret.SaveContent();
             return ret;
         }
 

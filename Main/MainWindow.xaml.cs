@@ -9,6 +9,7 @@ using ET.Interface;
 using ET.Doc;
 using ET.Service;
 using System.Windows.Controls;
+using System.Windows.Data;
 
 namespace ET.Main
 {
@@ -57,13 +58,7 @@ namespace ET.Main
         #region --IMainService--
 
 
-        public void UpdateMainHeader()
-        {
-            //TODO 更新主界面标题 关闭删除的文件 更新标题
-
-        }
-
-
+        //获取用户输入的一个字符串
         public string GetInput(string inputName, string defaultStr, ETService.ValidateStringCallBack valid)
         {
             var dlg = new InputDlg();
@@ -94,6 +89,31 @@ namespace ET.Main
             }
         }
 
+        //关闭模块文件
+        public void CloseModuleFile(ModuleFile mf)
+        {
+            var vm = FindVM(mf);
+            if(vm != null)
+            {
+                TabItem rmi = null;
+                foreach(TabItem ti in tabPages.Items)
+                {
+                    if (ti.Tag == vm)
+                    {
+                        rmi = ti;
+                        break;
+                    }
+                }
+                if(rmi != null)
+                {
+                    tabPages.Items.Remove(rmi);
+                    _open_vms.Remove(vm);
+                }
+            }
+        }
+
+
+        //打开模块文件
         public void OpenModuleFile(ModuleFile mf)
         {
             var vm = FindVM(mf);
@@ -172,6 +192,24 @@ namespace ET.Main
 
         #region --Events--
 
+        //窗体加载 UI初始化
+        private void MainFormLoaded(object sender, RoutedEventArgs e)
+        {
+            var toolBarThumb = MainToolBar.Template.FindName("ToolBarThumb", MainToolBar) as FrameworkElement;
+            if (toolBarThumb != null)
+            {
+                toolBarThumb.Visibility = Visibility.Collapsed;
+            }
+
+            var mainPanelBorder = MainToolBar.Template.FindName("MainPanelBorder", MainToolBar) as FrameworkElement;
+            if (mainPanelBorder != null)
+            {
+                mainPanelBorder.Margin = new Thickness(0);
+            }
+
+
+        }
+
 
         private void DocTreeDispHide(object sender, RoutedEventArgs e)
         {
@@ -231,9 +269,14 @@ namespace ET.Main
             }
         }
 
+        //tab页面关闭之前
         private void tabPages_TabItemClosing(object sender, Wpf.Controls.TabItemCancelEventArgs e)
         {
-            //TODO 提示保存
+            var vm = (e.TabItem.Tag as IViewDoc);
+            if(vm != null && vm.IsModify)
+            {
+                //TODO MessageBox.Show("文件未保存!");
+            }
             RemovePage(e.TabItem);
         }
 
@@ -294,7 +337,7 @@ namespace ET.Main
         //保存文件
         private void SaveMainDoc(String fname)
         {
-            _docTreeVM.UpdateContent();
+            _docTreeVM.SaveContent();
 
             byte[] content = null;
             using (var ms = new MemoryStream())
@@ -400,9 +443,10 @@ namespace ET.Main
             e.Handled = true;
         }
 
+        //全部保存
         private void DoSaveAll(object sender, ExecutedRoutedEventArgs e)
         {
-            foreach (var f in _open_vms) f.UpdateContent();
+            foreach (var f in _open_vms) f.SaveContent();
             SaveMainDoc();
             foreach (var vm in _open_vms)
             {
@@ -417,10 +461,11 @@ namespace ET.Main
             e.Handled = true;
         }
 
+        //保存当前
         private void DoSaveDoc(object sender, ExecutedRoutedEventArgs e)
         {
 
-            _activeVM?.UpdateContent();
+            _activeVM?.SaveContent();
             SaveMainDoc();
             _activeVM?.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM));
             e.Handled = true;
@@ -439,7 +484,7 @@ namespace ET.Main
             return null;
         }
 
-
+        //新建Tab页面 
         private void AddPage(IViewDoc pg)
         {
             tabPages.AddNewTabToEnd = true;
@@ -448,7 +493,12 @@ namespace ET.Main
 
             ti.Content = pg.PageUI;
             ti.Tag = pg;
-            ti.Header = pg.MFile.FileName;
+
+            var mb = new MultiBinding() { Mode = BindingMode.OneWay};
+            mb.Bindings.Add(new Binding("FileName") { Source = pg.MFile});
+            mb.Bindings.Add(new Binding("IsModify") { Source = pg});
+            mb.Converter = new HeaderMutiBindingConverter();
+            ti.SetBinding(TabItem.HeaderProperty, mb);
 
             _open_vms.Add(pg);
         }
@@ -470,7 +520,7 @@ namespace ET.Main
             IViewDoc rem = null;
             foreach(var p in _open_vms)
             {
-                if (p.PageUI == ti.Content) rem = p;
+                if (p == ti.Tag) rem = p;
             }
             if(rem!=null)
             {
@@ -496,8 +546,8 @@ namespace ET.Main
         }
 
 
-        #endregion
 
+        #endregion
 
     }
 }

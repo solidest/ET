@@ -48,6 +48,7 @@ namespace ET.Main.DocTree
         {
             _dirNode.SubModuleFiles.Remove(n.MFile);
             if (!LazyLoading) Children.Remove(n);
+            ET.Service.ETService.MainService.CloseModuleFile(n.MFile);
             AutoSave();
         }
 

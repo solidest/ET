@@ -65,12 +65,13 @@ namespace ET.Main.DocTree
 
         public abstract void Rename(string newName);
 
+        //保存名称修改
         public override bool SaveEditText(string value)
         {
             var p = (Parent as DocTreeFolderNode);
             if (p.validName(value) == "")
             {
-               Rename(value);
+                Rename(value);
                 AutoSave();
                 return true;
             }
@@ -80,9 +81,6 @@ namespace ET.Main.DocTree
         public void AutoSave()
         {
             Service.ETService.MainService.SaveFile();
-
-            //TODO Raise Update Event
-
         }
 
     }

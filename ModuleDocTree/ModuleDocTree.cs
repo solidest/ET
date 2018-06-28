@@ -150,7 +150,7 @@ namespace ET.Main.DocTree
             }
 
             var ret = new DocTreeVM(rootNode);
-            ret.UpdateContent();
+            ret.SaveContent();
             return ret;
         }
 

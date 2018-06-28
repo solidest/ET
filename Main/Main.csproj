@@ -63,6 +63,7 @@
     <Compile Include="Dialog\InputDlg.xaml.cs">
       <DependentUpon>InputDlg.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helper\HeaderMutiBindingConverter.cs" />
     <Compile Include="TabControl\Converters.cs" />
     <Compile Include="TabControl\Helper.cs" />
     <Compile Include="Libs\Helper.cs" />

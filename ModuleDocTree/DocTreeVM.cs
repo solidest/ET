@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -15,13 +16,14 @@ namespace ET.Main.DocTree
 
         private DirNode _rootNode = null;
         private ModuleFile _mfile = new ModuleFile(ModuleDocTree.ModuleKey, ModuleDocTree.ModuleShowName, null);
+        private bool _isModify;
 
         private DocTreePage _page = null;
 
         public DocTreeVM(DirNode rootNode)
         {
             _rootNode = rootNode;
-            UpdateContent();
+            SaveContent();
             _page = (DocTreePage)System.Windows.Application.LoadComponent(new Uri("/ModuleDocTree;component/DocTreePage.xaml", System.UriKind.Relative));
             _page.trMain.Root = new DocTreeFolderNode(_rootNode);
             IsAutoSave = true;
@@ -57,7 +59,25 @@ namespace ET.Main.DocTree
             }
         }
 
-        public void UpdateContent()
+        public bool IsModify
+        {
+            get
+            {
+                return true;
+            }
+            set
+            {
+                if(_isModify != value)
+                {
+                    _isModify = value;
+                    if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("IsModify"));
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void SaveContent()
         {
             using (var ms = new MemoryStream())
             {

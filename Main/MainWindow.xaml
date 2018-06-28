@@ -7,6 +7,7 @@
         xmlns:r="clr-namespace:Wpf.Controls"
         xmlns:local="clr-namespace:ET.Main"
         mc:Ignorable="d"
+        Loaded="MainFormLoaded"
         Title="ET WorkBench" Height="450" Width="800"
         Icon="Images\ET.ico" WindowState="Maximized">
 
@@ -38,7 +39,7 @@
         <GridSplitter Name="HSplitter" Grid.ColumnSpan="3" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Stretch" Height="3"/>
 
 
-        <ToolBar Grid.ColumnSpan="10">
+        <ToolBar Name="MainToolBar" Grid.ColumnSpan="10" Margin="5,0,0,0">
             <Button ToolTip="新建" Command="ApplicationCommands.New" CommandParameter="NewProject">
                 <Button.Content>
                     <Image Source="images/newfile.png"></Image>

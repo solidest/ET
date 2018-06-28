@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -15,6 +16,7 @@ namespace ET.TestMap
         private ModuleFile _mfile;
         private TestMapData0 _data;
         private TestMapPage _page;
+        private bool _isModify;
 
         public TestMapVM(TestMapData0 data, ModuleFile mf)
         {
@@ -34,8 +36,26 @@ namespace ET.TestMap
         public string ModuleKey => ModuleTestMap.ModuleKey;
 
         public bool IsAutoSave { get; set; }
+        public bool IsModify
+        {
+            get
+            {
+                return _isModify;
+            }
+            set
+            {
+                if (_isModify != value)
+                {
+                    _isModify = value;
+                    if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs("IsModify"));
+                }
+            }
+        }
 
-        public void UpdateContent()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //序列化数据内容
+        public void SaveContent()
         {
             using (var ms = new MemoryStream())
             {

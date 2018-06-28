@@ -17,6 +17,12 @@ namespace ET.Service
         void OpenModuleFile(ModuleFile mf);
 
         /// <summary>
+        /// 关闭模块文件
+        /// </summary>
+        /// <param name="mf">模块文件</param>
+        void CloseModuleFile(ModuleFile mf);
+
+        /// <summary>
         /// 显示打开的模块文件
         /// </summary>
         /// <param name="vd">模块文件控制器</param>
@@ -26,11 +32,6 @@ namespace ET.Service
         /// 保存文件到硬盘
         /// </summary>
         void SaveFile();
-
-        /// <summary>
-        /// 更新主界面的标题
-        /// </summary>
-        void UpdateMainHeader();
 
         /// <summary>
         /// 全部可以访问的ET模块

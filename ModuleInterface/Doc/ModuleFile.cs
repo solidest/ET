@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -13,8 +14,10 @@ namespace ET.Doc
     /// </list>
     /// </summary>
     [Serializable]
-    public class ModuleFile
+    public class ModuleFile : INotifyPropertyChanged
+
     {
+        private string _fname = "";
         /// <summary>
         /// 模块文件类唯一的构造函数
         /// </summary>
@@ -24,7 +27,7 @@ namespace ET.Doc
         public ModuleFile(String mKey, String fName, Byte[] content=null )
         {
             ModuleKey = mKey;
-            FileName = fName;
+            _fname = fName;
             Content = content;
         }
 
@@ -36,7 +39,18 @@ namespace ET.Doc
         /// <summary>
         /// 模块文件的文件名
         /// </summary>
-        public String FileName { get; set; }
+        public String FileName
+        {
+            get
+            {
+                return _fname;
+            }
+            set
+            {
+                _fname = value;
+                if (PropertyChanged != null)PropertyChanged(this, new PropertyChangedEventArgs("FileName"));
+            }
+        }
 
         /// <summary>
         /// 模块文件的具体内容
@@ -45,5 +59,11 @@ namespace ET.Doc
         /// </note>
         /// </summary>
         public Byte[] Content { get; set; }
+
+        /// <summary>
+        /// 属性改变事件
+        /// </summary>
+        [field:NonSerialized()]
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

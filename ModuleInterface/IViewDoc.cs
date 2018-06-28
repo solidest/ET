@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -11,7 +12,7 @@ namespace ET.Interface
     /// <para>模块文件控制器接口定义</para>
     /// <para><c>IViewDoc</c>接口对应ET模块内MVVM模型的VM部分，通常为已加载模块文件内容的可视化组件</para>
     /// </summary>
-    public interface IViewDoc
+    public interface IViewDoc : INotifyPropertyChanged
     {
 
         /// <summary>
@@ -24,7 +25,6 @@ namespace ET.Interface
         /// </summary>
         ModuleFile MFile { get; }
         
-
         /// <summary>
         /// 所属的ET模块主键
         /// </summary>
@@ -38,7 +38,12 @@ namespace ET.Interface
         /// <summary>
         /// 更新最新的模块文档内容，即:将内容持久化并保存到<c>PageFile.Content</c>
         /// </summary>
-        void UpdateContent();
+        void SaveContent();
+
+        /// <summary>
+        /// 文档是否发生改变
+        /// </summary>
+        bool IsModify { get; set; }
         
 
     }
