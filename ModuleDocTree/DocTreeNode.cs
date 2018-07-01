@@ -15,25 +15,39 @@ namespace ET.Main.DocTree
 
         public abstract bool CanNewFile { get; }
 
+        //是否可以复制
         public override bool CanCopy(SharpTreeNode[] nodes)
         {
-            return nodes.All(n => (n is DocTreeFileNode && !n.Parent.IsRoot));
+            return nodes.All(n =>!n.Parent.IsRoot);
         }
 
-        protected override IDataObject GetDataObject(SharpTreeNode[] nodes)
-        {
-            var data = new DataObject();
-            var fs = nodes.OfType<DocTreeFileNode>().Select(n => n.MFile).ToArray();
-            data.SetData(ModuleKey, fs);
-            return data;
-        }
-
+        //是否可以删除
         public override bool CanDelete(SharpTreeNode[] nodes)
         {
             return nodes.All(n => !n.Parent.IsRoot);
         }
 
+        //开始拖拽
+        public override void StartDrag(DependencyObject dragSource, SharpTreeNode[] nodes)
+        {
+            foreach (var n in nodes)
+            {
+                if (n.Parent.IsRoot || n.GetType() == typeof(DocTreeFolderNode)) return;    //根节点和文件夹不能拖拽
+            }
+            base.StartDrag(dragSource, nodes);
+        }
 
+        //获取用于复制或拖拽的数据内容
+        protected override IDataObject GetDataObject(SharpTreeNode[] nodes)
+        {
+            var data = new DataObject();
+            var fs = nodes.OfType<DocTreeNode>().Select(n => n.GetData()).ToArray();
+            data.SetData(ModuleKey, fs);
+            return data;
+        }
+
+
+        //删除节点
         public override void Delete(SharpTreeNode[] nodes)
         {
             string tip = (nodes.Length > 1) ? "确实要删除这" + nodes.Length + " 项吗？" : "确实要删除【" + nodes[0].ToString() + "】吗？";
@@ -43,6 +57,7 @@ namespace ET.Main.DocTree
             }
         }
 
+        //无提示删除
         public override void DeleteWithoutConfirmation(SharpTreeNode[] nodes)
         {
             foreach (var node in nodes)
@@ -63,13 +78,17 @@ namespace ET.Main.DocTree
             }
         }
 
+        //重命名
         public abstract void Rename(string newName);
+
+        //节点内容
+        public abstract object GetData();
 
         //保存名称修改
         public override bool SaveEditText(string value)
         {
             var p = (Parent as DocTreeFolderNode);
-            if (p.validName(value) == "")
+            if (p.ValidName(value) == "")
             {
                 Rename(value);
                 AutoSave();
@@ -78,6 +97,7 @@ namespace ET.Main.DocTree
             return false;
         }
 
+        //自动保存
         public void AutoSave()
         {
             Service.ETService.MainService.SaveFile();

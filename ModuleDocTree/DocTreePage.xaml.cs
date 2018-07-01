@@ -71,7 +71,7 @@ namespace ET.Main.DocTree
         private void NewModuleFile(object sender, RoutedEventArgs e)
         {
             var n = (trMain.SelectedItem as DocTreeFolderNode);
-            var name = ET.Service.ETService.MainService.GetInput("文件名", "", n.validName);
+            var name = ET.Service.ETService.MainService.GetInput("文件名", "", n.ValidName);
             if (string.Empty != name)
             {
                 var vm = ETService.MainService.Modules[n.ModuleKey].OpenNewFile(name);
@@ -83,7 +83,7 @@ namespace ET.Main.DocTree
         private void NewFolder(object sender, RoutedEventArgs e)
         {
             var n = (trMain.SelectedItem as DocTreeFolderNode);
-            var name = ET.Service.ETService.MainService.GetInput("文件夹名称", "", n.validName);
+            var name = ET.Service.ETService.MainService.GetInput("文件夹名称", "", n.ValidName);
             if (string.Empty != name)
             {
                 n.AddChild(new DocTreeFolderNode(new DirNode(n.ModuleKey, name)));

@@ -128,6 +128,7 @@ namespace ET.Main
             }
         }
 
+        //显示模块文件
         public void ShowModuleFile(IViewDoc vd)
         {
             if (_open_vms.Contains(vd))
@@ -140,6 +141,14 @@ namespace ET.Main
             }
         }
 
+
+        //保存文件
+        public void SaveFile()
+        {
+            if (FileName != "") SaveMainDoc(FileName);
+        }
+
+        //打印输出信息
         public void PrintInfo(OutPutInfo info, bool reset = false)
         {
             if(reset)
@@ -207,10 +216,10 @@ namespace ET.Main
                 mainPanelBorder.Margin = new Thickness(0);
             }
 
-
         }
 
 
+        //显示隐藏文档结构
         private void DocTreeDispHide(object sender, RoutedEventArgs e)
         {
             switch (VSplitter.Visibility)
@@ -225,11 +234,12 @@ namespace ET.Main
                     VSplitter.Visibility = Visibility.Visible;
                     gridMain.ColumnDefinitions[0].Width = new GridLength(300, GridUnitType.Pixel);
                     break;
-
             }
+            e.Handled = true;
         }
 
 
+        //显示隐藏输出面板
         private void OutDispHide(object sender, RoutedEventArgs e)
         {
             switch (this.HSplitter.Visibility)
@@ -243,8 +253,10 @@ namespace ET.Main
                     gridMain.RowDefinitions[3].Height = new GridLength(300, GridUnitType.Pixel);
                     break;
             }
+            e.Handled = true;
         }
 
+        //激活tab页
         private void ActiveModule(object sender, RoutedEventArgs e)
         {
             if(tabPages.SelectedItem == null)
@@ -257,6 +269,7 @@ namespace ET.Main
             }
         }
 
+        //选中tab页
         private void tabPages_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (tabPages.SelectedItem == null)
@@ -273,22 +286,75 @@ namespace ET.Main
         private void tabPages_TabItemClosing(object sender, Wpf.Controls.TabItemCancelEventArgs e)
         {
             var vm = (e.TabItem.Tag as IViewDoc);
-            if(vm != null && vm.IsModify)
+            if(vm != null)
             {
-                //TODO MessageBox.Show("文件未保存!");
+                if(vm.IsModify)
+                {
+                    var res = MessageBox.Show(this,"是否保存对当前项的更改？", "ET Workbench", MessageBoxButton.YesNoCancel);
+                    switch(res)
+                    {
+                        case MessageBoxResult.Yes:
+                            vm.SaveContent();
+                            SaveMainDoc(FileName);
+                            RemoveOpenPage(e.TabItem);
+                            break;
+                        case MessageBoxResult.No:
+                            RemoveOpenPage(e.TabItem);
+                            break;
+                        default:
+                            e.Cancel = true;
+                            return;
+                    }
+                }
+                else
+                {
+                    RemoveOpenPage(e.TabItem);
+                }
             }
-            RemovePage(e.TabItem);
         }
 
+        //窗口关闭之前
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            bool isModify = false;
+
+            foreach(var vm in _open_vms)
+            {
+                if (vm.IsModify)
+                {
+                    isModify = true;
+                    break;
+                }
+            }
+
+            if(isModify)
+            {
+                var res = MessageBox.Show(this, "是否保存对当前w文档的更改？", "ET Workbench", MessageBoxButton.YesNoCancel);
+                switch (res)
+                {
+                    case MessageBoxResult.Yes:
+                        foreach (var vm in _open_vms)
+                        {
+                            if (vm.IsModify)
+                            {
+                                vm.SaveContent();
+                            }
+                        }
+                        SaveMainDoc(FileName);
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                    default:
+                        e.Cancel = true;
+                        return;
+                }
+            }
+        }
+
+        //取消激活tab页
         private void DeActiveModule(object sender, RoutedEventArgs e)
         {
             _activeVM = null;
-        }
-
-
-        public void SaveFile()
-        {
-            if (FileName != "") SaveMainDoc(FileName);
         }
 
         #endregion
@@ -359,25 +425,6 @@ namespace ET.Main
         }
 
 
-        private void SaveMainDoc()
-        {
-            if (FileName == "")
-            {
-                var sfd = new Microsoft.Win32.SaveFileDialog
-                {
-                    DefaultExt = ".et",
-                    Filter = "ET file|*.et",
-                    Title = "保存"
-                };
-                if (sfd.ShowDialog() == true)
-                {
-                    SaveMainDoc(sfd.FileName);
-                }
-            }
-            else
-                SaveMainDoc(FileName);
-        }
-
         #endregion
 
         #region --Command Operation--
@@ -408,6 +455,7 @@ namespace ET.Main
             e.Handled = true;
 
         }
+
 
         private void CanNewProject(object sender, CanExecuteRoutedEventArgs e)
         {
@@ -447,11 +495,7 @@ namespace ET.Main
         private void DoSaveAll(object sender, ExecutedRoutedEventArgs e)
         {
             foreach (var f in _open_vms) f.SaveContent();
-            SaveMainDoc();
-            foreach (var vm in _open_vms)
-            {
-                vm.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, vm.PageUI, vm));
-            }
+            SaveMainDoc(FileName);
             e.Handled = true;
         }
 
@@ -466,8 +510,7 @@ namespace ET.Main
         {
 
             _activeVM?.SaveContent();
-            SaveMainDoc();
-            _activeVM?.PageUI.RaiseEvent(new ETEventArgs(ETPage.ETModuleFileSavedEvent, _activeVM.PageUI, _activeVM));
+            SaveMainDoc(FileName);
             e.Handled = true;
         }
 
@@ -515,7 +558,7 @@ namespace ET.Main
             }
         }
 
-        private void RemovePage(TabItem ti)
+        private void RemoveOpenPage(TabItem ti)
         {
             IViewDoc rem = null;
             foreach(var p in _open_vms)

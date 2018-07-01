@@ -61,9 +61,16 @@ namespace ET.Main.DocTree
             return MFile.FileName;
         }
 
+        //放置拖拽
+        public override void Drop(DragEventArgs e, int index)
+        {
+            e.Effects = DragDropEffects.None;
+            e.Handled = true;
+        }
 
         public override bool CanPaste(IDataObject data)
         {
+            
             return Parent.CanPaste(data);
         }
 
@@ -75,6 +82,11 @@ namespace ET.Main.DocTree
         public override void Rename(string newName)
         {
             MFile.FileName = newName;
+        }
+
+        public override object GetData()
+        {
+            return MFile;
         }
     }
 }

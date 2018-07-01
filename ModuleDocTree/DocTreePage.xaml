@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Name="gridMain">
-        <tree:SharpTreeView x:Name="trMain" ContextMenuOpening="trMain_ContextMenuOpening" MouseDoubleClick="trMain_MouseDoubleClick">
+        <tree:SharpTreeView x:Name="trMain"  AllowDrop="True" ContextMenuOpening="trMain_ContextMenuOpening" MouseDoubleClick="trMain_MouseDoubleClick">
 
             <tree:SharpTreeView.ContextMenu>
                 <ContextMenu>

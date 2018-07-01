@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{819F694F-1E35-4CEA-8FB5-44DFCD3E061F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A1A7C25D-C801-458A-A2D5-3477F27E7B06} = {A1A7C25D-C801-458A-A2D5-3477F27E7B06}
+		{834BC096-B259-45DA-9315-DE175213A086} = {834BC096-B259-45DA-9315-DE175213A086}
+		{B05BAAD4-A698-422D-9422-D628CBF4C78A} = {B05BAAD4-A698-422D-9422-D628CBF4C78A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleInterface", "ModuleInterface\ModuleInterface.csproj", "{FE1C1D0C-B470-4F9A-B849-551144969AB3}"
 EndProject

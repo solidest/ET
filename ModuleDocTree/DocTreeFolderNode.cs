@@ -30,16 +30,24 @@ namespace ET.Main.DocTree
         //添加子文件
         public void AddChild(DocTreeFileNode n)
         {
-            _dirNode.SubModuleFiles.Add(n.MFile);
-            if(!LazyLoading) Children.Add(n);
+            int index = (_dirNode.SubModuleFiles.Where(p => p.FileName.CompareTo(n.MFile.FileName) < 0)).Count();
+            _dirNode.SubModuleFiles.Insert(index, n.MFile);
+            if (!LazyLoading)
+            {
+                Children.Insert(index + _dirNode.SubDirNodes.Count, n);
+            }
             AutoSave();
         }
 
         //添加子目录
         public void AddChild(DocTreeFolderNode n)
         {
-            _dirNode.SubDirNodes.Add(n.MDir);
-            if (!LazyLoading) Children.Add(n);
+            int index = (_dirNode.SubDirNodes.Where(p => p.NodeName.CompareTo( n.MDir.NodeName)<0)).Count();
+            _dirNode.SubDirNodes.Insert(index,n.MDir);
+            if (!LazyLoading)
+            {
+                Children.Insert(index,n);
+            }
             AutoSave();
         }
 
@@ -115,8 +123,10 @@ namespace ET.Main.DocTree
         }
 
 
+        //加载子节点
         protected override void LoadChildren()
         {
+            if (Children.Count > 0) Children.Clear();
             try
             {
                 //根目录先加载文件
@@ -137,7 +147,7 @@ namespace ET.Main.DocTree
                     {
                         Children.Add(new DocTreeFolderNode(p));
                     }
-                    foreach (var p in _dirNode.SubModuleFiles.OrderBy(p=>p.FileName))
+                    foreach (var p in _dirNode.SubModuleFiles.OrderBy(p => p.FileName))
                     {
                         Children.Add(new DocTreeFileNode(p));
                     }
@@ -168,39 +178,65 @@ namespace ET.Main.DocTree
             return data.GetDataPresent(ModuleKey, false);
         }
 
+        //粘贴
         public override void Paste(IDataObject data)
         {
-            if (data.GetData(DataFormats.Serializable) is ModuleFile[] files)
+            if (data.GetData(ModuleKey) is Object[] files)
             {
-                foreach (var p in files)
-                {
-                    if (p.ModuleKey == ModuleKey)
-                    {
-                        //TODO 处理文件重名问题
-                        AddChild(new DocTreeFileNode(p));
-                    }
-                }
+                AddChildren(files);
             }
         }
 
+        //放置拖拽
         public override void Drop(DragEventArgs e, int index)
         {
-            if (e.Data.GetData(DataFormats.Serializable) is ModuleFile[] files)
+            if (e.Data.GetData(ModuleKey) is Object[] files)
             {
-                foreach (var p in files)
+                AddChildren(files);
+            }
+            e.Handled = true;
+        }
+
+        private void AddChildren(Object[] files)
+        {
+            if (files == null) return;
+            foreach (var dn in files.OfType<DirNode>())
+            {
+
+                if (dn.ModuleKey == ModuleKey)
                 {
-                    if (p.ModuleKey == ModuleKey)
+                    int i = 0;
+                    string fname = dn.NodeName;
+                    while (ValidName(fname) != "")
                     {
-                        //TODO 处理文件重名问题
-                        AddChild(new DocTreeFileNode(p));
+                        fname = dn.NodeName + "_copy" + ((i==0) ?"":  i.ToString());
+                        i += 1;
                     }
+                    dn.NodeName = fname;
+                    AddChild(new DocTreeFolderNode(dn));
+                }
+            }
+            foreach (var mf in files.OfType<ModuleFile>())
+            {
+
+                if (mf.ModuleKey == ModuleKey)
+                {
+                    int i = 0;
+                    string fname = mf.FileName;
+                    while (ValidName(fname) != "")
+                    {
+                        fname = mf.FileName + "_copy" + ((i == 0) ? "" :  i.ToString());
+                        i += 1;
+                    }
+                    mf.FileName = fname;
+                    AddChild(new DocTreeFileNode(mf));
                 }
             }
         }
 
         #region --Helper--
 
-        public string validName(string input)
+        public string ValidName(string input)
         {
             if (!Regex.Match(input, @"^[\u4e00-\u9fa5_a-zA-Z0-9]+$").Success) return "输入的名称无效！";
             if (HaveName(input)) return "名称重复！";
@@ -223,6 +259,11 @@ namespace ET.Main.DocTree
         public override void Rename(string newName)
         {
             MDir.NodeName = newName;
+        }
+
+        public override object GetData()
+        {
+            return MDir;
         }
 
 
