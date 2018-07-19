@@ -47,8 +47,11 @@ namespace ET.Doc
             }
             set
             {
-                _fname = value;
-                if (PropertyChanged != null)PropertyChanged(this, new PropertyChangedEventArgs("FileName"));
+                if(_fname != value)
+                {
+                    _fname = value;
+                    if (PropertyChanged != null)PropertyChanged(this, new PropertyChangedEventArgs("FileName"));
+                }
             }
         }
 

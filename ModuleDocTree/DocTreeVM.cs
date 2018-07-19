@@ -24,6 +24,7 @@ namespace ET.Main.DocTree
         {
             _rootNode = rootNode;
             SaveContent();
+
             _page = (DocTreePage)System.Windows.Application.LoadComponent(new Uri("/ModuleDocTree;component/DocTreePage.xaml", System.UriKind.Relative));
             _page.trMain.Root = new DocTreeFolderNode(_rootNode);
             IsAutoSave = true;
@@ -63,7 +64,7 @@ namespace ET.Main.DocTree
         {
             get
             {
-                return true;
+                return false;
             }
             set
             {
