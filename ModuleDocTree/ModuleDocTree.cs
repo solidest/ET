@@ -128,7 +128,7 @@ namespace ET.Main.DocTree
             }
         }
 
-        //打开新项目
+        //新建项目并打开
         public IViewDoc OpenNewFile(string name)
         {
             var rootNode = new DirNode(ModuleKey, ModuleShowName);

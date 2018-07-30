@@ -61,12 +61,12 @@ namespace ET.Main.DocTree
             return MFile.FileName;
         }
 
-        //放置拖拽
-        public override void Drop(DragEventArgs e, int index)
+        //拖拽效果
+        public override DragDropEffects GetDropEffect(DragEventArgs e, int index)
         {
-            e.Effects = DragDropEffects.None;
-            e.Handled = true;
+            return DragDropEffects.None;
         }
+
 
         public override bool CanPaste(IDataObject data)
         {
