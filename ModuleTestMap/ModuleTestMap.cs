@@ -24,7 +24,7 @@ namespace ET.TestMap
         #endregion
 
         public const string ModuleKey = "TestMap";
-        public const string ModuleShowName = "测试环境";
+        public const string ModuleShowName = "环境建模";
 
         static  ModuleTestMap()
         {

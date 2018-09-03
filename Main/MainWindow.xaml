@@ -60,14 +60,10 @@
                     <Image Source="images/saveall.png"></Image>
                 </Button.Content>
             </Button>
-            <Button ToolTip="撤销" Command="ApplicationCommands.Undo">
+            <Separator/>
+            <Button ToolTip="剪切" Command="ApplicationCommands.Cut">
                 <Button.Content>
-                    <Image Source="images/undo.png"></Image>
-                </Button.Content>
-            </Button>
-            <Button ToolTip="重做" Command="ApplicationCommands.Redo">
-                <Button.Content>
-                    <Image Source="images/redo.png"></Image>
+                    <Image Source="images/cut.png"></Image>
                 </Button.Content>
             </Button>
             <Button ToolTip="复制" Command="ApplicationCommands.Copy">
@@ -80,9 +76,17 @@
                     <Image Source="images/paste.png"></Image>
                 </Button.Content>
             </Button>
-
-            <TextBlock VerticalAlignment="Center" FontSize="18" Foreground ="LightGray">|</TextBlock>
-            
+            <Button ToolTip="撤销" Command="ApplicationCommands.Undo">
+                <Button.Content>
+                    <Image Source="images/undo.png"></Image>
+                </Button.Content>
+            </Button>
+            <Button ToolTip="重做" Command="ApplicationCommands.Redo">
+                <Button.Content>
+                    <Image Source="images/redo.png"></Image>
+                </Button.Content>
+            </Button>
+            <Separator/>
             <Button ToolTip="显示/隐藏资源列表" Click="DocTreeDispHide">
                 <Button.Content>
                     <Image Source="images/letfdisp.png"></Image>
@@ -95,9 +99,9 @@
                 </Button.Content>
             </Button>
 
-            <TextBlock VerticalAlignment="Center" FontSize="18" Foreground ="LightGray">|</TextBlock>
-            
-            <Button ToolTip="启动">
+            <Separator/>
+
+            <Button ToolTip="执行">
                 <Button.Content>
                     <Image Source="images/start.png"></Image>
                 </Button.Content>
@@ -107,7 +111,7 @@
                     <Image Source="images/startdebug.png"></Image>
                 </Button.Content>
             </Button>
-            <TextBlock VerticalAlignment="Center" FontSize="18" Foreground ="LightGray">|</TextBlock>
+            <Separator/>
             <Button ToolTip="检查">
                 <Button.Content>
                     <Image Source="images/check.png"></Image>

@@ -16,7 +16,7 @@ namespace ET.CodeEditor
     public class ModuleCodeEditor : ICommModule
     {
         public const string ModuleKey = "CodeEditor";
-        public const string ModuleShowName = "代码文件";
+        public const string ModuleShowName = "测试用例";
 
         public BitmapImage ModuleIcon => null;
 

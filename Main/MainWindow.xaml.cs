@@ -501,7 +501,7 @@ namespace ET.Main
 
         private void CanSaveDoc(object sender, CanExecuteRoutedEventArgs e)
         {
-            e.CanExecute = (_activeVM != null && _activeVM != _docTreeVM);
+            e.CanExecute = (_activeVM != null && _activeVM != _docTreeVM && _activeVM.IsModify);
             e.Handled = true;
         }
 
